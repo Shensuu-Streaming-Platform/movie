@@ -8,6 +8,7 @@ import Popular from "./popular/Popular";
 import TopRated from "./topRated/TopRated";
 import Discover from "./discover/Discover";
 import DiscoverNetflix from "./discoverNetflix/DiscoverNetflix";
+import DiscoverAmazon from "./discoverAmazon/DiscoverAmazon";
 
 const Home = () => {
     return (
@@ -15,8 +16,9 @@ const Home = () => {
             <HeroBanner />
             <Trending />
             <Popular />
-			<Discover />
 			<DiscoverNetflix />
+			<DiscoverAmazon />
+			<Discover />
             <TopRated />
         </div>
     );
