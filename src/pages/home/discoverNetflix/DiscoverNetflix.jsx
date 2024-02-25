@@ -9,12 +9,12 @@ import useFetch from "../../../hooks/useFetch";
 const api_key = import.meta.env.VITE_APP_TMDB_TOKEN;
 
 const Popular = () => {
-    const [endpoint, setEndpoint] = useState("movie");
+    const [endpoint, setEndpoint] = useState("tv");
 
     const { data, loading } = useFetch(`/discover/${endpoint}?api_key=${api_key}&with_networks=213`);
 
     const onTabChange = (tab) => {
-        setEndpoint(tab === "Movies" ? "movie" : "tv");
+        setEndpoint(tab === "TV Shows" ? "tv" : "movie");
     };
 
     return (
@@ -22,7 +22,7 @@ const Popular = () => {
             <ContentWrapper>
                 <span className="carouselTitle">Netflix Originals</span>
                 <SwitchTabs
-                    data={["Movies", "TV Shows"]}
+                    data={["TV Shows", "Movie"]}
                     onTabChange={onTabChange}
                 />
             </ContentWrapper>
