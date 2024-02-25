@@ -35,6 +35,11 @@ const DetailsBanner = ({ video, crew }) => {
         const minutes = totalMinutes % 60;
         return `${hours}h${minutes > 0 ? ` ${minutes}m` : ""}`;
     };
+	
+	const watchNow = () => {
+		const url = `https://shensuumovie.vercel.app/#/media/tmdb-${mediaType}-${id}-${data.name || data.title}`;
+		window.open(url, '_blank');
+	};
 
     return (
         <div className="detailsBanner">
@@ -86,15 +91,12 @@ const DetailsBanner = ({ video, crew }) => {
                                             />
                                             <div
                                                 className="playbtn"
-                                                onClick={() => {
-                                                    setShow(true);
-                                                    setVideoId(video.key);
-                                                }}
+                                                onClick={watchNow}
                                             >
                                                 <PlayIcon />
                                                 <span className="text">
-                                                    Watch Trailer
-                                                </span>
+                                                    Play
+                                                </span> 
                                             </div>
                                         </div>
 
