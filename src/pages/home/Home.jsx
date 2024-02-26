@@ -11,6 +11,7 @@ import DiscoverNetflix from "./discoverNetflix/DiscoverNetflix";
 import DiscoverAmazon from "./discoverAmazon/DiscoverAmazon";
 import DiscoverApple from "./discoverApple/DiscoverApple";
 import DiscoverHBO from "./discoverHBO/DiscoverHBO";
+import DiscoverDisney from "./discoverDisney/DiscoverDisney";
 
 const Home = () => {
     return (
@@ -22,6 +23,7 @@ const Home = () => {
 			<DiscoverApple />
 			<DiscoverAmazon />
 			<DiscoverHBO />
+			<DiscoverDisney />
 			<Discover />
             <TopRated />
         </div>
