@@ -7,12 +7,12 @@ import SwitchTabs from "../../../components/switchTabs/SwitchTabs";
 import useFetch from "../../../hooks/useFetch";
 
 const TopRated = () => {
-    const [endpoint, setEndpoint] = useState("movie");
+    const [endpoint, setEndpoint] = useState("tv");
 
     const { data, loading } = useFetch(`/${endpoint}/top_rated`);
 
     const onTabChange = (tab) => {
-        setEndpoint(tab === "Movies" ? "movie" : "tv");
+        setEndpoint(tab === "TV Shows" ? "tv" : "movie");
     };
 
     return (
@@ -20,7 +20,7 @@ const TopRated = () => {
             <ContentWrapper>
                 <span className="carouselTitle">Top Rated</span>
                 <SwitchTabs
-                    data={["Movies", "TV Shows"]}
+                    data={["TV Shows", "Movies"]}
                     onTabChange={onTabChange}
                 />
             </ContentWrapper>
