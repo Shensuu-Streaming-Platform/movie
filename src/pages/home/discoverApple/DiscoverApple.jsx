@@ -11,7 +11,7 @@ const api_key = import.meta.env.VITE_APP_TMDB_TOKEN;
 const Popular = () => {
     const [endpoint, setEndpoint] = useState("tv");
 
-    const { data, loading } = useFetch(`/discover/${endpoint}?api_key=${api_key}&with_networks=1024`);
+    const { data, loading } = useFetch(`/discover/${endpoint}?api_key=${api_key}&with_networks=2552`);
 
     const onTabChange = (tab) => {
         setEndpoint(tab === "TV Shows" ? "tv" : "movie");
@@ -20,7 +20,7 @@ const Popular = () => {
     return (
         <div className="carouselSection">
             <ContentWrapper>
-                <span className="carouselTitle">Amazon Prime Video</span>
+                <span className="carouselTitle">Apple TV+</span>
                 <SwitchTabs
                     data={["TV Shows", "Movie"]}
                     onTabChange={onTabChange}
