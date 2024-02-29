@@ -37,7 +37,7 @@ const DetailsBanner = ({ video, crew }) => {
     };
 	
 	const watchNow = () => {
-		const url = `https://shensuumovie.8888008.xyz/#/media/tmdb-${mediaType}-${id}-${data.name || data.title}`;
+		const url = `https://8888008.xyz/shensuuplayer/?type=${mediaType}&id=${id}`;
 		window.open(url, '_blank');
 	};
 
