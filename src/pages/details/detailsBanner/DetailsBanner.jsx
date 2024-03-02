@@ -38,7 +38,7 @@ const DetailsBanner = ({ video, crew }) => {
 	
 	const watchNow = () => {
 		const url = `https://8888008.xyz/shensuuplayer/?type=${mediaType}&id=${id}`;
-		{/* window.open(url, '_blank'); */}
+		window.open(url); {/* change to this if you want to open in another tab (url, '_blank')*/}
 	};
 
     return (
