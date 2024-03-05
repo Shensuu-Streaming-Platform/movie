@@ -114,7 +114,7 @@ const Header = () => {
                                 onKeyUp={searchQueryHandler}
                             />
                             <VscChromeClose
-                                onClick={() => setShowSearch(false)}
+                                onClick={() => setShowSearch(true)}
                             />
                         </div>
                     </ContentWrapper>
