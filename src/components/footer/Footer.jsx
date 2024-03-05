@@ -24,6 +24,11 @@ const Footer = () => {
                 <div className="infoText">
                     © Shensuu Movie 2024
                 </div>
+				<div className="infoText">
+					<h3>Disclaimer</h3>
+                    <p>Shensuu Movie does not host any files, it merely links to 3rd party services. Legal issues should be taken up with the file hosts and providers. Shensuu Movie is not responsible for any media files shown by the video providers.
+					</p>
+				</div>
                 <div className="socialIcons">
                     <span className="icon">
                         <FaFacebookF />
