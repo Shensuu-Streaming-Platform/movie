@@ -60,6 +60,10 @@ const Header = () => {
         setMobileMenu(true);
         setShowSearch(false);
     };
+	
+	const goToHome = () => {
+        navigate("/");
+    };
 
     const navigationHandler = (type) => {
         if (type === "movie") {
@@ -77,6 +81,9 @@ const Header = () => {
                     <img src={logo} alt="" />
                 </div>
                 <ul className="menuItems">
+					<li className="menuItem" onClick={goToHome}>
+                        Home
+                    </li>
                     <li
                         className="menuItem"
                         onClick={() => navigationHandler("movie")}

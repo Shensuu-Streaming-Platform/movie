@@ -43,9 +43,9 @@ const HeroBanner = () => {
             <div className="opacity-layer"></div>
             <ContentWrapper>
                 <div className="heroBannerContent">
-                    <span className="title">Welcome</span>
+                    <span className="title">Watch ka broo...</span>
                     <span className="subTitle">
-                        Watch ka movie broooo.....
+                        Use Brave Browser for Better experience
                     </span>
                     <div className="searchInput">
                         <input
