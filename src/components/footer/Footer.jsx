@@ -14,22 +14,23 @@ const Footer = () => {
     return (
         <footer className="footer">
             <ContentWrapper>
-                <ul className="menuItems">
+			{/* <ul className="menuItems">
                     <li className="menuItem">Terms Of Use</li>
                     <li className="menuItem">Privacy-Policy</li>
                     <li className="menuItem">About</li>
                     <li className="menuItem">Blog</li>
                     <li className="menuItem">FAQ</li>
-                </ul>
+				</ul> */}
+				<div className="infoText">
+					<h3>Disclaimer</h3>
+						<p>Shensuu Movie does not host any files, it merely links to 3rd party services. Legal issues should be taken up with the file hosts and providers. Shensuu Movie is not responsible for any media files shown by the video providers.
+						</p>
+				</div>
                 <div className="infoText">
                     © Shensuu Movie 2024
                 </div>
-				<div className="infoText">
-					<h3>Disclaimer</h3>
-                    <p>Shensuu Movie does not host any files, it merely links to 3rd party services. Legal issues should be taken up with the file hosts and providers. Shensuu Movie is not responsible for any media files shown by the video providers.
-					</p>
-				</div>
-                <div className="socialIcons">
+				
+                {/* <div className="socialIcons">
                     <span className="icon">
                         <FaFacebookF />
                     </span>
@@ -42,7 +43,7 @@ const Footer = () => {
                     <span className="icon">
                         <FaLinkedin />
                     </span>
-                </div>
+                </div> */}
             </ContentWrapper>
         </footer>
     );
