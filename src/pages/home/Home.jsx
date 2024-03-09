@@ -5,8 +5,6 @@ import "./style.scss";
 import HeroBanner from "./heroBanner/HeroBanner";
 import NowPlaying from "./nowPlaying/NowPlaying";
 import Trending from "./trending/Trending";
-import TrendingMovies from "./trendingMovies/TrendingMovies";
-import TrendingTV from "./trendingTV/TrendingTV";
 import Popular from "./popular/Popular";
 import TopRated from "./topRated/TopRated";
 import Discover from "./discover/Discover";
@@ -22,8 +20,6 @@ const Home = () => {
             <HeroBanner />
 			<NowPlaying />
             <Trending />
-			<TrendingTV />
-			<TrendingMovies />
             <Popular />
 			<DiscoverNetflix />
 			<DiscoverApple />
