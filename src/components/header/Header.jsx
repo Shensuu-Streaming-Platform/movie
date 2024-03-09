@@ -44,7 +44,6 @@ const Header = () => {
 
     const searchQueryHandler = (event) => {
         if (event.key === "Enter" && query.length > 0) {
-			event.preventDefault();
             navigate(`/search/${query}`);
             setTimeout(() => {
                 setShowSearch(false);
@@ -118,7 +117,6 @@ const Header = () => {
                             <input
                                 type="text"
                                 placeholder="Search for a Movie or TV Show"
-								value={query}
                                 onChange={(e) => setQuery(e.target.value)}
                                 onKeyUp={searchQueryHandler}
                             />
