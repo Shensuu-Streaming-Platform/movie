@@ -47,7 +47,7 @@ const HeroBanner = () => {
                 <div className="heroBannerContent">
                     <span className="title">Watch ka broo...</span>
                     <span className="subTitle">
-                        "Use <b>Brave</b> Browser for Better experience"
+                        What would you like to watch today?
                     </span>
                     <div className="searchInput">
                         <input
