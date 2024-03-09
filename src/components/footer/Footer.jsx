@@ -20,7 +20,7 @@ const Footer = () => {
                     <li className="menuItem">About</li>
                     <li className="menuItem">Blog</li>
 					<li className="menuItem">FAQ</li> */}
-					<a href="https://stats.uptimerobot.com/y8sQL00Dtj" > <li className="menuItem">Server Status</li> </a>
+					<a href="https://stats.uptimerobot.com/y8sQL00Dtj" target="_blank" > <li className="menuItem">Server Status</li> </a>
 				</ul>
 				<div className="infoText">
 					<h3>Disclaimer</h3>
