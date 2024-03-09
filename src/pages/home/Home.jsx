@@ -26,10 +26,10 @@ const Home = () => {
 			<DiscoverApple />
 			<DiscoverParamount />
 			<DiscoverAmazon />
-			<DiscoverHBO />
 			<DiscoverDisney />
+			<DiscoverHBO />
 			<Discover />
-            <TopRated />
+            {/* <TopRated /> */}
         </div>
     );
 };
