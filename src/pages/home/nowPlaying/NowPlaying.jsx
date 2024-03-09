@@ -13,6 +13,9 @@ const Popular = () => {
 
     return (
         <div className="carouselSection">
+            <ContentWrapper>
+                <span className="carouselTitle">Now Showing</span>
+            </ContentWrapper>
             <Carousel
                 data={data?.results}
                 loading={loading}
