@@ -11,6 +11,12 @@ import ContentWrapper from "../contentWrapper/ContentWrapper";
 import "./style.scss";
 
 const Footer = () => {
+	
+	const serverStatus = () => {
+	const url = `https://stats.uptimerobot.com/y8sQL00Dtj`;
+	window.location.href = url;	{/* window.open(url, '_blank'); */}
+	};
+	
     return (
         <footer className="footer">
             <ContentWrapper>
@@ -20,7 +26,7 @@ const Footer = () => {
                     <li className="menuItem">About</li>
                     <li className="menuItem">Blog</li>
 					<li className="menuItem">FAQ</li> */}
-					<a href="https://stats.uptimerobot.com/y8sQL00Dtj" target="_blank" > <li className="menuItem">Server Status</li> </a>
+					<li className="menuItem" onClick={serverStatus}>Server Status</li>
 				</ul>
 				<div className="infoText">
 					<h3>Disclaimer</h3>
