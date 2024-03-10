@@ -34,7 +34,7 @@ const HeroBanner = () => {
         } else {
             setGreeting("Good Evening");
         }
-    }, []);
+    }, [greeting]);
 
     const searchQueryHandler = (event) => {
         if (event.key === "Enter" && query.length > 0) {
