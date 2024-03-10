@@ -11,6 +11,7 @@ import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
 const HeroBanner = () => {
     const [background, setBackground] = useState("");
     const [query, setQuery] = useState("");
+    const [greeting, setGreeting] = useState("");
     const navigate = useNavigate();
     const { url } = useSelector((state) => state.home);
     const { data, loading } = useFetch("/trending/all/day"); {/* /movie/upcoming */}
@@ -23,6 +24,17 @@ const HeroBanner = () => {
             setBackground(bg);
         }
     }, [data, url]);
+
+    useEffect(() => {
+        const currentHour = new Date().getHours();
+        if (currentHour >= 5 && currentHour < 12) {
+            setGreeting("Good Morning");
+        } else if (currentHour >= 12 && currentHour < 18) {
+            setGreeting("Good Afternoon");
+        } else {
+            setGreeting("Good Evening");
+        }
+    }, []);
 
     const searchQueryHandler = (event) => {
         if (event.key === "Enter" && query.length > 0) {
@@ -45,7 +57,7 @@ const HeroBanner = () => {
             <div className="opacity-layer"></div>
             <ContentWrapper>
                 <div className="heroBannerContent">
-                    <span className="title">Watch ka broo...</span>
+                    <span className="title">{greeting}</span>
                     <span className="subTitle">
                         What would you like to watch today?
                     </span>
