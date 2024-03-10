@@ -50,7 +50,7 @@ const HeroBanner = () => {
         <div className="heroBanner">
             {!loading && (
                 <div className="backdrop-img">
-                    <Img src={background} />
+                    <Img src="../../../assets/nbanner.jpg" />	{/* <Img src={background} /> */}
                 </div> 
             )}
 
