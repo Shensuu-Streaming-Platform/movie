@@ -25,8 +25,8 @@ const Home = () => {
 			<DiscoverNetflix />
 			<DiscoverApple />
 			<DiscoverAmazon />
-			<DiscoverParamount />
 			<DiscoverDisney />
+			<DiscoverParamount />
 			<DiscoverHBO />
 			<Discover />
             {/* <TopRated /> */}
