@@ -12,6 +12,7 @@ const HeroBanner = () => {
     const [background, setBackground] = useState("");
     const [query, setQuery] = useState("");
     const [greeting, setGreeting] = useState("");
+	const [subgreeting, setsubGreeting] = useState("");
     const navigate = useNavigate();
     const { url } = useSelector((state) => state.home);
     const { data, loading } = useFetch("/trending/all/day"); {/* /movie/upcoming */}
@@ -35,6 +36,17 @@ const HeroBanner = () => {
             setGreeting("Good Evening");
         }
     }, [greeting]);
+	
+	useEffect(() => {
+        const currentHour = new Date().getHours();
+        if (currentHour >= 5 && currentHour < 12) {
+            setsubGreeting("What would you like to watch this morning?");
+        } else if (currentHour >= 12 && currentHour < 18) {
+            setsubGreeting("What would you like to watch this afternoon?");
+        } else {
+            setsubGreeting("What would you like to watch this evening?");
+        }
+    }, [subgreeting]);
 
     const searchQueryHandler = (event) => {
         if (event.key === "Enter" && query.length > 0) {
@@ -59,7 +71,7 @@ const HeroBanner = () => {
                 <div className="heroBannerContent">
                     <span className="title">{greeting}</span>
                     <span className="subTitle">
-                        What would you like to watch today?
+						{subgreeting}
                     </span>
                     <div className="searchInput">
                         <input
