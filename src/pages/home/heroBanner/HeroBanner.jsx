@@ -44,7 +44,7 @@ const HeroBanner = () => {
         } else if (currentHour >= 12 && currentHour < 18) {
             setsubGreeting("What would you like to watch this afternoon?");
         } else {
-            setsubGreeting("What would you like to watch this evening?");
+            setsubGreeting("What would you like to watch tonight?");
         }
     }, [subgreeting]);
 
