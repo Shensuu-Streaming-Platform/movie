@@ -60,11 +60,11 @@ const HeroBanner = () => {
 
     return (
         <div className="heroBanner">
-            {!loading && (
+		{/* {!loading && ( */}
                 <div className="backdrop-img">
                     <Img src="/nbanner.jpg" />	{/* <Img src={background} /> */}
                 </div> 
-            )}
+		{/*    )}  */}
 
             <div className="opacity-layer"></div>
             <ContentWrapper>
