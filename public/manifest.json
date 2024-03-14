@@ -3,7 +3,7 @@
   "description": "Watch Movies and TV Shows",
   "icons": [
     {
-      "src": "/movix-logo.png",
+      "src": "https://movie.8888008.xyz/movix-logo.png",
       "type": "image/png",
       "sizes": "500x500"
     }
