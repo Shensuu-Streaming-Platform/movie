@@ -1,0 +1,13 @@
+{
+  "name": "Shensuu Movie",
+  "description": "Watch Movies and TV Shows",
+  "display": "fullscreen",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/movix-logo.png",
+      "type": "image/png",
+      "sizes": "500x500"
+    }
+  ]
+}
