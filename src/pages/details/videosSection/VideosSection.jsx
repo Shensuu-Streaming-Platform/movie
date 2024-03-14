@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-
 import "./style.scss";
-
 import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
 import VideoPopup from "../../../components/videoPopup/VideoPopup";
 import Img from "../../../components/lazyLoadImage/Img";
@@ -21,13 +19,15 @@ const VideosSection = ({ data, loading }) => {
         );
     };
 
+    const filteredVideos = data?.results?.filter(video => video.type === "Trailer");
+
     return (
         <div className="videosSection">
             <ContentWrapper>
                 <div className="sectionHeading">Videos</div>
                 {!loading ? (
                     <div className="videos">
-                        {data?.results?.map((video) => (
+                        {filteredVideos?.map((video) => (
                             <div
                                 key={video.id}
                                 className="videoItem"
