@@ -21,47 +21,41 @@ const VideosSection = ({ data, loading }) => {
 
     const filteredVideos = data?.results?.filter(video => video.type === "Trailer");
 
+    if (loading) {
+        return null;
+    }
+
     return (
         <div className="videosSection">
             <ContentWrapper>
-                
-                {!loading ? (
-					<div className="sectionHeading">Videos</div>
-                    <div className="videos">
-                        {filteredVideos?.map((video) => (
-                            <div
-                                key={video.id}
-                                className="videoItem"
-                                onClick={() => {
-                                    setVideoId(video.key);
-                                    setShow(true);
-                                }}
-                            >
-                                <div className="videoThumbnail">
-                                    <Img
-                                        src={`https://img.youtube.com/vi/${video.key}/mqdefault.jpg`}
-                                    />
-                                    <PlayIcon />
-                                </div>
-                                <div className="videoTitle">{video.name}</div>
+                <div className="sectionHeading">Videos</div>
+                <div className="videos">
+                    {filteredVideos?.map((video) => (
+                        <div
+                            key={video.id}
+                            className="videoItem"
+                            onClick={() => {
+                                setVideoId(video.key);
+                                setShow(true);
+                            }}
+                        >
+                            <div className="videoThumbnail">
+                                <Img
+                                    src={`https://img.youtube.com/vi/${video.key}/mqdefault.jpg`}
+                                />
+                                <PlayIcon />
                             </div>
-                        ))}
-                    </div>
-                ) : (
-                    <div className="videoSkeleton">
-                        {loadingSkeleton()}
-                        {loadingSkeleton()}
-                        {loadingSkeleton()}
-                        {loadingSkeleton()}
-                    </div>
-                )}
+                            <div className="videoTitle">{video.name}</div>
+                        </div>
+                    ))}
+                </div>
+                <VideoPopup
+                    show={show}
+                    setShow={setShow}
+                    videoId={videoId}
+                    setVideoId={setVideoId}
+                />
             </ContentWrapper>
-            <VideoPopup
-                show={show}
-                setShow={setShow}
-                videoId={videoId}
-                setVideoId={setVideoId}
-            />
         </div>
     );
 };
