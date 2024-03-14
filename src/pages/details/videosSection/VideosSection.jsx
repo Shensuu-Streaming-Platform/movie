@@ -24,8 +24,9 @@ const VideosSection = ({ data, loading }) => {
     return (
         <div className="videosSection">
             <ContentWrapper>
-                <div className="sectionHeading">Videos</div>
+                
                 {!loading ? (
+					<div className="sectionHeading">Videos</div>
                     <div className="videos">
                         {filteredVideos?.map((video) => (
                             <div
