@@ -31,10 +31,11 @@
         transition: transform 250ms;
         .closeBtn {
             position: absolute;
-            top: -20px;
+            top: -40px;
             right: 0;
             color: white;
             cursor: pointer;
+			font-size: 30px;
         }
     }
     &.visible {
