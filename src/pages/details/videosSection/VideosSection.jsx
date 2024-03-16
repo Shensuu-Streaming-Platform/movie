@@ -13,6 +13,8 @@ const VideosSection = ({ data, loading }) => {
 
     const navigation = (dir) => {
         const container = castListRef.current;
+		
+		if (!container) return;
 
         const scrollAmount =
             dir === "left"
