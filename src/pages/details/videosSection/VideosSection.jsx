@@ -14,8 +14,6 @@ const VideosSection = ({ data, loading }) => {
     const navigation = (dir) => {
         const container = castListRef.current;
 
-        if (!container) return; // Add null check here
-
         const scrollAmount =
             dir === "left"
                 ? container.scrollLeft - (container.offsetWidth + 10)
@@ -37,18 +35,20 @@ const VideosSection = ({ data, loading }) => {
         );
     };
 
-    const filteredVideos = data?.results?.filter(video => video.type === "Trailer" || video.type === "Teaser");
+    let filteredVideos = [];
+    if (data && data.results) {
+        filteredVideos = data.results.filter(video => video.type === "Trailer" || video.type === "Teaser");
 
-    filteredVideos.sort((a, b) => {
-        if (a.type === "Trailer" && b.type !== "Trailer") {
-            return -1;
-        } else if (a.type !== "Trailer" && b.type === "Trailer") {
-            return 1;
-        } else {
-            return 0;
-        }
-    });
-
+        filteredVideos.sort((a, b) => {
+            if (a.type === "Trailer" && b.type !== "Trailer") {
+                return -1;
+            } else if (a.type !== "Trailer" && b.type === "Trailer") {
+                return 1;
+            } else {
+                return 0;
+            }
+        });
+    }
 
     return (
         <div className="videosSection">
@@ -68,7 +68,7 @@ const VideosSection = ({ data, loading }) => {
                 </div>
                 {!loading ? (
                     <div className="videos" ref={castListRef}>
-                        {filteredVideos?.map((video) => (
+                        {filteredVideos.map((video) => (
                             <div
                                 key={video.id}
                                 className="videoItem"
