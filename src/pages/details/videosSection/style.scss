@@ -1,11 +1,29 @@
 @import "../../../mixins.scss";
+
 .videosSection {
     position: relative;
     margin-bottom: 50px;
+    
     .sectionHeading {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         font-size: 24px;
         color: white;
         margin-bottom: 25px;
+
+        .scrollButtons {
+            display: flex;
+            gap: 10px;
+
+            .arrow {
+                font-size: 30px;
+                color: white;
+                background: transparent;
+                border: none;
+                cursor: pointer;
+            }
+        }
     }
     .videos {
         display: flex;
