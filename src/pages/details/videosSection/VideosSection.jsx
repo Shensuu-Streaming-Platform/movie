@@ -35,7 +35,7 @@ const VideosSection = ({ data, loading }) => {
         );
     };
 
-    const filteredVideos = data?.results?.filter(video => video.type === "Trailer");
+    const filteredVideos = data?.results?.filter(video => video.type === "Trailer" || video.type === "Teaser");
 
     return (
         <div className="videosSection">
