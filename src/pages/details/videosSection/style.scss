@@ -22,6 +22,9 @@
                 background: transparent;
                 border: none;
                 cursor: pointer;
+				&:active {
+					color: gray;
+				}
             }
         }
     }
