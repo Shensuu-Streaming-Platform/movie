@@ -40,16 +40,6 @@ const Cast = ({ data, loading }) => {
         <div className="castSection">
             <ContentWrapper>
                 <div className="sectionHeading">Top Cast</div>
-                <div className="scrollButtons">
-                    <BsFillArrowLeftCircleFill
-                        className="arrow leftArrow"
-                        onClick={() => navigation("left")}
-                    />
-                    <BsFillArrowRightCircleFill
-                        className="arrow rightArrow"
-                        onClick={() => navigation("right")}
-                    />
-                </div>
                 {!loading ? (
                     <div className="listItems" ref={castListRef}>
                         {data?.map((item) => {
@@ -79,6 +69,16 @@ const Cast = ({ data, loading }) => {
                         {skeleton()}
                     </div>
                 )}
+                <div className="scrollButtons">
+                    <BsFillArrowLeftCircleFill
+                        className="arrow leftArrow"
+                        onClick={() => navigation("left")}
+                    />
+                    <BsFillArrowRightCircleFill
+                        className="arrow rightArrow"
+                        onClick={() => navigation("right")}
+                    />
+                </div>
             </ContentWrapper>
         </div>
     );
