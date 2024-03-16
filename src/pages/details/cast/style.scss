@@ -7,6 +7,23 @@
         color: white;
         margin-bottom: 25px;
     }
+	.scrollButtons {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 10px;
+        z-index: 999;
+        button {
+            background: transparent;
+            border: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+            &:hover {
+                color: gray;
+            }
+        }
+    }
     .listItems {
         display: flex;
         gap: 20px;
