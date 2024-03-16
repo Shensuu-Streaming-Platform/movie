@@ -55,19 +55,21 @@ const VideosSection = ({ data, loading }) => {
     return (
         <div className="videosSection">
             <ContentWrapper>
-                <div className="sectionHeading">
-                    Videos
-                    <div className="scrollButtons">
-                        <BsFillArrowLeftCircleFill
-                            className="arrow"
-                            onClick={() => navigation("left")}
-                        />
-                        <BsFillArrowRightCircleFill
-                            className="arrow"
-                            onClick={() => navigation("right")}
-                        />
+                {!loading && filteredVideos.length > 0 && (
+                    <div className="sectionHeading">
+                        Videos
+                        <div className="scrollButtons">
+                            <BsFillArrowLeftCircleFill
+                                className="arrow"
+                                onClick={() => navigation("left")}
+                            />
+                            <BsFillArrowRightCircleFill
+                                className="arrow"
+                                onClick={() => navigation("right")}
+                            />
+                        </div>
                     </div>
-                </div>
+                )}
                 {!loading ? (
                     <div className="videos" ref={castListRef}>
                         {filteredVideos.map((video) => (
