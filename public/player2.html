@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shensuu Player 2</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        html, body{
+            height: 100%;
+            margin: 0;
+        }
+
+        .player-main {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .player-main iframe {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .episode-btn, .season-btn {
+            position: absolute;
+            top: 10px;
+            z-index: 999;
+            cursor: pointer;
+            // padding: 8px 16px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+        }
+
+        .episode-btn {
+            left: 100px;
+        }
+
+        .season-btn {
+            left: 10px;
+        }
+
+        .logo-container {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 999;
+        }
+
+        .logo-container img {
+            width: 120px; /* Adjust width as needed */
+            height: auto;
+        }
+
+        .episode-list, .season-list {
+            position: absolute;
+            top: 20%;
+            left: 0;
+            width: 100%;
+            height: 50%;
+			padding-top: 30px;
+            background-color: rgba(0, 0, 0, 0.9);
+            color: white;
+            display: none;
+            justify-content: center;
+            /* align-items: center; */
+			font-size: 20px;
+			overflow-y: auto;
+        }
+
+        .episode-list ul, .season-list ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .episode-list li, .season-list li {
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="player-main">
+    <iframe id="embedFrame" scrolling="no" allowfullscreen></iframe>
+	<button id="seasonBtn" class="btn btn-primary season-btn">Seasons</button>
+    <button id="episodeBtn" class="btn btn-primary episode-btn">Episodes</button>
+    <div class="logo-container">
+	<!-- <a href="https://movie.8888008.xyz">
+        <img src="./movix-logo.svg" alt="Movix Logo">
+	</a> -->
+    </div>
+    <div id="episodeList" class="episode-list">
+        <ul></ul>
+    </div>
+    <div id="seasonList" class="season-list">
+        <ul></ul>
+    </div>
+</div>
+
+<script>
+    // API key variable
+    const apiKey = '9b9243db9e1283068ea9874cb17d1ac1';
+
+    document.addEventListener('DOMContentLoaded', function () {
+		let episodeBtn = document.getElementById('episodeBtn');
+		let seasonBtn = document.getElementById('seasonBtn');
+		let episodeListElement = document.getElementById('episodeList');
+		let seasonListElement = document.getElementById('seasonList');
+		let embedFrame = document.getElementById('embedFrame');
+		let episodeList = [];
+		let seasonList = [];
+		
+		
+		// Function to fetch episodes from TMDB API based on ID
+		function fetchEpisodes(id) {
+			fetch(`https://api.themoviedb.org/3/tv/${id}/season/${season}?api_key=${apiKey}`)
+			.then(response => response.json())
+			.then(data => {
+				episodeList = data.episodes;
+				displayEpisodeList(episodeList);
+			})
+			.catch(error => {
+				console.error('Error fetching episodes:', error);
+			});
+		}
+
+		// Function to fetch seasons from TMDB API based on ID
+		function fetchSeasons(id) {
+			fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=${apiKey}`)
+			.then(response => response.json())
+			.then(data => {
+				seasonList = data.seasons;
+				displaySeasonList(seasonList);
+			})
+			.catch(error => {
+				console.error('Error fetching seasons:', error);
+			});
+		}
+
+		// Function to display the episode list
+		function displayEpisodeList(episodes) {
+			let ul = document.getElementById('episodeList').querySelector('ul');
+			ul.innerHTML = '';
+			episodes.forEach((episode, index) => {
+				let li = document.createElement('li');
+				li.textContent = episode.name;
+				li.setAttribute('data-episode-number', index + 1);
+				li.addEventListener('click', function() {
+					let episodeNumber = this.getAttribute('data-episode-number');
+					updateEpisodeNumber(episodeNumber);
+				});
+				ul.appendChild(li);
+			});
+		}
+
+		// Function to display the season list
+		function displaySeasonList(seasons) {
+			let ul = document.getElementById('seasonList').querySelector('ul');
+			ul.innerHTML = '';
+			seasons.forEach((season, index) => {
+				let li = document.createElement('li');
+				li.textContent = `Season ${season.season_number}`;
+				li.setAttribute('data-season-number', season.season_number);
+				li.addEventListener('click', function() {
+					let seasonNumber = this.getAttribute('data-season-number');
+					updateSeasonNumber(seasonNumber);
+				});
+				ul.appendChild(li);
+			});
+		}
+
+		// Function to update the episode number in the URL
+		function updateEpisodeNumber(episodeNumber) {
+			let urlParams = new URLSearchParams(window.location.search);
+			urlParams.set('episode', episodeNumber);
+			window.location.href = `${window.location.pathname}?${urlParams}`;
+		}
+
+		// Function to update the season number in the URL
+		function updateSeasonNumber(seasonNumber) {
+			let urlParams = new URLSearchParams(window.location.search);
+			urlParams.set('season', seasonNumber);
+			// Set episode number to 1 when a season is selected
+			urlParams.set('episode', 1);
+			window.location.href = `${window.location.pathname}?${urlParams}`;
+		}
+
+		// Function to parse URL parameters
+		function getUrlParams() {
+			let params = {};
+			let url = new URL(window.location.href);
+			url.searchParams.forEach((value, key) => {
+				params[key] = value;
+			});
+			return params;
+		}
+
+		// Get type and id from URL parameters
+		let { type, id, season, episode } = getUrlParams();
+
+		let base = 'https://vidsrc.pro/embed';
+		let embedUrl = '';
+		
+		if (type === 'tv') {
+			embedUrl = `${base}/${type}/${id}/${season}/${episode}`;
+			// Fetch episodes
+			fetchEpisodes(id);
+			// Fetch seasons
+			fetchSeasons(id);
+		} else {
+			embedUrl = `${base}/${type}/${id}`;
+			// Hide season and episode buttons if type is 'movie'
+			episodeBtn.style.display = 'none';
+			seasonBtn.style.display = 'none';
+		}
+		
+		// Set iframe src to the trusted URL
+		embedFrame.src = embedUrl;
+
+
+		// Event listener for episode button click
+		episodeBtn.addEventListener('click', function() {
+			// Close season list if open
+			seasonListElement.style.display = 'none';
+			// Toggle visibility of episode list
+			episodeListElement.style.display = episodeListElement.style.display === 'none' ? 'flex' : 'none';
+		});
+
+		// Event listener for season button click
+		seasonBtn.addEventListener('click', function() {
+			// Close episode list if open
+			episodeListElement.style.display = 'none';
+			// Toggle visibility of season list
+			seasonListElement.style.display = seasonListElement.style.display === 'none' ? 'flex' : 'none';
+		});
+		
+		
+		// Function to fetch episode details from TMDB API based on ID, season, and episode number
+		function fetchEpisodeDetails(id, seasonNumber, episodeNumber) {
+			fetch(`https://api.themoviedb.org/3/tv/${id}/season/${seasonNumber}/episode/${episodeNumber}?api_key=${apiKey}`)
+				.then(response => response.json())
+				.then(data => {
+					let episodeTitle = data.name;
+					displayCurrentSeasonEpisode(seasonNumber, episodeTitle);
+				})
+				.catch(error => {
+					console.error('Error fetching episode details:', error);
+				});
+		}
+		
+		// Function to display current season and episode
+		function displayCurrentSeasonEpisode(seasonNumber, episodeTitle) {
+			let currentSeasonEpisodeElement = document.createElement('div');
+			currentSeasonEpisodeElement.textContent = `Season ${seasonNumber}, Episode: ${episodeTitle}`;
+			currentSeasonEpisodeElement.style.position = 'absolute';
+			currentSeasonEpisodeElement.style.top = '10px';
+			currentSeasonEpisodeElement.style.left = '50%';
+			currentSeasonEpisodeElement.style.transform = 'translateX(-50%)';
+			currentSeasonEpisodeElement.style.color = 'white';
+			currentSeasonEpisodeElement.style.fontSize = '18px';
+			currentSeasonEpisodeElement.style.zIndex = '999';
+			document.body.appendChild(currentSeasonEpisodeElement);
+		}
+		
+		// Display current season and episode title
+		if (type === 'tv') {
+			fetchEpisodeDetails(id, season, episode);
+		}
+		
+	});
+
+</script>
+
+
+</body>
+</html>
