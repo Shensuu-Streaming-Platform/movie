@@ -3,33 +3,18 @@
 .castSection {
     position: relative;
     margin-bottom: 50px;
-    
+
     .sectionHeading {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         font-size: 24px;
         color: white;
         margin-bottom: 25px;
-    }
 
-    .scrollButtons {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 999;
-        .arrow {
-            font-size: 24px;
-            color: white;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            &:hover {
-                color: gray;
-            }
-        }
-        .leftArrow {
-            left: 20px;
-        }
-        .rightArrow {
-            right: 20px;
+        .scrollButtons {
+            display: flex;
+            gap: 10px;
         }
     }
 
