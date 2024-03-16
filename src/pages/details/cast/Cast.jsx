@@ -42,11 +42,11 @@ const Cast = ({ data, loading }) => {
                 <div className="sectionHeading">Top Cast</div>
                 <div className="scrollButtons">
                     <BsFillArrowLeftCircleFill
-                        className="arrow characterLeftNav"
+                        className="arrow leftArrow"
                         onClick={() => navigation("left")}
                     />
                     <BsFillArrowRightCircleFill
-                        className="arrow characterRighttNav"
+                        className="arrow rightArrow"
                         onClick={() => navigation("right")}
                     />
                 </div>
