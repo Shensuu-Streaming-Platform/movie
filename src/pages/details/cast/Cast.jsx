@@ -40,7 +40,7 @@ const Cast = ({ data, loading }) => {
 		<div className="castSection">
 			<ContentWrapper>
 				<div className="sectionHeading">
-					Top Cast
+					Cast
 					<div className="scrollButtons">
 						<BsFillArrowLeftCircleFill
 							className="arrow"
