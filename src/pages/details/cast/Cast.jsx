@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useRef } from "react";
+import { BsFillArrowLeftCircleFill, BsFillArrowRightCircleFill } from "react-icons/bs";
 import { useSelector } from "react-redux";
 
 import "./style.scss";
@@ -9,6 +10,21 @@ import avatar from "../../../assets/avatar.png";
 
 const Cast = ({ data, loading }) => {
     const { url } = useSelector((state) => state.home);
+    const castListRef = useRef(null);
+
+    const navigation = (dir) => {
+        const container = castListRef.current;
+
+        const scrollAmount =
+            dir === "left"
+                ? container.scrollLeft - (container.offsetWidth + 20)
+                : container.scrollLeft + (container.offsetWidth + 20);
+
+        container.scrollTo({
+            left: scrollAmount,
+            behavior: "smooth",
+        });
+    };
 
     const skeleton = () => {
         return (
@@ -19,12 +35,23 @@ const Cast = ({ data, loading }) => {
             </div>
         );
     };
+
     return (
         <div className="castSection">
             <ContentWrapper>
                 <div className="sectionHeading">Top Cast</div>
+                <div className="scrollButtons">
+                    <BsFillArrowLeftCircleFill
+                        className="arrow"
+                        onClick={() => navigation("left")}
+                    />
+                    <BsFillArrowRightCircleFill
+                        className="arrow"
+                        onClick={() => navigation("right")}
+                    />
+                </div>
                 {!loading ? (
-                    <div className="listItems">
+                    <div className="listItems" ref={castListRef}>
                         {data?.map((item) => {
                             let imgUrl = item.profile_path
                                 ? url.profile + item.profile_path

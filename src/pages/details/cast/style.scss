@@ -1,15 +1,38 @@
 @import "../../../mixins.scss";
+
 .castSection {
     position: relative;
     margin-bottom: 50px;
+    
     .sectionHeading {
         font-size: 24px;
         color: white;
         margin-bottom: 25px;
     }
+
+    .scrollButtons {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 999;
+        display: flex;
+        gap: 10px;
+        .arrow {
+            font-size: 24px;
+            color: white;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            &:hover {
+                color: gray;
+            }
+        }
+    }
+
     .listItems {
         display: flex;
         gap: 20px;
+        overflow-x: auto; /* Enable horizontal scrolling */
         overflow-y: hidden;
         margin-right: -20px;
         margin-left: -20px;
