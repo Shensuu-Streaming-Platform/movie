@@ -35,7 +35,18 @@ const VideosSection = ({ data, loading }) => {
         );
     };
 
-    const filteredVideos = data?.results?.filter(video => video.type === "Trailer" || video.type === "Teaser").reverse();
+    const filteredVideos = data?.results?.filter(video => video.type === "Trailer" || video.type === "Teaser");
+
+    filteredVideos.sort((a, b) => {
+        if (a.type === "Trailer" && b.type !== "Trailer") {
+            return -1;
+        } else if (a.type !== "Trailer" && b.type === "Trailer") {
+            return 1;
+        } else {
+            return 0;
+        }
+    });
+
 
     return (
         <div className="videosSection">
