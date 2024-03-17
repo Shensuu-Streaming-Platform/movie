@@ -8,6 +8,7 @@ import Cast from "./cast/Cast";
 import VideosSection from "./videosSection/VideosSection";
 import Similar from "./carousels/Similar";
 import Recommendation from "./carousels/Recommendation";
+import SeasonsAndEpisodes from "./seasonsAndEpisodes/SeasonsAndEpisodes"; 
 
 const Details = () => {
     const { mediaType, id } = useParams();
@@ -15,6 +16,9 @@ const Details = () => {
     const { data: credits, loading: creditsLoading } = useFetch(
         `/${mediaType}/${id}/credits`
     );
+	const { data: seasonsData, loading: seasonsLoading } = useFetch(
+        `/${mediaType}/${id}/seasons`
+    ); 
 
     return (
         <div>
@@ -22,7 +26,8 @@ const Details = () => {
             <Cast data={credits?.cast} loading={creditsLoading} />
 			<VideosSection data={data} loading={loading} />
 				{/* <Similar mediaType={mediaType} id={id} /> */}
-            <Recommendation mediaType={mediaType} id={id} />
+            <SeasonsAndEpisodes seasons={seasonsData} />
+			<Recommendation mediaType={mediaType} id={id} />
         </div>
     );
 };
