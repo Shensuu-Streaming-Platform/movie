@@ -6,8 +6,8 @@ import useFetch from "../../hooks/useFetch";
 import DetailsBanner from "./detailsBanner/DetailsBanner";
 import Cast from "./cast/Cast";
 import VideosSection from "./videosSection/VideosSection";
-import Similar from "./carousels/Similar";
 import Recommendation from "./carousels/Recommendation";
+import SeasonsAndEpisodes from "./seasonsAndEpisodes/SeasonsAndEpisodes"; // Importing the new component
 
 const Details = () => {
     const { mediaType, id } = useParams();
@@ -15,13 +15,18 @@ const Details = () => {
     const { data: credits, loading: creditsLoading } = useFetch(
         `/${mediaType}/${id}/credits`
     );
+    const { data: seasonsData, loading: seasonsLoading } = useFetch(
+        `/${mediaType}/${id}/seasons`
+    ); // Fetching data for seasons and episodes
 
     return (
         <div>
             <DetailsBanner video={data?.results?.[0]} crew={credits?.crew} />
             <Cast data={credits?.cast} loading={creditsLoading} />
-			<VideosSection data={data} loading={loading} />
-				{/* <Similar mediaType={mediaType} id={id} /> */}
+            <VideosSection data={data} loading={loading} />
+            {mediaType === "tv" && ( // Rendering SeasonsAndEpisodes component only if mediaType is "tv"
+                <SeasonsAndEpisodes seasons={seasonsData} />
+            )}
             <Recommendation mediaType={mediaType} id={id} />
         </div>
     );
