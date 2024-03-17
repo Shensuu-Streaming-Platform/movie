@@ -7,7 +7,7 @@ import DetailsBanner from "./detailsBanner/DetailsBanner";
 import Cast from "./cast/Cast";
 import VideosSection from "./videosSection/VideosSection";
 import Recommendation from "./carousels/Recommendation";
-import SeasonsAndEpisodes from "./seasonsAndEpisodes/SeasonsAndEpisodes"; // Importing the new component
+import SeasonsAndEpisodes from "./seasonsAndEpisodes/SeasonsAndEpisodes";
 
 const Details = () => {
     const { mediaType, id } = useParams();
@@ -17,14 +17,19 @@ const Details = () => {
     );
     const { data: seasonsData, loading: seasonsLoading } = useFetch(
         `/${mediaType}/${id}/seasons`
-    ); // Fetching data for seasons and episodes
+    );
+
+    // Check if data and credits are available before accessing properties
+    const video = data?.results?.[0] || null;
+    const crew = credits?.crew || null;
 
     return (
         <div>
-            <DetailsBanner video={data?.results?.[0]} crew={credits?.crew} />
+            {/* Pass the modified video and crew props to DetailsBanner */}
+            <DetailsBanner video={video} crew={crew} />
             <Cast data={credits?.cast} loading={creditsLoading} />
             <VideosSection data={data} loading={loading} />
-            {mediaType === "tv" && ( // Rendering SeasonsAndEpisodes component only if mediaType is "tv"
+            {mediaType === "tv" && (
                 <SeasonsAndEpisodes seasons={seasonsData} />
             )}
             <Recommendation mediaType={mediaType} id={id} />
