@@ -149,7 +149,7 @@ const DetailsBanner = ({ video, crew }) => {
                                             )}
                                         </div>
 										
-										// Season and Episodes for TV Show
+										{/*Season and Episodes for TV Show */}
 										<div className="info">
 											{data.number_of_seasons && (
                                                 <div className="infoItem">
@@ -173,7 +173,7 @@ const DetailsBanner = ({ video, crew }) => {
                                             )}
 										</div>
 										
-										// Air Date for TV Show
+										{/* Air Date for TV Show */}
 										<div className="info">
 											{data.first_air_date && (
                                                 <div className="infoItem">
