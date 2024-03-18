@@ -20,7 +20,7 @@ const PageNotFound = () => {
 				</ul>
 				
 				<span className="aboutSubText">
-					<b>Join the Shensuu Movie Experience Today:</b>
+					<b>Join the Shensuu Movie Experience Today!</b>
 				</span>
 				<span className="aboutSubText">
 					Shensuu Movie is your gateway to a world of limitless entertainment. Stream your favorite movies and TV shows, discover hidden gems, and lose yourself in captivating stories – all for free and without any annoying interruptions. Visit Shensuu Movie today and unlock a universe of cinematic adventures!
