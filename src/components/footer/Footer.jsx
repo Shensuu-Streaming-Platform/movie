@@ -17,11 +17,16 @@ const Footer = () => {
 	window.location.href = url;	{/* window.open(url, '_blank'); */}
 	};
 	
+	const aboutPage = () => {
+	const url = `/about`;
+	window.location.href = url;	{/* window.open(url, '_blank'); */}
+	};
+	
     return (
         <footer className="footer">
             <ContentWrapper>
 			    <ul className="menuItems">
-                    <li className="menuItem">About</li>
+                    <li className="menuItem" onClick={aboutPage}>About</li>
 					<li className="menuItem" onClick={serverStatus}>Server Status</li>
 				</ul>
 				<div className="infoText">
