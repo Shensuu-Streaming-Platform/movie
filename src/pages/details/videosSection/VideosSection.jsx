@@ -38,18 +38,26 @@ const VideosSection = ({ data, loading }) => {
     };
 
     let filteredVideos = [];
+    let trailerVideos = [];
+    let teaserVideos = [];
+
     if (data && data.results) {
         filteredVideos = data.results.filter(video => video.type === "Trailer" || video.type === "Teaser");
 
-        filteredVideos.sort((a, b) => {
-            if (a.type === "Trailer" && b.type !== "Trailer") {
-                return -1;
-            } else if (a.type !== "Trailer" && b.type === "Trailer") {
-                return 1;
+        // Separate trailer and teaser videos
+        filteredVideos.forEach(video => {
+            if (video.type === "Trailer") {
+                trailerVideos.push(video);
             } else {
-                return 0;
+                teaserVideos.push(video);
             }
         });
+
+        // Reverse the order of trailer videos
+        trailerVideos.reverse();
+
+        // Concatenate trailer and teaser videos
+        filteredVideos = [...trailerVideos, ...teaserVideos];
     }
 
     return (
