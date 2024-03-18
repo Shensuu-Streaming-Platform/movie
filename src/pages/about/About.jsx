@@ -18,7 +18,7 @@ const PageNotFound = () => {
 					<li><b>TV Show Extravaganza:</b> Binge-watch your favorite shows or embark on new adventures with captivating series. Shensuu Movie offers a wide spectrum of TV shows, encompassing everything from sitcoms and dramas to documentaries and reality TV.</li>
 					<li><b>Always Something New:</b> Our library is constantly expanding, ensuring you'll never run out of fresh entertainment options. Shensuu Movie is dedicated to providing you with the latest releases and a never-ending stream of discoveries. </li>
 				</ul>
-				<br>
+				
 				<span className="smallText">
 					<b>Join the Shensuu Movie Experience Today:</b>
 				</span>
