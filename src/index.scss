@@ -18,6 +18,13 @@
     --pink: #da2f68;
     --orange: #f89e00;
     --gradient: linear-gradient(98.37deg, #83C0C1 0.99%, #6C22A6 100%);
+	
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 * {
