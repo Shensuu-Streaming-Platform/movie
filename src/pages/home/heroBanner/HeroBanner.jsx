@@ -40,11 +40,11 @@ const HeroBanner = () => {
 	useEffect(() => {
         const currentHour = new Date().getHours();
         if (currentHour >= 5 && currentHour < 12) {
-            setsubGreeting("What would you like to watch this morning?");
+            setsubGreeting("Start your day with a feel-good film.");
         } else if (currentHour >= 12 && currentHour < 18) {
-            setsubGreeting("What would you like to watch this afternoon?");
+            setsubGreeting("Popcorn time! Let's escape into a movie this afternoon.");
         } else {
-            setsubGreeting("What would you like to watch tonight?");
+            setsubGreeting("Pop the popcorn, dim the lights, it's movie night!");
         }
     }, [subgreeting]);
 
