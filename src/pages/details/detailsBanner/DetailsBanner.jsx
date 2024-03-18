@@ -160,60 +160,60 @@ const DetailsBanner = ({ video, crew }) => {
                                             )}
                                         </div>
 										
-										{!loading && (
-											<>
-												{!!data && (
-													<>
-														{/*Season and Episodes for TV Show */}
-														<div className="info">
-															{data.number_of_seasons && (
-																<div className="infoItem">
-																	<span className="text bold">
-																		Seasons:{" "}
-																	</span>
-																	<span className="text">
-																		{data.number_of_seasons}
-																	</span>
-																</div>
-															)}
-															{data.number_of_episodes && (
-																<div className="infoItem">
-																	<span className="text bold">
-																		Episodes:{" "}
-																	</span>
-																	<span className="text">
-																		{data.number_of_episodes}
-																	</span>
-																</div>
-															)}
-														</div>
-
-														{/* Air Date for TV Show */}
-														<div className="info">
-															{data.first_air_date && (
-																<div className="infoItem">
-																	<span className="text bold">
-																		First Air Date:{" "}
-																	</span>
-																	<span className="text">
-																		{dayjs(data.first_air_date).format("MMM D, YYYY")}
-																	</span>
-																</div>
-															)}
-															{data.last_air_date && (
-																<div className="infoItem">
-																	<span className="text bold">
-																		Last Air Date:{" "}
-																	</span>
-																	<span className="text">
-																		{dayjs(data.last_air_date).format("MMM D, YYYY")}
-																	</span>
-																</div>
-															)}
-														</div>
-													</>
+										{/*Season and Episodes for TV Show */}
+										{mediaType !== "movie" && (
+											<div className="info">
+												{data.number_of_seasons && (
+													<div className="infoItem">
+														<span className="text bold">
+															Seasons:{" "}
+														</span>
+														<span className="text">
+															{data.number_of_seasons}
+														</span>
+													</div>
 												)}
-											</>
+												{data.number_of_episodes && (
+													<div className="infoItem">
+														<span className="text bold">
+															Episodes:{" "}
+														</span>
+														<span className="text">
+															{data.number_of_episodes}
+														</span>
+													</div>
+												)}
+											</div>
+										)}
+										
+										{/* Air Date for TV Show */}
+										{mediaType !== "movie" && (
+											<div className="info">
+												{data.first_air_date && (
+													<div className="infoItem">
+														<span className="text bold">
+															First Air Date:{" "}
+														</span>
+														<span className="text">
+															{dayjs(
+																data.first_air_date
+															).format("MMM D, YYYY")}
+														</span>
+													</div>
+												)}
+												{data.last_air_date && (
+													<div className="infoItem">
+														<span className="text bold">
+															Last Air Date:{" "}
+														</span>
+														<span className="text">
+															{dayjs(
+																data.last_air_date
+															).format("MMM D, YYYY")}
+														</span>
+													</div>
+												)}
+											</div>
 										)}
 
                                         {director?.length > 0 && (
