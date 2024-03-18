@@ -1,15 +1,15 @@
-.pageNotFound {
+.aboutPage {
     height: 700px;
     padding-top: 160px;
     .contentWrapper {
         color: white;
         display: flex;
         flex-direction: column;
-        .bigText {
+        .aboutTitle {
             font-size: 50px;
             font-weight: 700;
         }
-        .smallText {
+        .aboutSubText {
             font-size: 20px;
 			padding-top: 20px;
         }
