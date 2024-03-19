@@ -13,8 +13,7 @@ const VideosSection = ({ data, loading }) => {
 
     const navigation = (dir) => {
         const container = castListRef.current;
-		
-		if (!container) return;
+        if (!container) return;
 
         const scrollAmount =
             dir === "left"
@@ -38,26 +37,10 @@ const VideosSection = ({ data, loading }) => {
     };
 
     let filteredVideos = [];
-    let trailerVideos = [];
-    let teaserVideos = [];
 
     if (data && data.results) {
+        // Filter videos to include only trailers and teasers
         filteredVideos = data.results.filter(video => video.type === "Trailer" || video.type === "Teaser");
-
-        // Separate trailer and teaser videos
-        filteredVideos.forEach(video => {
-            if (video.type === "Trailer") {
-                trailerVideos.push(video);
-            } else {
-                teaserVideos.push(video);
-            }
-        });
-
-        // Reverse the order of trailer videos
-        trailerVideos.reverse();
-
-        // Concatenate trailer and teaser videos
-        filteredVideos = [...trailerVideos, ...teaserVideos];
     }
 
     return (
@@ -96,6 +79,11 @@ const VideosSection = ({ data, loading }) => {
                                     <PlayIcon />
                                 </div>
                                 <div className="videoTitle">{video.name}</div>
+                                {/* Add type and title */}
+                                <div className="videoInfo">
+                                    <span className="videoType">{video.type}</span>
+                                    <span className="videoTitle">{data.name || data.title}</span>
+                                </div>
                             </div>
                         ))}
                     </div>
@@ -113,6 +101,8 @@ const VideosSection = ({ data, loading }) => {
                 setShow={setShow}
                 videoId={videoId}
                 setVideoId={setVideoId}
+                type={filteredVideos.length > 0 ? filteredVideos[0].type : ""}
+                title={data.name || data.title}
             />
         </div>
     );
