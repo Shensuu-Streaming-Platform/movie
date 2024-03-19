@@ -13,7 +13,8 @@ const VideosSection = ({ data, loading }) => {
 
     const navigation = (dir) => {
         const container = castListRef.current;
-        if (!container) return;
+		
+		if (!container) return;
 
         const scrollAmount =
             dir === "left"
@@ -79,11 +80,6 @@ const VideosSection = ({ data, loading }) => {
                                     <PlayIcon />
                                 </div>
                                 <div className="videoTitle">{video.name}</div>
-                                {/* Add type and title */}
-                                <div className="videoInfo">
-                                    <span className="videoType">{video.type}</span>
-                                    <span className="videoTitle">{data.name || data.title}</span>
-                                </div>
                             </div>
                         ))}
                     </div>
@@ -97,13 +93,13 @@ const VideosSection = ({ data, loading }) => {
                 )}
             </ContentWrapper>
             <VideoPopup
-				show={show}
-				setShow={setShow}
-				videoId={videoId}
-				setVideoId={setVideoId}
-				type={filteredVideos.length > 0 ? filteredVideos[0].type : ""}
-				title={data ? (data.name || data.title) : ""}
-			/>
+                show={show}
+                setShow={setShow}
+                videoId={videoId}
+                setVideoId={setVideoId}
+                type={filteredVideos.length > 0 ? filteredVideos[0].type : ""}
+                title={filteredVideos.length > 0 ? filteredVideos[0].name : ""}
+            />
         </div>
     );
 };
