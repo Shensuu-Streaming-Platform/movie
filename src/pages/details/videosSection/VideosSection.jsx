@@ -97,13 +97,13 @@ const VideosSection = ({ data, loading }) => {
                 )}
             </ContentWrapper>
             <VideoPopup
-                show={show}
-                setShow={setShow}
-                videoId={videoId}
-                setVideoId={setVideoId}
-                type={filteredVideos.length > 0 ? filteredVideos[0].type : ""}
-                title={data.name || data.title}
-            />
+				show={show}
+				setShow={setShow}
+				videoId={videoId}
+				setVideoId={setVideoId}
+				type={filteredVideos.length > 0 ? filteredVideos[0].type : ""}
+				title={data ? (data.name || data.title) : ""}
+			/>
         </div>
     );
 };
