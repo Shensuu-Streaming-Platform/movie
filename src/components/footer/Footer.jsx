@@ -37,6 +37,9 @@ const Footer = () => {
                 <div className="infoText">
                     © Shensuu Movie 2024
                 </div>
+				<div className="infoText">
+                    Version 19.4.2.2024
+                </div>
 				
                 {/* <div className="socialIcons">
                     <span className="icon">
