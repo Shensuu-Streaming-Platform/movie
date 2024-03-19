@@ -37,6 +37,26 @@
             cursor: pointer;
 			font-size: 30px;
         }
+		.videoInfo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+        }
+        .videoType {
+            margin-right: 10px;
+        }
+        .videoTitle {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            flex-grow: 1;
+        }
     }
     &.visible {
         opacity: 1;

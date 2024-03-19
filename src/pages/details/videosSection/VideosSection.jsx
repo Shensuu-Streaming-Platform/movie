@@ -113,6 +113,8 @@ const VideosSection = ({ data, loading }) => {
                 setShow={setShow}
                 videoId={videoId}
                 setVideoId={setVideoId}
+				videoType={data.type}
+				videoTitle={data.name || data.title}
             />
         </div>
     );

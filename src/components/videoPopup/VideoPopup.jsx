@@ -3,7 +3,7 @@ import ReactPlayer from "react-player/youtube";
 
 import "./style.scss";
 
-const VideoPopup = ({ show, setShow, videoId, setVideoId }) => {
+const VideoPopup = ({ show, setShow, videoId, setVideoId, videoType, videoTitle }) => {
     const hidePopup = () => {
         setShow(false);
         setVideoId(null);
@@ -12,6 +12,10 @@ const VideoPopup = ({ show, setShow, videoId, setVideoId }) => {
         <div className={`videoPopup ${show ? "visible" : ""}`}>
             <div className="opacityLayer" onClick={hidePopup}></div>
             <div className="videoPlayer">
+				<div className="videoInfo">
+                    <span className="videoType">{videoType}</span>
+                    <span className="videoTitle">{videoTitle}</span>
+                </div>
                 <span className="closeBtn" onClick={hidePopup}>
                     X
                 </span>
