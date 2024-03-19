@@ -82,6 +82,11 @@ const VideosSection = ({ data, loading }) => {
                                     <PlayIcon />
                                 </div>
                                 <div className="videoTitle">{video.name}</div>
+                                {/* Add type and title */}
+                                <div className="videoInfo">
+                                    <span className="videoType">{video.type}</span>
+                                    <span className="videoTitle">{data?.title || ""}</span>
+                                </div>
                             </div>
                         ))}
                     </div>
@@ -100,7 +105,7 @@ const VideosSection = ({ data, loading }) => {
                 videoId={videoId}
                 setVideoId={setVideoId}
                 type={videosData.length > 0 ? videosData[0].type : ""}
-                title={data ? (data.name || data.title) : ""}
+                title={data ? (data.title || "") : ""}
             />
         </div>
     );
