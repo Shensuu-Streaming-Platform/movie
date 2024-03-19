@@ -39,19 +39,21 @@ const Cast = ({ data, loading }) => {
     return (
 		<div className="castSection">
 			<ContentWrapper>
-				<div className="sectionHeading">
-					Cast
-					<div className="scrollButtons">
-						<BsFillArrowLeftCircleFill
-							className="arrow"
-							onClick={() => navigation("left")}
-						/>
-						<BsFillArrowRightCircleFill
-							className="arrow"
-							onClick={() => navigation("right")}
-						/>
-					</div>
-				</div>
+				{!loading && (
+                    <div className="sectionHeading">
+                        Cast
+                        <div className="scrollButtons">
+                            <BsFillArrowLeftCircleFill
+                                className="arrow"
+                                onClick={() => navigation("left")}
+                            />
+                            <BsFillArrowRightCircleFill
+                                className="arrow"
+                                onClick={() => navigation("right")}
+                            />
+                        </div>
+                    </div>
+                )}
 				{!loading ? (
 					<div className="listItems" ref={castListRef}>
 						{data?.map((item) => {
