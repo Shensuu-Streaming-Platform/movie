@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./style.scss";
 import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
 import VideoPopup from "../../../components/videoPopup/VideoPopup";
@@ -10,6 +10,15 @@ const VideosSection = ({ data, loading }) => {
     const [show, setShow] = useState(false);
     const [videoId, setVideoId] = useState(null);
     const castListRef = useRef(null);
+    const [videosData, setVideosData] = useState([]);
+
+    useEffect(() => {
+        if (data && data.results) {
+            // Filter videos to include only trailers and teasers
+            const filteredVideos = data.results.filter(video => video.type === "Trailer" || video.type === "Teaser");
+            setVideosData(filteredVideos);
+        }
+    }, [data]);
 
     const navigation = (dir) => {
         const container = castListRef.current;
@@ -37,17 +46,10 @@ const VideosSection = ({ data, loading }) => {
         );
     };
 
-    let filteredVideos = [];
-
-    if (data && data.results) {
-        // Filter videos to include only trailers and teasers
-        filteredVideos = data.results.filter(video => video.type === "Trailer" || video.type === "Teaser");
-    }
-
     return (
         <div className="videosSection">
             <ContentWrapper>
-                {!loading && filteredVideos.length > 0 && (
+                {!loading && videosData.length > 0 && (
                     <div className="sectionHeading">
                         Videos
                         <div className="scrollButtons">
@@ -64,7 +66,7 @@ const VideosSection = ({ data, loading }) => {
                 )}
                 {!loading ? (
                     <div className="videos" ref={castListRef}>
-                        {filteredVideos.map((video) => (
+                        {videosData.map((video) => (
                             <div
                                 key={video.id}
                                 className="videoItem"
@@ -97,8 +99,8 @@ const VideosSection = ({ data, loading }) => {
                 setShow={setShow}
                 videoId={videoId}
                 setVideoId={setVideoId}
-                type={filteredVideos.length > 0 ? filteredVideos[0].type : ""}
-                title={filteredVideos.length > 0 ? filteredVideos[0].name : ""}
+                type={videosData.length > 0 ? videosData[0].type : ""}
+                title={data ? (data.name || data.title) : ""}
             />
         </div>
     );
