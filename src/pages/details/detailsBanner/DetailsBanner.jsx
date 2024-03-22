@@ -42,7 +42,7 @@ const DetailsBanner = ({ video, crew }) => {
 		window.location.href = url;	{/* window.open(url, '_blank'); */}
 	};
 	
-	const goToPreviousPage = () => {
+	const goBackPage = () => {
         window.history.back();
     };
 
@@ -57,12 +57,12 @@ const DetailsBanner = ({ video, crew }) => {
                             </div>
                             <div className="opacity-layer"></div>
                             <ContentWrapper>
-								<div className="goBackWrapper" onClick={goToPreviousPage}>
-									<span className="goback">
-										Go Back
-									</span>
-								</div>
                                 <div className="content">
+									<div className="goBackWrapper" onClick={goBackPage}>
+										<span className="goback">
+											Go Back
+										</span>
+									</div>
                                     <div className="left">
                                         {data.poster_path ? (
                                             <Img
