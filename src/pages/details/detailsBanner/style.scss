@@ -56,7 +56,16 @@
 		}
 	}
 
-
+	.gobackcontent {
+		display: flex;
+        position: relative;
+        flex-direction: column;
+        gap: 25px;
+        @include md {
+            gap: 50px;
+            flex-direction: row;
+        }
+	}
 
     .content {
         display: flex;
