@@ -167,6 +167,33 @@ const DetailsBanner = ({ video, crew }) => {
                                                     </span>
                                                 </div>
                                             )}
+											
+											
+											{data.first_air_date && (
+												<div className="infoItem">
+													<span className="text bold">
+														First Air Date:{" "}
+													</span>
+													<span className="text">
+														{dayjs(
+															data.first_air_date
+														).format("MMM D, YYYY")}
+													</span>
+												</div>
+											)}
+											{data.last_air_date && (
+												<div className="infoItem">
+													<span className="text bold">
+														Last Air Date:{" "}
+													</span>
+													<span className="text">
+														{dayjs(
+															data.last_air_date
+														).format("MMM D, YYYY")}
+													</span>
+												</div>
+											)}
+										
                                         </div>
 										
 										{/*Season and Episodes for TV Show */}
@@ -195,35 +222,10 @@ const DetailsBanner = ({ video, crew }) => {
 											</div>
 										)}
 										
-										{/* Air Date for TV Show */}
+										{/* Air Date for TV Show 
 										{mediaType !== "movie" && (
-											<div className="info">
-												{data.first_air_date && (
-													<div className="infoItem">
-														<span className="text bold">
-															First Air Date:{" "}
-														</span>
-														<span className="text">
-															{dayjs(
-																data.first_air_date
-															).format("MMM D, YYYY")}
-														</span>
-													</div>
-												)}
-												{data.last_air_date && (
-													<div className="infoItem">
-														<span className="text bold">
-															Last Air Date:{" "}
-														</span>
-														<span className="text">
-															{dayjs(
-																data.last_air_date
-															).format("MMM D, YYYY")}
-														</span>
-													</div>
-												)}
-											</div>
-										)}
+											
+										)} */}
 
                                         {director?.length > 0 && (
                                             <div className="info">
