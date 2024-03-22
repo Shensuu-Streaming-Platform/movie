@@ -40,6 +40,26 @@
         bottom: 0;
         left: 0;
     }
+	
+	.goBackWrapper {
+	  margin-top: 10px;
+	  margin-bottom: 10px; 
+	  display: flex; 
+	  justify-content: center; 
+	  align-items: center;
+	}
+
+	.goback {
+	  color: white; 
+	  font-size: 20px; 
+	  cursor: pointer; 
+	  transition: color 0.3s; 
+
+	  &:hover {
+		color: pink; 
+	  }
+	}
+
 
     .content {
         display: flex;
