@@ -42,12 +42,13 @@
     }
 	
 	.goBackWrapper {
-		margin-bottom: 10px; 
-		display: inline-block;
-		cursor: pointer;
+	  margin-top: 10px; 
+	  margin-bottom: 10px; 
+	  display: inline-block; 
+	  cursor: pointer;
 
 	  .goback {
-		color: white; 
+		color: #808080; 
 		font-size: 20px; 
 		transition: color 0.3s; 
 
@@ -70,9 +71,9 @@
         .left {
             flex-shrink: 0;
             .posterImg {
-                max-width: 100%;
-				display: block;
-				border-radius: 12px;
+                width: 100%;
+                display: block;
+                border-radius: 12px;
                 @include md {
                     max-width: 350px;
                 }
