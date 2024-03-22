@@ -47,8 +47,9 @@ const DetailsBanner = ({ video, crew }) => {
     };
 	
 	useEffect(() => {
-        document.title = data?.name || data?.title || " | Shensuu Movie";
-    }, [data]);
+		document.title = `${data?.name || data?.title || "Shensuu Movie"} | Shensuu Movie`;
+	}, [data]);
+
 
     return (
         <div className="detailsBanner">
