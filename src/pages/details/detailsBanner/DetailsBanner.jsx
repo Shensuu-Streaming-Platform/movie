@@ -45,6 +45,10 @@ const DetailsBanner = ({ video, crew }) => {
 	const goBackPage = () => {
         window.history.back();
     };
+	
+	useEffect(() => {
+        document.title = data?.name || data?.title || " | Shensuu Movie";
+    }, [data]);
 
     return (
         <div className="detailsBanner">
