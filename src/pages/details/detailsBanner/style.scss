@@ -2,7 +2,7 @@
 .detailsBanner {
     width: 100%;
     background-color: var(--black);
-    padding-top: 100px;
+    padding-top: 20px;
     margin-bottom: 50px;
     @include md {
         margin-bottom: 0;
@@ -41,6 +41,18 @@
         left: 0;
     }
 	
+	
+	.gobackcontent {
+		display: flex;
+        position: relative;
+        flex-direction: column;
+        gap: 25px;
+		padding-bottom: 20px;
+        @include md {
+            gap: 50px;
+            flex-direction: row;
+        }
+	}
 
 	.goback {
 		color: #808080; 
@@ -56,16 +68,7 @@
 		}
 	}
 
-	.gobackcontent {
-		display: flex;
-        position: relative;
-        flex-direction: column;
-        gap: 25px;
-        @include md {
-            gap: 50px;
-            flex-direction: row;
-        }
-	}
+
 
     .content {
         display: flex;
