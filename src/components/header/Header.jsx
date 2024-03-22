@@ -85,9 +85,21 @@ const Header = () => {
                     <img src={logo} alt="" />
                 </div>
                 <ul className="menuItems">
-					<li className="menuItem" onClick={goToHome}> <i class="bi bi-house"></i> Home</li>
-                    <li className="menuItem" onClick={() => navigationHandler("movie")}> <i class="bi bi-film"></i> Movies</li>
-                    <li className="menuItem" onClick={() => navigationHandler("tv")}> <i class="bi bi-tv"></i> TV Shows</li>
+					<li className="menuItem" onClick={goToHome}>
+                        Home
+                    </li>
+                    <li
+                        className="menuItem"
+                        onClick={() => navigationHandler("movie")}
+                    >
+                        Movies
+                    </li>
+                    <li
+                        className="menuItem"
+                        onClick={() => navigationHandler("tv")}
+                    >
+                        TV Shows
+                    </li>
                     <li className="menuItem">
                         <HiOutlineSearch onClick={openSearch} />
                     </li>
