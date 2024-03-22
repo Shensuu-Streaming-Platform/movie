@@ -58,11 +58,11 @@ const DetailsBanner = ({ video, crew }) => {
                             <div className="opacity-layer"></div>
                             <ContentWrapper>
                                 <div className="content">
-									<div className="goBackWrapper" onClick={goBackPage}>
-										<span className="goback">
-											Go Back
-										</span>
-									</div>
+
+									<span className="goback" onClick={goBackPage}>
+										Go Back
+									</span>
+
                                     <div className="left">
                                         {data.poster_path ? (
                                             <Img

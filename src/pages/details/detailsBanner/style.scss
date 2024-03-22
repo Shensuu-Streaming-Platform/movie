@@ -41,22 +41,19 @@
         left: 0;
     }
 	
-	.goBackWrapper {
-	  margin-top: 10px; 
-	  margin-bottom: 10px; 
-	  display: inline-block; 
-	  cursor: pointer;
 
-	  .goback {
+	.goback {
 		color: #808080; 
 		font-size: 20px; 
+		cursor: pointer;
+		margin-bottom: 10px; 
 		transition: color 0.3s; 
 
 		&:hover {
 		  color: pink; 
 		}
-	  }
 	}
+
 
 
     .content {
