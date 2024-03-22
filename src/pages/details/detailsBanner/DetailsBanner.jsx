@@ -41,6 +41,10 @@ const DetailsBanner = ({ video, crew }) => {
 		const url = `https://movie.8888008.xyz/player.html?type=${mediaType}&id=${id}`;
 		window.location.href = url;	{/* window.open(url, '_blank'); */}
 	};
+	
+	const goToPreviousPage = () => {
+        window.history.back();
+    };
 
     return (
         <div className="detailsBanner">
@@ -54,6 +58,9 @@ const DetailsBanner = ({ video, crew }) => {
                             <div className="opacity-layer"></div>
                             <ContentWrapper>
                                 <div className="content">
+									<span className="text" onClick={goToPreviousPage}>
+										Go Back
+									</span> 
                                     <div className="left">
                                         {data.poster_path ? (
                                             <Img
