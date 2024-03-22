@@ -60,7 +60,7 @@ const DetailsBanner = ({ video, crew }) => {
                                 <div className="content">
 
 									<span className="goback" onClick={goBackPage}>
-										Go Back
+										<i class="bi bi-arrow-left"></i>Go Back
 									</span>
 
                                     <div className="left">
