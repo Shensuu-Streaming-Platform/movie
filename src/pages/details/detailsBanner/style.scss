@@ -42,21 +42,19 @@
     }
 	
 	.goBackWrapper {
-	  margin-top: 10px;
+	  margin-top: 10px; 
 	  margin-bottom: 10px; 
-	  display: flex; 
-	  justify-content: center; 
-	  align-items: center;
-	}
+	  display: inline-block; 
+	  cursor: pointer;
 
-	.goback {
-	  color: white; 
-	  font-size: 20px; 
-	  cursor: pointer; 
-	  transition: color 0.3s; 
+	  .goback {
+		color: white; 
+		font-size: 20px; 
+		transition: color 0.3s; 
 
-	  &:hover {
-		color: pink; 
+		&:hover {
+		  color: pink; 
+		}
 	  }
 	}
 
