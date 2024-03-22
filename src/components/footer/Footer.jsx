@@ -26,8 +26,8 @@ const Footer = () => {
         <footer className="footer">
             <ContentWrapper>
 			    <ul className="menuItems">
-                    <li className="menuItem" onClick={aboutPage}>About</li>
-					<li className="menuItem" onClick={serverStatus}>Server Status</li>
+                    <li className="menuItem" onClick={aboutPage}><i class="bi bi-info-circle"></i> About</li>
+					<li className="menuItem" onClick={serverStatus}><i class="bi bi-hdd-rack"></i> Server Status</li>
 				</ul>
 				<div className="infoText">
 					<h3>Disclaimer</h3>
