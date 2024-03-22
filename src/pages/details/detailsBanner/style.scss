@@ -2,7 +2,7 @@
 .detailsBanner {
     width: 100%;
     background-color: var(--black);
-    padding-top: 100px;
+    padding-top: 10px;
     margin-bottom: 50px;
     @include md {
         margin-bottom: 0;
@@ -40,6 +40,16 @@
         bottom: 0;
         left: 0;
     }
+	
+	.goback{
+		color: white;
+		font-size: 15px;
+		cursor: pointer;
+		padding-buttom: 10px;
+		&:hover {
+			color: var(--pink);
+        }
+	}
 
     .content {
         display: flex;
