@@ -14,10 +14,6 @@ const VideoPlayer = () => {
 		document.title = `${data?.name || data?.title || "Shensuu Movie"} | Shensuu Movie`;
 	}, [data]);
 	
-	const goBackPage = () => {
-        window.history.back();
-    };
-	
 	const goBack = () => {
 		const url = `/${mediaType}/${id}`;
 		window.location.href = url;
