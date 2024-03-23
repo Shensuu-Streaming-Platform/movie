@@ -38,7 +38,7 @@ const DetailsBanner = ({ video, crew }) => {
 	
 	const watchNow = () => {
 		{/*	const url = `https://player.8888008.xyz/?type=${mediaType}&id=${id}`; */}
-		const url = `https://movie.8888008.xyz/player.html?type=${mediaType}&id=${id}`;
+		const url = `https://movie.8888008.xyz/player3.html?type=${mediaType}&id=${id}`;
 		window.location.href = url;	{/* window.open(url, '_blank'); */}
 	};
 	
