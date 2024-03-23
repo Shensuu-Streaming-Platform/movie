@@ -6,19 +6,20 @@ import ContentWrapper from "../../components/contentWrapper/ContentWrapper";
 const VideoPlayer = () => {
     const { mediatype, id } = useParams();
 
+    // Constructing the iframe URL
     const iframeUrl = `https://shensuumovie.8888008.xyz/#/media/tmdb-${mediatype}-${id}`;
 
     return (
         <div className="videoPlayer">
             <ContentWrapper>
-                <iframe 
-                    title="Shensuu Movie"
-                    src={iframeUrl}
-                    width="100%"
-                    height="100%"
-                    frameBorder="0"
-                    allowFullScreen
-                />
+                <div className="videoWrapper">
+                    <iframe 
+                        title="Shensuu Movie"
+                        src={iframeUrl}
+                        frameBorder="0"
+                        allowFullScreen
+                    />
+                </div>
             </ContentWrapper>
         </div>
     );
