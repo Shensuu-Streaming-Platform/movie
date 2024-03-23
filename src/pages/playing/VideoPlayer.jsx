@@ -22,8 +22,8 @@ const VideoPlayer = () => {
     const iframeUrl = `https://shensuumovie.8888008.xyz/#/media/tmdb-${mediaType}-${id}`;
 
     return (
-		<div className="gobackcontent">
-			<span className="goback" onClick={goBackPage}>
+		<div className="videogoback">
+			<span className="gbackbutton" onClick={goBackPage}>
 				<i class="bi bi-arrow-bar-left"></i> Go Back
 			</span>
 		</div>
