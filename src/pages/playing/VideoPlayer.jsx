@@ -4,10 +4,10 @@ import "./style.scss";
 import ContentWrapper from "../../components/contentWrapper/ContentWrapper";
 
 const VideoPlayer = () => {
-    const { mediatype, id } = useParams();
+    const { mediaType, id } = useParams();
 
     // Constructing the iframe URL
-    const iframeUrl = `https://shensuumovie.8888008.xyz/#/media/tmdb-${mediatype}-${id}`;
+    const iframeUrl = `https://shensuumovie.8888008.xyz/#/media/tmdb-${mediaType}-${id}`;
 
     return (
         <div className="videoPlayer">
