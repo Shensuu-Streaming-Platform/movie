@@ -12,7 +12,7 @@ const HeroBanner = () => {
     const [background, setBackground] = useState("");
     const [query, setQuery] = useState("");
     const [greeting, setGreeting] = useState("");
-	const [subgreeting, setsubGreeting] = useState("");
+    const [subgreeting, setsubGreeting] = useState("");
     const navigate = useNavigate();
     const { url } = useSelector((state) => state.home);
     const { data, loading } = useFetch("/trending/all/day"); {/* /movie/upcoming */}
@@ -36,8 +36,8 @@ const HeroBanner = () => {
             setGreeting("Good Evening");
         }
     }, [greeting]);
-	
-	useEffect(() => {
+    
+    useEffect(() => {
         const currentHour = new Date().getHours();
         if (currentHour >= 5 && currentHour < 12) {
             setsubGreeting("Start your day with a feel-good film.");
@@ -52,26 +52,30 @@ const HeroBanner = () => {
         if (event.key === "Enter" && query.length > 0) {
             navigate(`/search/${query}`);
         }
-		if (event.type === "click" && query.length > 0) {
+        if (event.type === "click" && query.length > 0) {
             navigate(`/search/${query}`);
             event.preventDefault();
         }
     };
 
+    useEffect(() => {
+        document.title = "Shensuu Movie";
+    }, []);
+
     return (
         <div className="heroBanner">
-		{/* {!loading && ( */}
+        {/* {!loading && ( */}
                 <div className="backdrop-img">
-                    <Img src="/landscape.jpg" />	{/* <Img src={background} /> */}
+                    <Img src="/landscape.jpg" />    {/* <Img src={background} /> */}
                 </div> 
-		{/*    )}  */}
+        {/*    )}  */}
 
             <div className="opacity-layer"></div>
             <ContentWrapper>
                 <div className="heroBannerContent">
                     <span className="title">{greeting}</span>
                     <span className="subTitle">
-						{subgreeting}
+                        {subgreeting}
                     </span>
                     <div className="searchInput">
                         <input
