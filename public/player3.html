@@ -72,10 +72,15 @@
     logoImg.setAttribute('alt', 'Shensuu Movie');
 
     // Add event listener to the logo image
-    logoImg.addEventListener('click', function() {
-        history.back(); // Go to the previous page
-    });
+    // logoImg.addEventListener('click', function() {
+    //    history.back(); // Go to the previous page
+    //});
+	
+	logoImg.addEventListener('click', function() {
+		window.location.href = 'https://movie.8888008.xyz'; // Go to the specified URL
+	});
 
+	
     logoContainer.appendChild(logoImg);
     document.getElementById('video-container').appendChild(logoContainer);
 
