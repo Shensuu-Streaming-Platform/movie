@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "./style.scss";
 import ContentWrapper from "../../components/contentWrapper/ContentWrapper";
 
 const VideoPlayer = () => {
     const { mediaType, id } = useParams();
+	
+	const { data, loading } = useFetch(`/${mediaType}/${id}`);
+	
+	useEffect(() => {
+		document.title = `${data?.name || data?.title || "Shensuu Movie"} | Shensuu Movie`;
+	}, [data]);
+	
+	const goBackPage = () => {
+        window.history.back();
+    };
 
     // Constructing the iframe URL
     const iframeUrl = `https://shensuumovie.8888008.xyz/#/media/tmdb-${mediaType}-${id}`;
