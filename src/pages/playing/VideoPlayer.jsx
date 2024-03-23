@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import "./style.scss";
 import ContentWrapper from "../../components/contentWrapper/ContentWrapper";
 
-import useFetch from "../../../hooks/useFetch";
+import useFetch from "../../hooks/useFetch";
 
 const VideoPlayer = () => {
     const { mediaType, id } = useParams();
