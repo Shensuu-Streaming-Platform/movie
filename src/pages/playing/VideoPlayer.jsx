@@ -17,6 +17,11 @@ const VideoPlayer = () => {
 	const goBackPage = () => {
         window.history.back();
     };
+	
+	const goBack = () => {
+		const url = `/${mediaType}/${id}`;
+		window.location.href = url;
+	};
 
     // Constructing the iframe URL
     const iframeUrl = `https://shensuumovie.8888008.xyz/#/media/tmdb-${mediaType}-${id}`;
@@ -26,7 +31,7 @@ const VideoPlayer = () => {
 			<div className="videoPlayer">
 				<ContentWrapper>
 					<div className="videogoback">
-						<span className="gbackbutton" onClick={goBackPage}>
+						<span className="gbackbutton" onClick={goBack}>
 							<i class="bi bi-arrow-bar-left"></i> Go Back
 						</span>
 					</div>
