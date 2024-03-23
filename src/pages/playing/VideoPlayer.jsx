@@ -12,6 +12,11 @@ const VideoPlayer = () => {
     return (
         <div className="videoPlayer">
             <ContentWrapper>
+				<div className="gobackcontent">
+					<span className="goback" onClick={goBackPage}>
+						<i class="bi bi-arrow-bar-left"></i> Go Back
+					</span>
+				</div>
                 <div className="videoWrapper">
                     <iframe 
                         title="Shensuu Movie"
