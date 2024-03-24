@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml" href="/movix-logo.png" />
+    <title>Shensuu Movie</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        #video-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .logo-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            transform: translateY(70%);
+            z-index: 9999;
+        }
+        .logo-container img {
+            width: 120px; /* Adjust the size of the logo in top right if needed */
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div id="video-container">
+    <!-- Logo container will be inserted here -->
+    <iframe src="about:blank" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<script src="./script/player3.js"></script>
+
+</body>
+</html>
