@@ -68,6 +68,11 @@ const Header = () => {
 	const goToHome = () => {
         navigate("/");
     };
+	
+	const anime = () => {
+	const url = `https://anime.8888008.xyz`;
+	window.open(url, '_blank');	{/* window.location.href = url; */}
+	};
 
     const navigationHandler = (type) => {
         if (type === "movie") {
@@ -99,6 +104,9 @@ const Header = () => {
                         onClick={() => navigationHandler("tv")}
                     >
                         TV Shows
+                    </li>
+					<li className="menuItem" onClick={anime}>
+                        Anime
                     </li>
                     <li className="menuItem">
                         <HiOutlineSearch onClick={openSearch} />
