@@ -13,7 +13,7 @@ import SearchResult from "./pages/searchResult/SearchResult";
 import Explore from "./pages/explore/Explore";
 import PageNotFound from "./pages/404/PageNotFound";
 import About from "./pages/about/About";
-(/* import VideoPlayer from "./pages/playing/VideoPlayer"; */}
+{/* import VideoPlayer from "./pages/playing/VideoPlayer"; */}
 
 function App() {
     const dispatch = useDispatch();
