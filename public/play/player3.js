@@ -10,12 +10,28 @@ function getUrlParameter(name) {
 var type = getUrlParameter('type');
 var id = getUrlParameter('id');
 
-// Construct the proxy URL
-var proxyUrl = "https://shensuumovie.8888008.xyz/#/media/tmdb-" + type + "-" + id;
+// API URL
+var apiKey = '9b9243db9e1283068ea9874cb17d1ac1';
+var apiUrl = `https://api.themoviedb.org/3/${type}/${id}?api_key=${apiKey}`;
 
-// Create an iframe element to embed the content
-var iframe = document.querySelector('iframe');
-iframe.setAttribute('src', proxyUrl);
+// Fetch data from API
+fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+        // Set page title based on data from API
+        var pageTitle = data.name || data.title || 'Shensuu Movie';
+        document.title = pageTitle + " | Shensuu Movie";
+
+        // Construct the proxy URL
+        var proxyUrl = "https://shensuumovie.8888008.xyz/#/media/tmdb-" + type + "-" + id;
+
+        // Create an iframe element to embed the content
+        var iframe = document.querySelector('iframe');
+        iframe.setAttribute('src', proxyUrl);
+    })
+    .catch(error => {
+        console.error('Error fetching data from API:', error);
+    });
 
 // Append the logo to the video-container div
 var logoContainer = document.createElement('div');
