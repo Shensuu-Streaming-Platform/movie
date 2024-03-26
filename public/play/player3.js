@@ -23,7 +23,7 @@ fetch(apiUrl)
         document.title = pageTitle + " | Shensuu Movie";
 
         // Construct the proxy URL
-        var proxyUrl = "https://player.movie.8888008.xyz/#/media/tmdb-" + type + "-" + id;
+        var proxyUrl = "https://player-shensuumovie.vercel.app/#/media/tmdb-" + type + "-" + id;
 
         // Create an iframe element to embed the content
         var iframe = document.querySelector('iframe');
