@@ -14,7 +14,7 @@ const Footer = () => {
 	
 	const serverStatus = () => {
 	const url = `https://stats.uptimerobot.com/y8sQL00Dtj`;
-	window.location.href = url;	{/* window.open(url, '_blank'); */}
+	window.open(url, '_blank');	{/* window.open(url, '_blank'); */}
 	};
 	
 	const aboutPage = () => {
@@ -35,10 +35,10 @@ const Footer = () => {
 						</p>
 				</div>
                 <div className="infoText">
-                    © Shensuu Movie 2024
+                    © Shensuu Streaming Platform 2024
                 </div>
 				<div className="infoText">
-                    Version 19.4.2.2024
+                    Version 28.3.24
                 </div>
 				
                 {/* <div className="socialIcons">
