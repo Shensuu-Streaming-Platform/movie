@@ -38,7 +38,7 @@ const Footer = () => {
                     © Shensuu Streaming Platform 2024
                 </div>
 				<div className="infoText">
-                    Version 28.3.24
+                    Version 4.2.11
                 </div>
 				
                 {/* <div className="socialIcons">
