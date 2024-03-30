@@ -46,7 +46,7 @@ const Footer = () => {
 				
                 <div className="socialIcons">
 					<span className="icon">
-						<a href="https://github.com/Shensuu-Streaming-Platform"><i class="bi bi-github"></i></a>
+						<a href="https://github.com/Shensuu-Streaming-Platform" target="_blank"><i class="bi bi-github"></i></a>
 					</span>
 				
 				{/* <span className="icon">
