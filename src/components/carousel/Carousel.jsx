@@ -83,9 +83,9 @@ const Carousel = ({ data, loading, endpoint, title }) => {
                                                 1
                                             )}
 											/> */}
-                                        <Genres
+										{/* <Genres
                                             data={item.genre_ids.slice(0, 2)}
-                                        />
+                                        /> */}
                                     </div>
                                     <div className="textBlock">
                                         <span className="title">
