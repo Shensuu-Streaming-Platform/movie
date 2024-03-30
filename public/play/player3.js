@@ -38,7 +38,7 @@ var logoContainer = document.createElement('div');
 logoContainer.classList.add('logo-container');
 
 var logoImg = document.createElement('img');
-logoImg.setAttribute('src', '/movix-logo.svg'); 
+logoImg.setAttribute('src', './movix-logo.svg'); 
 logoImg.setAttribute('alt', 'Shensuu Movie');
 
 logoImg.addEventListener('click', function() {
