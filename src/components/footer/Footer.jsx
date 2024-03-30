@@ -14,7 +14,12 @@ const Footer = () => {
 	
 	const serverStatus = () => {
 	const url = `https://stats.uptimerobot.com/y8sQL00Dtj`;
-	window.open(url, '_blank');	{/* window.open(url, '_blank'); */}
+	window.open(url, '_blank');	
+	};
+	
+	const HLSDownload = () => {
+	const url = `https://dl.movie.8888008.xyz`;
+	window.open(url, '_blank');	
 	};
 	
 	const aboutPage = () => {
@@ -28,6 +33,7 @@ const Footer = () => {
 			    <ul className="menuItems">
                     <li className="menuItem" onClick={aboutPage}><i class="bi bi-info-circle"></i> About</li>
 					<li className="menuItem" onClick={serverStatus}><i class="bi bi-hdd-rack"></i> Server Status</li>
+					<li className="menuItem" onClick={HLSDownload}><i class="bi bi-cloud-arrow-down-fill"></i> HLS Download</li>
 				</ul>
 				<div className="infoText">
 					<h3>Disclaimer</h3>
@@ -37,12 +43,13 @@ const Footer = () => {
                 <div className="infoText">
                     © Shensuu Streaming Platform 2024
                 </div>
-				<div className="infoText">
-                    Version 4.2.11
-                </div>
 				
-                {/* <div className="socialIcons">
-                    <span className="icon">
+                <div className="socialIcons">
+					<span className="icon">
+						<a href="https://github.com/Shensuu-Streaming-Platform"><i class="bi bi-github"></i></a>
+					</span>
+				
+				{/* <span className="icon">
                         <FaFacebookF />
                     </span>
                     <span className="icon">
@@ -53,8 +60,8 @@ const Footer = () => {
                     </span>
                     <span className="icon">
                         <FaLinkedin />
-                    </span>
-                </div> */}
+					</span> */}
+                </div>
             </ContentWrapper>
         </footer>
     );
