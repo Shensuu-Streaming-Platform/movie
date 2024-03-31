@@ -19,7 +19,7 @@ const SeasonEpisodes = ({ mediaType, id }) => {
                         <img src={`https://image.tmdb.org/t/p/w500${episode.still_path}`} alt={episode.name} />
                         <div className="episode-info">
                             <div>
-                                <h4>Episode {episode.episode_number}: {episode.name}</h4>
+                                <span>Episode {episode.episode_number}: {episode.name}</span>
                                 <div>{episode.runtime || 'N/A'} minutes</div>
                             </div>
                         </div>
