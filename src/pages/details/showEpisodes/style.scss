@@ -13,14 +13,26 @@
         height: auto;
     }
 
-    .episode-info {
+    &-info {
         padding: 15px;
         display: flex;
         justify-content: space-between;
     }
 
-    .episode-description {
+    &-description {
         padding: 0 15px 15px 15px;
         font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .episode {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .episode {
+        width: 100%;
     }
 }
