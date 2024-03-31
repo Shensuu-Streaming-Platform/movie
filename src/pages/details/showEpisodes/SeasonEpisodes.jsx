@@ -9,7 +9,7 @@ const SeasonEpisodes = ({ mediaType, id }) => {
 
     useEffect(() => {
         fetchSeasons();
-    }, []);
+    }, [window.location.href]);
 
     useEffect(() => {
         if (mediaType !== "movie" && selectedSeason !== "") {
