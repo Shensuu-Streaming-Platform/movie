@@ -7,20 +7,19 @@ const api_key = import.meta.env.VITE_APP_TMDB_API;
 
 const SeasonEpisodes = ({ mediaType, id }) => {
     const [seasons, setSeasons] = useState([]);
-    const [selectedSeason, setSelectedSeason] = useState(""); // Initialize to empty string
+    const [selectedSeason, setSelectedSeason] = useState("");
     const [episodes, setEpisodes] = useState([]);
 	const { data, loading } = useFetch(`/${mediaType}/${id}`);
 
     useEffect(() => {
         fetchSeasons();
-		fetchEpisodes();
     }, [data]);
 
     useEffect(() => {
         if (mediaType !== "movie" && selectedSeason !== "") {
             fetchEpisodes(selectedSeason);
         } else {
-            setEpisodes([]); // Clear episodes if mediaType is "movie" or if selectedSeason is not set
+            setEpisodes([]);
         }
     }, [selectedSeason, mediaType]);
 
@@ -29,15 +28,9 @@ const SeasonEpisodes = ({ mediaType, id }) => {
             .then(response => response.json())
             .then(data => {
                 setSeasons(data.seasons);
-				
-				// Load episodes for season 0 by default, if not available load season 1
-				{/* const seasonZero = data.seasons.find(season => season.season_number === 0);
-                const defaultSeason = seasonZero ? seasonZero.season_number : 1;
-                setSelectedSeason(defaultSeason.toString()); */}
-				
-                // Load episodes for season 1 by default
                 const defaultSeason = data.seasons.find(season => season.season_number === 1);
                 setSelectedSeason(defaultSeason ? defaultSeason.season_number.toString() : "");
+                reloadSeasonOne(); // Call reloadSeasonOne after fetching seasons
             })
             .catch(error => console.error('Error fetching season list:', error));
     }
@@ -50,12 +43,8 @@ const SeasonEpisodes = ({ mediaType, id }) => {
             .then(data => {
                 const filteredEpisodes = data.episodes.filter(episode => episode.runtime !== null && episode.still_path !== null);
                 setEpisodes(filteredEpisodes);
-
-                // Get the ID of the selected season
                 const selectedSeasonData = seasons.find(season => season.season_number === parseInt(seasonNumber));
                 const seasonId = selectedSeasonData.id;
-
-                // Update state with the episode data
                 setEpisodes(filteredEpisodes.map(episode => ({
                     ...episode,
                     seasonId: seasonId,
@@ -71,6 +60,14 @@ const SeasonEpisodes = ({ mediaType, id }) => {
     const handleEpisodeClick = (seasonId, episodeId) => {
         const url = `/play?type=${mediaType}&id=${id}&season=${seasonId}&episode=${episodeId}`;
         window.location.href = url;
+    }
+
+    // Function to reload Season 1
+    const reloadSeasonOne = () => {
+        const seasonOne = seasons.find(season => season.season_number === 1);
+        if (seasonOne) {
+            fetchEpisodes(seasonOne.season_number);
+        }
     }
 
     return (
