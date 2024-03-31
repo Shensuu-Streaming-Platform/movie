@@ -46,7 +46,7 @@ const SeasonEpisodes = ({ mediaType, id }) => {
     return (
         <>
             <ContentWrapper>
-                <h2>Episodes</h2> {/* Added heading "Episodes" */}
+                <div className="epHeading">Episodes</div> 
                 <div id="seasons-dropdown-container">
                     <select id="seasons-dropdown" onChange={handleSeasonChange} value={selectedSeason}>
                         {seasons.map(season => (
