@@ -45,7 +45,6 @@ const SeasonEpisodes = ({ mediaType, id }) => {
 		<ContentWrapper>
             <div id="seasons-dropdown-container">
                 <select id="seasons-dropdown" onChange={handleSeasonChange} value={selectedSeason}>
-                    <option>Select a season</option>
                     {seasons.map(season => (
                         <option key={season.season_number} value={season.season_number}>Season {season.season_number}</option>
                     ))}
