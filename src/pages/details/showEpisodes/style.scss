@@ -17,15 +17,19 @@
 	margin-bottom: 25px;
 }
 
+.minutes-info{
+	color: #a3a3a3;
+	margin-top: 15px;
+}
+
 .episode {
-    background: #f0f0f0;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     overflow: hidden;
     display: flex;
     flex-direction: column;
     width: calc(33.333% - 20px);
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+	cursor: pointer;
 
     img {
         width: 100%;
@@ -41,6 +45,7 @@
     &-description {
         padding: 0 15px 15px 15px;
         font-size: 14px;
+		color: #a3a3a3;
     }
 }
 

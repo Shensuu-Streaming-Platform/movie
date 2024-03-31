@@ -61,7 +61,7 @@ const SeasonEpisodes = ({ mediaType, id }) => {
                             <div className="episode-info">
                                 <div>
                                     <h4>{episode.episode_number}. {episode.name}</h4>
-                                    <div>{episode.runtime || 'N/A'} minutes</div>
+                                    <div className="minutes-info">{episode.runtime || 'N/A'}m</div>
                                 </div>
                             </div>
                             <div className="episode-description">{episode.overview}</div>
