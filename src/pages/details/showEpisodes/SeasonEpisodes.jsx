@@ -35,7 +35,11 @@ const SeasonEpisodes = ({ mediaType, id }) => {
 
         fetch(`https://api.themoviedb.org/3/${mediaType}/${id}/season/${seasonNumber}?api_key=9b9243db9e1283068ea9874cb17d1ac1`)
             .then(response => response.json())
-            .then(data => setEpisodes(data.episodes))
+            .then(data => {
+                // Filter out episodes with null runtime
+                const filteredEpisodes = data.episodes.filter(episode => episode.runtime !== null);
+                setEpisodes(filteredEpisodes);
+            })
             .catch(error => console.error('Error fetching episodes:', error));
     }
 
