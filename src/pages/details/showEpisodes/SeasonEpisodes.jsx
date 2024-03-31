@@ -72,7 +72,7 @@ const SeasonEpisodes = ({ mediaType, id }) => {
 
     return (
         <ContentWrapper>
-            {mediaType !== "movie" && (
+            {!loading && mediaType !== "movie" && (
                 <>
                     <div className="epHeading">Episodes</div> 
                     <div id="seasons-dropdown-container">
