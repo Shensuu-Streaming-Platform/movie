@@ -9,6 +9,10 @@ const SeasonEpisodes = ({ mediaType, id }) => {
 
     useEffect(() => {
         fetchSeasons();
+        window.addEventListener("popstate", handlePopstate);
+        return () => {
+            window.removeEventListener("popstate", handlePopstate);
+        };
     }, []);
 
     useEffect(() => {
@@ -24,12 +28,6 @@ const SeasonEpisodes = ({ mediaType, id }) => {
             .then(response => response.json())
             .then(data => {
                 setSeasons(data.seasons);
-				
-				// Load episodes for season 0 by default, if not available load season 1
-				{/* const seasonZero = data.seasons.find(season => season.season_number === 0);
-                const defaultSeason = seasonZero ? seasonZero.season_number : 1;
-                setSelectedSeason(defaultSeason.toString()); */}
-				
                 // Load episodes for season 1 by default
                 const defaultSeason = data.seasons.find(season => season.season_number === 1);
                 setSelectedSeason(defaultSeason ? defaultSeason.season_number.toString() : "");
@@ -66,6 +64,11 @@ const SeasonEpisodes = ({ mediaType, id }) => {
     const handleEpisodeClick = (seasonId, episodeId) => {
         const url = `/play?type=${mediaType}&id=${id}&season=${seasonId}&episode=${episodeId}`;
         window.location.href = url;
+    }
+
+    const handlePopstate = () => {
+        // Reload episodes when the page changes
+        fetchEpisodes(selectedSeason);
     }
 
     return (
