@@ -4,7 +4,7 @@ import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
 
 const api_key = import.meta.env.VITE_APP_TMDB_API;
 
-const SeasonEpisodes = ({ mediaType, id }) => {
+const SeasonEpisodes = ({ mediaType, id, loading }) => {
     const [seasons, setSeasons] = useState([]);
     const [selectedSeason, setSelectedSeason] = useState(""); // Initialize to empty string
     const [episodes, setEpisodes] = useState([]);
