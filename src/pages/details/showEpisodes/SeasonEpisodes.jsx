@@ -8,6 +8,7 @@ const SeasonEpisodes = ({ mediaType, id }) => {
     const [seasons, setSeasons] = useState([]);
     const [selectedSeason, setSelectedSeason] = useState(""); // Initialize to empty string
     const [episodes, setEpisodes] = useState([]);
+    const [dataLoaded, setDataLoaded] = useState(false); // Track data loading
 
     useEffect(() => {
         fetchSeasons();
@@ -19,22 +20,16 @@ const SeasonEpisodes = ({ mediaType, id }) => {
         } else {
             setEpisodes([]); // Clear episodes if mediaType is "movie" or if selectedSeason is not set
         }
-    }, [selectedSeason, mediaType]);
+    }, [selectedSeason, mediaType, dataLoaded]); // Add dataLoaded to dependencies
 
     const fetchSeasons = () => {
         fetch(`https://api.themoviedb.org/3/${mediaType}/${id}?api_key=${api_key}`)
             .then(response => response.json())
             .then(data => {
                 setSeasons(data.seasons);
-				
-				// Load episodes for season 0 by default, if not available load season 1
-				{/* const seasonZero = data.seasons.find(season => season.season_number === 0);
-                const defaultSeason = seasonZero ? seasonZero.season_number : 1;
-                setSelectedSeason(defaultSeason.toString()); */}
-				
-                // Load episodes for season 1 by default
                 const defaultSeason = data.seasons.find(season => season.season_number === 1);
                 setSelectedSeason(defaultSeason ? defaultSeason.season_number.toString() : "");
+                setDataLoaded(true); // Set dataLoaded to true after fetching seasons
             })
             .catch(error => console.error('Error fetching season list:', error));
     }
@@ -46,17 +41,13 @@ const SeasonEpisodes = ({ mediaType, id }) => {
             .then(response => response.json())
             .then(data => {
                 const filteredEpisodes = data.episodes.filter(episode => episode.runtime !== null && episode.still_path !== null);
-                setEpisodes(filteredEpisodes);
-
-                // Get the ID of the selected season
                 const selectedSeasonData = seasons.find(season => season.season_number === parseInt(seasonNumber));
                 const seasonId = selectedSeasonData.id;
-
-                // Update state with the episode data
                 setEpisodes(filteredEpisodes.map(episode => ({
                     ...episode,
                     seasonId: seasonId,
                 })));
+                setDataLoaded(true); // Set dataLoaded to true after fetching episodes
             })
             .catch(error => console.error('Error fetching episodes:', error));
     }
