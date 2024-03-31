@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./style.scss";
 import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
+import useFetch from "../../../hooks/useFetch";
 
 const api_key = import.meta.env.VITE_APP_TMDB_API;
 
@@ -8,10 +9,12 @@ const SeasonEpisodes = ({ mediaType, id }) => {
     const [seasons, setSeasons] = useState([]);
     const [selectedSeason, setSelectedSeason] = useState(""); // Initialize to empty string
     const [episodes, setEpisodes] = useState([]);
+	const { data, loading } = useFetch(`/${mediaType}/${id}`);
 
     useEffect(() => {
         fetchSeasons();
-    }, []);
+		fetchEpisodes();
+    }, [data]);
 
     useEffect(() => {
         if (mediaType !== "movie" && selectedSeason !== "") {
