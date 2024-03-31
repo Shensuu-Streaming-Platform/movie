@@ -12,12 +12,9 @@ const SeasonEpisodes = ({ mediaType, id }) => {
 	const { data, loading } = useFetch(`/${mediaType}/${id}`);
 
     useEffect(() => {
-        if (!loading && data) {
-            fetchSeasons();
-			fetchEpisodes();
-			defaultSeason();
-        }
-    }, [data, loading]);
+        fetchSeasons();
+		fetchEpisodes();
+    }, []);
 
     useEffect(() => {
         if (mediaType !== "movie" && selectedSeason !== "") {
