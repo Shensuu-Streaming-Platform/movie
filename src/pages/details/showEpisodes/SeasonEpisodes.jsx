@@ -38,7 +38,7 @@ const SeasonEpisodes = ({ mediaType, id }) => {
         fetch(`https://api.themoviedb.org/3/${mediaType}/${id}/season/${seasonNumber}?api_key=9b9243db9e1283068ea9874cb17d1ac1`)
             .then(response => response.json())
             .then(data => {
-                const filteredEpisodes = data.episodes.filter(episode => episode.runtime !== null);
+                const filteredEpisodes = data.episodes.filter(episode => episode.runtime !== null && episode.still_path !== null);
                 setEpisodes(filteredEpisodes);
 
                 // Get the ID of the selected season
