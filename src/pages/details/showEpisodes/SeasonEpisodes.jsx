@@ -15,6 +15,7 @@ const SeasonEpisodes = ({ mediaType, id }) => {
         if (!loading && data) {
             fetchSeasons();
 			fetchEpisodes();
+			defaultSeason();
         }
     }, [data, loading]);
 
