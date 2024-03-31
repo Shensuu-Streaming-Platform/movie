@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./style.scss";
 import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
 
-const api_key = import.meta.env.VITE_APP_TMDB_TOKEN;
+const api_key = import.meta.env.VITE_APP_TMDB_API;
 
 const SeasonEpisodes = ({ mediaType, id }) => {
     const [seasons, setSeasons] = useState([]);
