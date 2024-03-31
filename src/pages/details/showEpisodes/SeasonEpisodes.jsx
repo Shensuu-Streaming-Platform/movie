@@ -51,6 +51,11 @@ const SeasonEpisodes = ({ mediaType, id }) => {
         setSelectedSeason(event.target.value);
     }
 
+    const handleEpisodeClick = (seasonNumber, episodeNumber) => {
+        const url = `https://player.movie.8888008.xyz/#/media/tmdb-${mediaType}-${id}/${seasonNumber}/${episodeNumber}`;
+        window.location.href = url;
+    }
+
     return (
         <>
             <ContentWrapper>
@@ -66,7 +71,7 @@ const SeasonEpisodes = ({ mediaType, id }) => {
                         </div>
                         <div id="episodes-container">
                             {episodes.map(episode => (
-                                <div key={episode.id} className="episode">
+                                <a key={episode.id} className="episode" onClick={() => handleEpisodeClick(selectedSeason, episode.episode_number)}>
                                     <img src={`https://image.tmdb.org/t/p/w500${episode.still_path}`} alt={episode.name} />
                                     <div className="episode-info">
                                         <div>
@@ -75,7 +80,7 @@ const SeasonEpisodes = ({ mediaType, id }) => {
                                         </div>
                                     </div>
                                     <div className="episode-description">{episode.overview}</div>
-                                </div>
+                                </a>
                             ))}
                         </div>
                     </>
