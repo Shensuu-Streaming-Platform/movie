@@ -1,42 +1,36 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
 import "./style.scss";
 import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
 
 const SeasonEpisodes = ({ mediaType, id }) => {
     const [seasons, setSeasons] = useState([]);
-    const [selectedSeason, setSelectedSeason] = useState("");
+    const [selectedSeason, setSelectedSeason] = useState(""); // Initialize to empty string
     const [episodes, setEpisodes] = useState([]);
-    const history = useHistory();
 
     useEffect(() => {
         fetchSeasons();
-    }, [id]); // Reload when id changes
+    }, []);
 
     useEffect(() => {
         if (mediaType !== "movie" && selectedSeason !== "") {
             fetchEpisodes(selectedSeason);
         } else {
-            setEpisodes([]);
+            setEpisodes([]); // Clear episodes if mediaType is "movie" or if selectedSeason is not set
         }
     }, [selectedSeason, mediaType]);
-
-    useEffect(() => {
-        // Listen for route changes and reload the component
-        const unlisten = history.listen(() => {
-            window.location.reload();
-        });
-
-        return () => {
-            unlisten(); // Cleanup function
-        };
-    }, [history]);
 
     const fetchSeasons = () => {
         fetch(`https://api.themoviedb.org/3/${mediaType}/${id}?api_key=9b9243db9e1283068ea9874cb17d1ac1`)
             .then(response => response.json())
             .then(data => {
                 setSeasons(data.seasons);
+				
+				// Load episodes for season 0 by default, if not available load season 1
+				{/* const seasonZero = data.seasons.find(season => season.season_number === 0);
+                const defaultSeason = seasonZero ? seasonZero.season_number : 1;
+                setSelectedSeason(defaultSeason.toString()); */}
+				
+                // Load episodes for season 1 by default
                 const defaultSeason = data.seasons.find(season => season.season_number === 1);
                 setSelectedSeason(defaultSeason ? defaultSeason.season_number.toString() : "");
             })
@@ -50,8 +44,13 @@ const SeasonEpisodes = ({ mediaType, id }) => {
             .then(response => response.json())
             .then(data => {
                 const filteredEpisodes = data.episodes.filter(episode => episode.runtime !== null && episode.still_path !== null);
+                setEpisodes(filteredEpisodes);
+
+                // Get the ID of the selected season
                 const selectedSeasonData = seasons.find(season => season.season_number === parseInt(seasonNumber));
                 const seasonId = selectedSeasonData.id;
+
+                // Update state with the episode data
                 setEpisodes(filteredEpisodes.map(episode => ({
                     ...episode,
                     seasonId: seasonId,
