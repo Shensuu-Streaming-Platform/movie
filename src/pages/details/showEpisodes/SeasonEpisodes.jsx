@@ -14,6 +14,7 @@ const SeasonEpisodes = ({ mediaType, id }) => {
     useEffect(() => {
         fetchSeasons();
 		fetchEpisodes();
+		handleEpisodeClick();
     }, [data]);
 
     useEffect(() => {
