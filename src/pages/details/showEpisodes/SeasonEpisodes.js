@@ -13,12 +13,6 @@ const SeasonEpisodes = ({ mediaType, id }) => {
 
     return (
         <>
-            <div className="seasons-dropdown-container">
-                <select id="seasons-dropdown" onChange={handleSeasonChange} value={seasonNumber}>
-                    {showData?.seasons?.map((season) => (
-                    ))}
-                </select>
-            </div>
             <div className="episodes-container">
                 {seasonData?.episodes?.map((episode) => (
                     <div key={episode.id} className="episode">
