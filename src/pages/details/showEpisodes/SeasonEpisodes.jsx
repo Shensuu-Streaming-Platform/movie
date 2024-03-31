@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from "react";
 import "./style.scss";
 import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
-import { useParams } from "react-router-dom";
 
-const SeasonEpisodes = ({ mediaType }) => {
-    const { id } = useParams();
+const SeasonEpisodes = ({ mediaType, id }) => {
     const [seasons, setSeasons] = useState([]);
     const [selectedSeason, setSelectedSeason] = useState(""); // Initialize to empty string
     const [episodes, setEpisodes] = useState([]);
 
     useEffect(() => {
         fetchSeasons();
-    }, [id]);
+    }, []);
 
     useEffect(() => {
         if (mediaType !== "movie" && selectedSeason !== "") {
@@ -26,6 +24,12 @@ const SeasonEpisodes = ({ mediaType }) => {
             .then(response => response.json())
             .then(data => {
                 setSeasons(data.seasons);
+				
+				// Load episodes for season 0 by default, if not available load season 1
+				{/* const seasonZero = data.seasons.find(season => season.season_number === 0);
+                const defaultSeason = seasonZero ? seasonZero.season_number : 1;
+                setSelectedSeason(defaultSeason.toString()); */}
+				
                 // Load episodes for season 1 by default
                 const defaultSeason = data.seasons.find(season => season.season_number === 1);
                 setSelectedSeason(defaultSeason ? defaultSeason.season_number.toString() : "");
