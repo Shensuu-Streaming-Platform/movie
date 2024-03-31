@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import useFetch from "../../../hooks/useFetch";
 
-const Recommendation = ({ mediaType, id }) => {
+const SeasonEpisodes = ({ mediaType, id }) => {
     const [selectedSeason, setSelectedSeason] = useState('');
     const [seasons, setSeasons] = useState([]);
     const { data: episodesData, loading: episodesLoading, error: episodesError } = useFetch(
@@ -52,4 +52,4 @@ const Recommendation = ({ mediaType, id }) => {
     );
 };
 
-export default Recommendation;
+export default SeasonEpisodes;
