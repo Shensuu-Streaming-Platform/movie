@@ -1,21 +1,17 @@
 import React, { useState, useEffect } from "react";
 import "./style.scss";
 import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
-import { useSelector } from "react-redux";
-import useFetch from "../../../hooks/useFetch";
+import { useParams } from "react-router-dom";
 
-const SeasonEpisodes = ({ mediaType, id }) => {
+const SeasonEpisodes = ({ mediaType }) => {
+    const { id } = useParams();
     const [seasons, setSeasons] = useState([]);
     const [selectedSeason, setSelectedSeason] = useState(""); // Initialize to empty string
     const [episodes, setEpisodes] = useState([]);
-    const { url } = useSelector((state) => state.home);
-    const { data, loading } = useFetch(`/${mediaType}/${id}`);
 
     useEffect(() => {
-        if (data) {
-            fetchSeasons();
-        }
-    }, [data, url]);
+        fetchSeasons();
+    }, [id]);
 
     useEffect(() => {
         if (mediaType !== "movie" && selectedSeason !== "") {
