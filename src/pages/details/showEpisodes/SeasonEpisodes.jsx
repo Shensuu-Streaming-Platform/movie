@@ -6,10 +6,13 @@ const SeasonEpisodes = ({ mediaType, id }) => {
     const [seasons, setSeasons] = useState([]);
     const [selectedSeason, setSelectedSeason] = useState(""); // Initialize to empty string
     const [episodes, setEpisodes] = useState([]);
+	
+	const { url } = useSelector((state) => state.home);
+	const { data, loading } = useFetch(`/${mediaType}/${id}`);
 
     useEffect(() => {
         fetchSeasons();
-    }, []);
+    }, [data, url]);
 
     useEffect(() => {
         if (mediaType !== "movie" && selectedSeason !== "") {
