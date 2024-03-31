@@ -24,10 +24,15 @@ const SeasonEpisodes = ({ mediaType, id }) => {
             .then(response => response.json())
             .then(data => {
                 setSeasons(data.seasons);
-                // Load episodes for season 0 by default, if not available load season 1
-                const seasonZero = data.seasons.find(season => season.season_number === 0);
+				
+				// Load episodes for season 0 by default, if not available load season 1
+				{/* const seasonZero = data.seasons.find(season => season.season_number === 0);
                 const defaultSeason = seasonZero ? seasonZero.season_number : 1;
-                setSelectedSeason(defaultSeason.toString());
+                setSelectedSeason(defaultSeason.toString()); */}
+				
+                // Load episodes for season 1 by default
+                const defaultSeason = data.seasons.find(season => season.season_number === 1);
+                setSelectedSeason(defaultSeason ? defaultSeason.season_number.toString() : "");
             })
             .catch(error => console.error('Error fetching season list:', error));
     }
