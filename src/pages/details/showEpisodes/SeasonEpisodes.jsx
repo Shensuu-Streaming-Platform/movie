@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import "./style.scss";
 import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
 
+const api_key = import.meta.env.VITE_APP_TMDB_TOKEN;
+
 const SeasonEpisodes = ({ mediaType, id }) => {
     const [seasons, setSeasons] = useState([]);
     const [selectedSeason, setSelectedSeason] = useState(""); // Initialize to empty string
@@ -20,7 +22,7 @@ const SeasonEpisodes = ({ mediaType, id }) => {
     }, [selectedSeason, mediaType]);
 
     const fetchSeasons = () => {
-        fetch(`https://api.themoviedb.org/3/${mediaType}/${id}?api_key=9b9243db9e1283068ea9874cb17d1ac1`)
+        fetch(`https://api.themoviedb.org/3/${mediaType}/${id}?api_key=${api_key}`)
             .then(response => response.json())
             .then(data => {
                 setSeasons(data.seasons);
@@ -40,7 +42,7 @@ const SeasonEpisodes = ({ mediaType, id }) => {
     const fetchEpisodes = (seasonNumber) => {
         if (!seasonNumber || seasonNumber === "Select a season") return;
 
-        fetch(`https://api.themoviedb.org/3/${mediaType}/${id}/season/${seasonNumber}?api_key=9b9243db9e1283068ea9874cb17d1ac1`)
+        fetch(`https://api.themoviedb.org/3/${mediaType}/${id}/season/${seasonNumber}?api_key=${api_key}`)
             .then(response => response.json())
             .then(data => {
                 const filteredEpisodes = data.episodes.filter(episode => episode.runtime !== null && episode.still_path !== null);
