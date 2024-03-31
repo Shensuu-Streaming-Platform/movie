@@ -47,7 +47,7 @@ const Carousel = ({ data, loading, endpoint, title }) => {
     };
 	
 	const Details = () => {
-		const url = `/${item.media_type || endpoint}/${item.id}`;
+		const url = `/${mediaType}/${id}`;
 		window.location.href = url;
 	};
 
