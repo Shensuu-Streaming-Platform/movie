@@ -60,7 +60,8 @@ const SeasonEpisodes = ({ mediaType, id }) => {
     }
 
     const handleEpisodeClick = (seasonId, episodeId) => {
-        const url = `https://player.movie.8888008.xyz/#/media/tmdb-${mediaType}-${id}/${seasonId}/${episodeId}`;
+        {/* const url = `https://player.movie.8888008.xyz/#/media/tmdb-${mediaType}-${id}/${seasonId}/${episodeId}`; */}
+		const url = `/play?type=${mediaType}&id=${id}&season=${seasonId}&episode=${episodeId}`;
         window.location.href = url;
     }
 
