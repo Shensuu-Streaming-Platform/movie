@@ -45,11 +45,6 @@ const Carousel = ({ data, loading, endpoint, title }) => {
             </div>
         );
     };
-	
-	const Details = () => {
-		const url = `/${mediaType}/${id}`;
-		window.location.href = url;
-	};
 
     return (
         <div className="carousel">
@@ -73,7 +68,13 @@ const Carousel = ({ data, loading, endpoint, title }) => {
                                 <div
                                     key={item.id}
                                     className="carouselItem"
-                                    onClick={Details}
+                                    onClick={() =>
+                                        navigate(
+                                            `/${item.media_type || endpoint}/${
+                                                item.id
+                                            }`
+                                        )
+                                    }
                                 >
                                     <div className="posterBlock">
                                         <Img src={posterUrl} />
