@@ -4,7 +4,7 @@ import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
 
 const SeasonEpisodes = ({ mediaType, id }) => {
     const [seasons, setSeasons] = useState([]);
-    const [selectedSeason, setSelectedSeason] = useState("1"); // Default to season 1
+    const [selectedSeason, setSelectedSeason] = useState(""); // Initialize to empty string
     const [episodes, setEpisodes] = useState([]);
 
     useEffect(() => {
@@ -12,10 +12,10 @@ const SeasonEpisodes = ({ mediaType, id }) => {
     }, []);
 
     useEffect(() => {
-        if (mediaType !== "movie") {
+        if (mediaType !== "movie" && selectedSeason !== "") {
             fetchEpisodes(selectedSeason);
         } else {
-            setEpisodes([]); // Clear episodes if mediaType is "movie"
+            setEpisodes([]); // Clear episodes if mediaType is "movie" or if selectedSeason is not set
         }
     }, [selectedSeason, mediaType]);
 
@@ -24,11 +24,10 @@ const SeasonEpisodes = ({ mediaType, id }) => {
             .then(response => response.json())
             .then(data => {
                 setSeasons(data.seasons);
-                // Load episodes for season 1 by default
-                const season1 = data.seasons.find(season => season.season_number === 1);
-                if (season1) {
-                    setSelectedSeason(season1.season_number.toString());
-                }
+                // Load episodes for season 0 by default, if not available load season 1
+                const seasonZero = data.seasons.find(season => season.season_number === 0);
+                const defaultSeason = seasonZero ? seasonZero.season_number : 1;
+                setSelectedSeason(defaultSeason.toString());
             })
             .catch(error => console.error('Error fetching season list:', error));
     }
@@ -60,8 +59,7 @@ const SeasonEpisodes = ({ mediaType, id }) => {
     }
 
     const handleEpisodeClick = (seasonId, episodeId) => {
-        {/* const url = `https://player.movie.8888008.xyz/#/media/tmdb-${mediaType}-${id}/${seasonId}/${episodeId}`; */}
-		const url = `/play?type=${mediaType}&id=${id}&season=${seasonId}&episode=${episodeId}`;
+        const url = `/play?type=${mediaType}&id=${id}&season=${seasonId}&episode=${episodeId}`;
         window.location.href = url;
     }
 
