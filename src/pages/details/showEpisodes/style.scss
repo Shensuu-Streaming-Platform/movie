@@ -1,10 +1,14 @@
+.episodes-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
 .episode {
     background: #f0f0f0;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
     width: calc(33.333% - 20px);
     margin-bottom: 20px;
 
@@ -23,16 +27,12 @@
         padding: 0 15px 15px 15px;
         font-size: 14px;
     }
-}
 
-@media (max-width: 768px) {
-    .episode {
+    @media (max-width: 768px) {
         width: calc(50% - 20px);
     }
-}
 
-@media (max-width: 480px) {
-    .episode {
+    @media (max-width: 480px) {
         width: 100%;
     }
 }
