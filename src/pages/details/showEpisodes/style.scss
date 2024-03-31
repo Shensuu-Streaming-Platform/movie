@@ -5,7 +5,7 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    width: calc(33.333% - 20px); /* Adjusted width for three columns */
+    width: calc(33.333% - 20px);
     margin-bottom: 20px;
 
     img {
@@ -27,12 +27,12 @@
 
 @media (max-width: 768px) {
     .episode {
-        width: calc(50% - 20px); /* Two columns on smaller screens */
+        width: calc(50% - 20px);
     }
 }
 
 @media (max-width: 480px) {
     .episode {
-        width: 100%; /* Single column on even smaller screens */
+        width: 100%;
     }
 }
