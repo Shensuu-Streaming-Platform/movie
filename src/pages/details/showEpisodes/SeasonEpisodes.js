@@ -23,31 +23,32 @@ const SeasonEpisodes = ({ mediaType, id }) => {
         setSelectedSeason(event.target.value);
     };
 
+    if (seasonsLoading || episodesLoading) return <div>Loading...</div>;
+    if (seasonsError || episodesError) return <div>Error fetching data</div>;
+
     return (
         <div>
-			<ContentWrapper>
-				<div>
-					<select value={selectedSeason} onChange={handleSeasonChange}>
-						{seasons.map(season => (
-							<option key={season.id} value={season.season_number}>Season {season.season_number}</option>
-						))}
-					</select>
-				</div>
-				<div>
-					{episodesData && episodesData.episodes.map(episode => (
-						<div key={episode.id} className="episode">
-							<img src={`https://image.tmdb.org/t/p/w500${episode.still_path}`} alt={episode.name} />
-							<div className="episode-info">
-								<div>
-									<h4>Episode {episode.episode_number}: {episode.name}</h4>
-									<div>{episode.runtime || 'N/A'} minutes</div>
-								</div>
-							</div>
-							<div className="episode-description">{episode.overview}</div>
-						</div>
-					))}
-				</div>
-			</ContentWrapper>
+            <div>
+                <select value={selectedSeason} onChange={handleSeasonChange}>
+                    {seasons.map(season => (
+                        <option key={season.id} value={season.season_number}>Season {season.season_number}</option>
+                    ))}
+                </select>
+            </div>
+            <div>
+                {episodesData && episodesData.episodes.map(episode => (
+                    <div key={episode.id} className="episode">
+                        <img src={`https://image.tmdb.org/t/p/w500${episode.still_path}`} alt={episode.name} />
+                        <div className="episode-info">
+                            <div>
+                                <h4>Episode {episode.episode_number}: {episode.name}</h4>
+                                <div>{episode.runtime || 'N/A'} minutes</div>
+                            </div>
+                        </div>
+                        <div className="episode-description">{episode.overview}</div>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };
