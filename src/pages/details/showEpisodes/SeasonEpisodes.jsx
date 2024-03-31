@@ -4,7 +4,7 @@ import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
 
 const api_key = import.meta.env.VITE_APP_TMDB_API;
 
-const SeasonEpisodes = ({ mediaType, id, loading }) => {
+const SeasonEpisodes = ({ mediaType, id }) => {
     const [seasons, setSeasons] = useState([]);
     const [selectedSeason, setSelectedSeason] = useState(""); // Initialize to empty string
     const [episodes, setEpisodes] = useState([]);
@@ -72,7 +72,7 @@ const SeasonEpisodes = ({ mediaType, id, loading }) => {
 
     return (
         <ContentWrapper>
-            {!loading && mediaType !== "movie" && (
+            {mediaType !== "movie" && (
                 <>
                     <div className="epHeading">Episodes</div> 
                     <div id="seasons-dropdown-container">
