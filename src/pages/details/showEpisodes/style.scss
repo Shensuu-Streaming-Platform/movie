@@ -1,7 +1,7 @@
 #episodes-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch; 
 	margin-bottom: 25px;
@@ -17,17 +17,21 @@
 	margin-bottom: 25px;
 }
 
+.episode-time-title{
+	display: grid;
+    grid-template-columns: 90% 10%;
+}
+
 .ep-title{
 	color: white;
 }
 
 .minutes-info{
 	color: #a3a3a3;
-	margin-top: 15px;
 }
 
 #seasons-dropdown{
-	background: #181818;
+	background: #04152d;
     color: #fff;
     cursor: pointer;
     font-size: 18px;
@@ -35,6 +39,7 @@
     line-height: 27px;
     outline-offset: 3px;
     padding: 7px 30px 7px 0;
+	border: none;
 }
 
 .episode {
@@ -45,6 +50,7 @@
     width: calc(33.333% - 20px);
     margin-bottom: 15px;
 	cursor: pointer;
+	box-shadow: 0px 2px 5px rgb(167 164 164 / 10%);
 
     img {
         width: 100%;

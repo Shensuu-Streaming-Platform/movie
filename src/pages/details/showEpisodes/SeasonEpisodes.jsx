@@ -82,7 +82,7 @@ const SeasonEpisodes = ({ mediaType, id }) => {
                             <a key={episode.id} className="episode" onClick={() => handleEpisodeClick(episode.seasonId, episode.id)}>
                                 <img src={`https://image.tmdb.org/t/p/w500${episode.still_path}`} alt={episode.name} />
                                 <div className="episode-info">
-                                    <div>
+                                    <div className="episode-time-title">
                                         <h4 className="ep-title">{episode.episode_number}. {episode.name}</h4>
                                         <div className="minutes-info">{episode.runtime || 'N/A'}m</div>
                                     </div>
