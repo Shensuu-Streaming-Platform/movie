@@ -73,29 +73,31 @@ const SeasonEpisodes = ({ mediaType, id }) => {
     return (
         <ContentWrapper>
             {mediaType !== "movie" && (
-                <>
-                    <div className="epHeading">Episodes</div> 
-                    <div id="seasons-dropdown-container">
-                        <select id="seasons-dropdown" onChange={handleSeasonChange} value={selectedSeason}>
-                            {seasons.map(season => (
-                                <option key={season.season_number} value={season.season_number}>{`Season ${season.season_number}`}</option>
-                            ))}
-                        </select>
-                    </div>
-                    <div id="episodes-container">
-                        {episodes.map(episode => (
-                            <a key={episode.id} className="episode" onClick={() => handleEpisodeClick(episode.seasonId, episode.id)}>
-                                <img src={`https://image.tmdb.org/t/p/w500${episode.still_path}`} alt={episode.name} />
-                                <div className="episode-info">
-                                    <div className="episode-time-title">
-                                        <h4 className="ep-title">{episode.episode_number}. {episode.name}</h4>
-                                        <div className="minutes-info">{episode.runtime || 'N/A'}m</div>
-                                    </div>
-                                </div>
-                                <div className="episode-description">{episode.overview}</div>
-                            </a>
-                        ))}
-                    </div>
+                <>	
+					<div className="seasonEpisode">
+						<div className="epHeading">Episodes</div> 
+						<div id="seasons-dropdown-container">
+							<select id="seasons-dropdown" onChange={handleSeasonChange} value={selectedSeason}>
+								{seasons.map(season => (
+									<option key={season.season_number} value={season.season_number}>{`Season ${season.season_number}`}</option>
+								))}
+							</select>
+						</div>
+						<div id="episodes-container">
+							{episodes.map(episode => (
+								<a key={episode.id} className="episode" onClick={() => handleEpisodeClick(episode.seasonId, episode.id)}>
+									<img src={`https://image.tmdb.org/t/p/w500${episode.still_path}`} alt={episode.name} />
+									<div className="episode-info">
+										<div className="episode-time-title">
+											<h4 className="ep-title">{episode.episode_number}. {episode.name}</h4>
+											<div className="minutes-info">{episode.runtime || 'N/A'}m</div>
+										</div>
+									</div>
+									<div className="episode-description">{episode.overview}</div>
+								</a>
+							))}
+						</div>
+					</div>
                 </>
             )}
         </ContentWrapper>

@@ -1,82 +1,88 @@
-#episodes-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch; 
-	margin-bottom: 25px;
-}
+@import "../../../mixins.scss";
 
-.epHeading{
-	font-size: 24px;
-	color: white;
-	margin-bottom: 25px;
-}
+.seasonEpisode{
+	position: relative;
 
-#seasons-dropdown-container{
-	margin-bottom: 25px;
-}
+	#episodes-container {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch; 
+		margin-bottom: 25px;
+	}
 
-.episode-time-title{
-	display: grid;
-    grid-template-columns: 90% 10%;
-}
+	.epHeading{
+		font-size: 24px;
+		color: white;
+		margin-bottom: 25px;
+	}
 
-.ep-title{
-	color: white;
-}
+	#seasons-dropdown-container{
+		margin-bottom: 25px;
+	}
 
-.minutes-info{
-	color: #a3a3a3;
-}
+	.episode-time-title{
+		display: grid;
+		grid-template-columns: 90% 10%;
+	}
 
-#seasons-dropdown{
-	background: #04152d;
-    color: #fff;
-    cursor: pointer;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 27px;
-    outline-offset: 3px;
-    padding: 7px 30px 7px 0;
-	border: none;
-	outline: none;
-}
+	.ep-title{
+		color: white;
+	}
 
-.episode {
-    border-radius: 8px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    width: calc(33.333% - 20px);
-    margin-bottom: 15px;
-	cursor: pointer;
-	box-shadow: 0px 2px 5px rgb(167 164 164 / 10%);
-
-    img {
-        width: 100%;
-        height: auto;
-    }
-
-    &-info {
-        padding: 15px;
-    }
-
-    &-description {
-        padding: 0 15px 15px 15px;
-        font-size: 14px;
+	.minutes-info{
 		color: #a3a3a3;
-    }
-}
+	}
 
-@media (max-width: 768px) {
-    .episode {
-        width: calc(50% - 20px);
-    }
-}
+	#seasons-dropdown{
+		background: #04152d;
+		color: #fff;
+		cursor: pointer;
+		font-size: 20px;
+		font-weight: 400;
+		line-height: 27px;
+		outline-offset: 3px;
+		padding: 7px 30px 7px 0;
+		border: none;
+		outline: none;
+	}
 
-@media (max-width: 480px) {
-    .episode {
-        width: 100%;
-    }
+	.episode {
+		border-radius: 8px;
+		overflow: hidden;
+		display: flex;
+		flex-direction: column;
+		width: calc(33.333% - 20px);
+		margin-bottom: 15px;
+		cursor: pointer;
+		box-shadow: 0px 2px 5px rgb(167 164 164 / 10%);
+
+		img {
+			width: 100%;
+			height: auto;
+		}
+
+		&-info {
+			padding: 15px;
+		}
+
+		&-description {
+			padding: 0 15px 15px 15px;
+			font-size: 14px;
+			color: #a3a3a3;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.episode {
+			width: calc(50% - 20px);
+		}
+	}
+
+	@media (max-width: 480px) {
+		.episode {
+			width: 100%;
+		}
+	}
 }
