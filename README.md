@@ -1,5 +1,8 @@
 # Shensuu Movie (Movie Browser)
 
+Hosting Provider:
+https://vercel.com/sheystes-projects
+
 Domain:
 https://movie.8888008.xyz
 
