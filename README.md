@@ -6,6 +6,9 @@ https://movie.8888008.xyz
 Player Domain:
 https://player.movie.8888008.xyz
 
+Test Player Backend:
+https://player.movie.8888008.xyz/#/admin
+
 ### Current Proxy Workers in player.movie
  - https://proxy-movie.8888008.xyz
  - https://elegant-faun-62739f.netlify.app
