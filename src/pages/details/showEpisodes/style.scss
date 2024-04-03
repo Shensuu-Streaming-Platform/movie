@@ -23,8 +23,8 @@
 	}
 
 	.episode-time-title{
-		display: grid;
-		grid-template-columns: 90% 10%;
+		display: flex;
+    		justify-content: space-between;
 	}
 
 	.ep-title{
