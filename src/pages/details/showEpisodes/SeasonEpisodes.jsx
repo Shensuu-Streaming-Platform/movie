@@ -9,7 +9,7 @@ const SeasonEpisodes = ({ mediaType, id }) => {
     const [seasons, setSeasons] = useState([]);
     const [selectedSeason, setSelectedSeason] = useState("");
     const [episodes, setEpisodes] = useState([]);
-	const { data, loading } = useFetch(`/${mediaType}/${id}`);
+    const { data, loading } = useFetch(`/${mediaType}/${id}`);
 
     useEffect(() => {
         fetchSeasons();
@@ -41,7 +41,8 @@ const SeasonEpisodes = ({ mediaType, id }) => {
         fetch(`https://api.themoviedb.org/3/${mediaType}/${id}/season/${seasonNumber}?api_key=${api_key}`)
             .then(response => response.json())
             .then(data => {
-                const filteredEpisodes = data.episodes.filter(episode => episode.runtime !== null && episode.still_path !== null);
+                // Only filter episodes where still_path is not null
+                const filteredEpisodes = data.episodes.filter(episode => episode.still_path !== null);
                 setEpisodes(filteredEpisodes);
                 const selectedSeasonData = seasons.find(season => season.season_number === parseInt(seasonNumber));
                 const seasonId = selectedSeasonData.id;
