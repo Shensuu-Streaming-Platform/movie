@@ -103,7 +103,7 @@ const Header = () => {
                         className="menuItem"
                         onClick={() => navigationHandler("tv")}
                     >
-                        TV Shows
+                        Series
                     </li>
 					<li className="menuItem" onClick={anime}>
                         Anime

@@ -14,7 +14,7 @@ const Popular = () => {
     const { data, loading } = useFetch(`/discover/${endpoint}?api_key=${api_key}&watch_region=PH&with_watch_providers=337&with_networks=2739`);
 
     const onTabChange = (tab) => {
-        setEndpoint(tab === "TV Shows" ? "tv" : "movie");
+        setEndpoint(tab === "Series" ? "tv" : "movie");
     };
 
     return (
@@ -22,7 +22,7 @@ const Popular = () => {
             <ContentWrapper>
                 <span className="carouselTitle">Disney</span>
                 <SwitchTabs
-                    data={["TV Shows", "Movie"]}
+                    data={["Series", "Movie"]}
                     onTabChange={onTabChange}
                 />
             </ContentWrapper>
