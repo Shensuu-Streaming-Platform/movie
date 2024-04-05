@@ -20,8 +20,8 @@ const Details = () => {
     return (
         <div>
             <DetailsBanner video={data?.results?.[0]} crew={credits?.crew} />
-            <Cast data={credits?.cast} loading={creditsLoading} />
 			<SeasonEpisodes mediaType={mediaType} id={id} />
+            <Cast data={credits?.cast} loading={creditsLoading} />
 			<VideosSection data={data} loading={loading} />
             <Recommendation mediaType={mediaType} id={id} />
 			<Similar mediaType={mediaType} id={id} />
