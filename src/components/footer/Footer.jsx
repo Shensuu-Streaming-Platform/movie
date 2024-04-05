@@ -45,9 +45,11 @@ const Footer = () => {
                 </div>
 				
                 <div className="socialIcons">
-					<span className="icon">
-						<a href="https://github.com/Shensuu-Streaming-Platform" target="_blank"><i class="bi bi-github"></i></a>
-					</span>
+					<a href="https://github.com/Shensuu-Streaming-Platform" target="_blank">
+						<span className="icon">
+							<i class="bi bi-github"></i>
+						</span>
+					</a>
 				
 				{/* <span className="icon">
                         <FaFacebookF />
