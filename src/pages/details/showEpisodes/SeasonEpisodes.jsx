@@ -58,15 +58,15 @@ const SeasonEpisodes = ({ mediaType, id }) => {
         setSelectedSeason(event.target.value);
     }
 
-    {/* const handleEpisodeClick = (seasonId, episodeId) => {
+    const handleEpisodeClick = (seasonId, episodeId) => {
         const url = `/play?type=${mediaType}&id=${id}&season=${seasonId}&episode=${episodeId}`;
         window.location.href = url;
-    } */}
+    }
 	
-	const handleEpisodeClick = (seasonNumber, episodeNumber) => {
+	{/* const handleEpisodeClick = (seasonNumber, episodeNumber) => {
 		const url = `/player1?type=${mediaType}&id=${id}&season=${seasonNumber}&episode=${episodeNumber}`;
 		window.location.href = url;
-	}
+	} */}
 
 
     // Function to reload Season 1
@@ -91,7 +91,7 @@ const SeasonEpisodes = ({ mediaType, id }) => {
 							</select>
 						</div>
 						<div id="episodes-container">
-						{/* {episodes.map(episode => (
+							{episodes.map(episode => (
 								<a key={episode.id} className="episode" onClick={() => handleEpisodeClick(episode.seasonId, episode.id)}>
 									<img src={`https://image.tmdb.org/t/p/w500${episode.still_path}`} alt={episode.name} />
 									<div className="episode-info">
@@ -102,9 +102,9 @@ const SeasonEpisodes = ({ mediaType, id }) => {
 									</div>
 									<div className="episode-description">{episode.overview}</div>
 								</a>
-						))} */}
+							))} 
 						
-						{episodes.map(episode => (
+						{/* {episodes.map(episode => (
 							<a key={episode.id} className="episode" onClick={() => handleEpisodeClick(selectedSeason, episode.episode_number)}>
 								<img src={`https://image.tmdb.org/t/p/w500${episode.still_path}`} alt={episode.name} />
 								<div className="episode-info">
@@ -115,7 +115,7 @@ const SeasonEpisodes = ({ mediaType, id }) => {
 								</div>
 								<div className="episode-description">{episode.overview}</div>
 							</a>
-						))}
+						))} */}
 
 						
 						</div>
