@@ -198,12 +198,16 @@
 			return params;
 		}
 
-		// Get type and id from URL parameters
+		// Get type and id from URL parameters and set default values for season and episode
 		let { type, id, season, episode } = getUrlParams();
+
+		// Set default values for season and episode if they are not provided
+		season = season || '1';
+		episode = episode || '1';
 
 		let base = 'https://shensuuplayer-proxy.glitch.me/embed';
 		let embedUrl = '';
-		
+
 		if (type === 'tv') {
 			embedUrl = `${base}/${type}/${id}/${season}/${episode}`;
 			// Fetch episodes
@@ -216,9 +220,10 @@
 			episodeBtn.style.display = 'none';
 			seasonBtn.style.display = 'none';
 		}
-		
+
 		// Set iframe src to the trusted URL
 		embedFrame.src = embedUrl;
+
 
 
 		// Event listener for episode button click
