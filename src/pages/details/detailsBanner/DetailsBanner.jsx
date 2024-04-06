@@ -42,6 +42,11 @@ const DetailsBanner = ({ video, crew }) => {
 		window.location.href = url;	{/* window.open(url, '_blank'); */}
 	};
 	
+	const backupPlayer = () => {
+		const url = `/player1?type=${mediaType}&id=${id}`;
+		window.location.href = url;
+	};
+	
 	const goBackPage = () => {
         window.history.back();
     };
@@ -122,6 +127,16 @@ const DetailsBanner = ({ video, crew }) => {
                                                 <PlayIcon />
                                                 <span className="text">
                                                     Play
+                                                </span> 
+                                            </div>
+											
+											<div
+                                                className="playbtn"
+                                                onClick={backupPlayer}
+                                            >
+                                                <PlayIcon />
+                                                <span className="text">
+                                                    Backup Player
                                                 </span> 
                                             </div>
                                         </div>
