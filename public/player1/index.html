@@ -274,20 +274,20 @@
 		}
 		
 		
-		// Append the logo to the video-container div
+		// Append the logo to the player-main div
 		var logoContainer = document.createElement('div');
 		logoContainer.classList.add('logo-container');
 
 		var logoImg = document.createElement('img');
-		logoImg.setAttribute('src', '/movix-logo.svg'); 
+		logoImg.setAttribute('src', '/movix-logo.svg'); // Make sure the path is correct
 		logoImg.setAttribute('alt', 'Shensuu Movie');
 
 		logoImg.addEventListener('click', function() {
 			window.location.href = '/' + type + '/' + id;
 		});
 
-		logoContainer.appendChild(logoImg);
-		document.getElementById('player-main').appendChild(logoContainer);
+		document.querySelector('.player-main').appendChild(logoContainer); // Corrected line
+
 		
 	});
 	
