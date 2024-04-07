@@ -88,11 +88,7 @@
     <iframe id="embedFrame" scrolling="no" allowfullscreen></iframe>
 	<button id="seasonBtn" class="btn btn-primary season-btn">Seasons</button>
     <button id="episodeBtn" class="btn btn-primary episode-btn">Episodes</button>
-    <div class="logo-container">
-	<a href="https://movie.8888008.xyz">
-        <img src="./movix-logo.svg" alt="Movix Logo">
-	</a>
-    </div>
+
     <div id="episodeList" class="episode-list">
         <ul></ul>
     </div>
@@ -263,12 +259,11 @@
 			currentSeasonEpisodeElement.textContent = `Season ${seasonNumber}, Episode: ${episodeTitle}`;
 			currentSeasonEpisodeElement.style.position = 'absolute';
 			currentSeasonEpisodeElement.style.top = '65px'; // Adjusted from '10px' to move it down below the buttons
-			currentSeasonEpisodeElement.style.left = '50%';
-			currentSeasonEpisodeElement.style.transform = 'translateX(-50%)';
+			currentSeasonEpisodeElement.style.left = '10px';
+			// currentSeasonEpisodeElement.style.transform = 'translateX(-50%)';
 			currentSeasonEpisodeElement.style.color = 'white';
 			currentSeasonEpisodeElement.style.fontSize = '18px';
 			currentSeasonEpisodeElement.style.zIndex = '999';
-			currentSeasonEpisodeElement.style.marginTop = '15px'; // Added margin-top
 			document.body.appendChild(currentSeasonEpisodeElement);
 		}
 
@@ -278,7 +273,24 @@
 			fetchEpisodeDetails(id, season, episode);
 		}
 		
+		
+		// Append the logo to the video-container div
+		var logoContainer = document.createElement('div');
+		logoContainer.classList.add('logo-container');
+
+		var logoImg = document.createElement('img');
+		logoImg.setAttribute('src', '/movix-logo.svg'); 
+		logoImg.setAttribute('alt', 'Shensuu Movie');
+
+		logoImg.addEventListener('click', function() {
+			window.location.href = '/' + type + '/' + id;
+		});
+
+		logoContainer.appendChild(logoImg);
+		document.getElementById('player-main').appendChild(logoContainer);
+		
 	});
+	
 
 </script>
 
