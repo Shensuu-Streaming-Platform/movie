@@ -262,14 +262,16 @@
 			let currentSeasonEpisodeElement = document.createElement('div');
 			currentSeasonEpisodeElement.textContent = `Season ${seasonNumber}, Episode: ${episodeTitle}`;
 			currentSeasonEpisodeElement.style.position = 'absolute';
-			currentSeasonEpisodeElement.style.top = '10px';
+			currentSeasonEpisodeElement.style.top = '65px'; // Adjusted from '10px' to move it down below the buttons
 			currentSeasonEpisodeElement.style.left = '50%';
 			currentSeasonEpisodeElement.style.transform = 'translateX(-50%)';
 			currentSeasonEpisodeElement.style.color = 'white';
 			currentSeasonEpisodeElement.style.fontSize = '18px';
 			currentSeasonEpisodeElement.style.zIndex = '999';
+			currentSeasonEpisodeElement.style.marginTop = '15px'; // Added margin-top
 			document.body.appendChild(currentSeasonEpisodeElement);
 		}
+
 		
 		// Display current season and episode title
 		if (type === 'tv') {
@@ -282,4 +284,10 @@
 
 
 </body>
+
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+
 </html>

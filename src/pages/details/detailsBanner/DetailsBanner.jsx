@@ -37,7 +37,6 @@ const DetailsBanner = ({ video, crew }) => {
     };
 	
 	const watchNow = () => {
-		{/*	const url = `https://player.8888008.xyz/?type=${mediaType}&id=${id}`; */}
 		const url = `/play?type=${mediaType}&id=${id}`;
 		window.location.href = url;	{/* window.open(url, '_blank'); */}
 	};
@@ -115,11 +114,11 @@ const DetailsBanner = ({ video, crew }) => {
                                         <Genres data={_genres} />
 
                                         <div className="row">
-                                            <CircleRating
+										{/* <CircleRating
                                                 rating={data.vote_average.toFixed(
                                                     1
                                                 )}
-                                            />
+										/> */}
                                             <div
                                                 className="playbtn"
                                                 onClick={watchNow}
@@ -136,7 +135,7 @@ const DetailsBanner = ({ video, crew }) => {
                                             >
                                                 <PlayIcon />
                                                 <span className="text">
-                                                    Backup Player
+                                                    Player 2
                                                 </span> 
                                             </div>
                                         </div>
