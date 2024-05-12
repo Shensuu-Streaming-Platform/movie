@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shensuu Player 2</title>
+    <title>Shensuu Movie Player</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         html, body{
@@ -114,6 +114,20 @@
 		let episodeList = [];
 		let seasonList = [];
 		
+		// Fetch Title
+		function fetchEpisodes(id) {
+			fetch(`https://api.themoviedb.org/3/${type}/${id}?api_key=${apiKey}`)
+			.then(response => response.json())
+			.then(data => {
+				// Set page title based on data from API
+				var pageTitle = data.name || data.title || 'Player';
+				document.title = pageTitle + " | Shensuu Movie";
+			})
+			.catch(error => {
+				console.error('Error fetching title:', error);
+			});
+		}
+		
 		
 		// Function to fetch episodes from TMDB API based on ID
 		function fetchEpisodes(id) {
@@ -206,7 +220,7 @@
 		season = season || '1';
 		episode = episode || '1';
 
-		let base = 'https://vidsrc.pro/embed'; // 'https://shensuuplayer-proxy.glitch.me/embed';
+		let base = 'https://shensuuplayer-proxy.glitch.me/embed'; 
 		let embedUrl = '';
 
 		if (type === 'tv') {
