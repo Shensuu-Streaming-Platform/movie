@@ -206,7 +206,7 @@
 		season = season || '1';
 		episode = episode || '1';
 
-		let base = 'https://shensuuplayer-proxy.glitch.me/embed'; 
+		let base = 'https://vidsrc.pro/embed'; 
 		let embedUrl = '';
 
 		if (type === 'tv') {
@@ -260,7 +260,7 @@
 		// Function to display current season and episode
 		function displayCurrentSeasonEpisode(seasonNumber, episodeTitle) {
 			let currentSeasonEpisodeElement = document.createElement('div');
-			currentSeasonEpisodeElement.textContent = `Season ${seasonNumber}, Episode ${episodeNumber}: ${episodeTitle}`;
+			currentSeasonEpisodeElement.textContent = `Season ${seasonNumber}, Episode: ${episodeTitle}`;
 			currentSeasonEpisodeElement.style.position = 'absolute';
 			currentSeasonEpisodeElement.style.top = '65px'; // Adjusted from '10px' to move it down below the buttons
 			currentSeasonEpisodeElement.style.left = '10px';
