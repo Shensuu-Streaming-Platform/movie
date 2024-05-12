@@ -37,7 +37,7 @@ const DetailsBanner = ({ video, crew }) => {
     };
 	
 	const watchNow = () => {
-		const url = `/play?type=${mediaType}&id=${id}`;
+		const url =  `/player1?type=${mediaType}&id=${id}` {/* `/play?type=${mediaType}&id=${id}`; */}
 		window.location.href = url;	{/* window.open(url, '_blank'); */}
 	};
 	
@@ -129,7 +129,7 @@ const DetailsBanner = ({ video, crew }) => {
                                                 </span> 
                                             </div>
 											
-											<div
+											{/* <div
                                                 className="playbtn"
                                                 onClick={backupPlayer}
                                             >
@@ -137,7 +137,7 @@ const DetailsBanner = ({ video, crew }) => {
                                                 <span className="text">
                                                     Player 2
                                                 </span> 
-                                            </div>
+                                            </div> */}
                                         </div>
 
                                         <div className="overview">
