@@ -114,23 +114,7 @@
 		let episodeList = [];
 		let seasonList = [];
 		
-		// Fetch Title
-		function fetchTitle(type, id) {
-			fetch(`https://api.themoviedb.org/3/${type}/${id}?api_key=${apiKey}`)
-			.then(response => response.json())
-			.then(data => {
-				// Set page title based on data from API
-				var pageTitle = data.name || data.title || 'Player';
-				document.title = pageTitle + " | Shensuu Movie";
-			})
-			.catch(error => {
-				console.error('Error fetching title:', error);
-			});
-		}
-		
-		fetchTitle(type, id);
-		
-		
+
 		// Function to fetch episodes from TMDB API based on ID
 		function fetchEpisodes(id) {
 			fetch(`https://api.themoviedb.org/3/tv/${id}/season/${season}?api_key=${apiKey}`)
@@ -276,7 +260,7 @@
 		// Function to display current season and episode
 		function displayCurrentSeasonEpisode(seasonNumber, episodeTitle) {
 			let currentSeasonEpisodeElement = document.createElement('div');
-			currentSeasonEpisodeElement.textContent = `Season ${seasonNumber}, Episode: ${episodeTitle}`;
+			currentSeasonEpisodeElement.textContent = `Season ${seasonNumber}, Episode ${episodeNumber}: ${episodeTitle}`;
 			currentSeasonEpisodeElement.style.position = 'absolute';
 			currentSeasonEpisodeElement.style.top = '65px'; // Adjusted from '10px' to move it down below the buttons
 			currentSeasonEpisodeElement.style.left = '10px';
