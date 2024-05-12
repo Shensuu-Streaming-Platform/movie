@@ -37,12 +37,12 @@ const DetailsBanner = ({ video, crew }) => {
     };
 	
 	const watchNow = () => {
-		const url =  `/player1?type=${mediaType}&id=${id}` {/* `/play?type=${mediaType}&id=${id}`; */}
+		const url =  `/player1?type=${mediaType}&id=${id}`; {/* `/play?type=${mediaType}&id=${id}`; */}
 		window.location.href = url;	{/* window.open(url, '_blank'); */}
 	};
 	
 	const backupPlayer = () => {
-		const url = `/player1?type=${mediaType}&id=${id}`;
+		const url = `/play?type=${mediaType}&id=${id}`;
 		window.location.href = url;
 	};
 	
