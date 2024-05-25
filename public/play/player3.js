@@ -25,7 +25,9 @@ fetch(apiUrl)
         document.title = pageTitle + " | Shensuu Movie";
 
         // Construct the proxy URL
-        var proxyUrl = "https://player.movie.8888008.xyz/#/media/tmdb-" + type + "-" + id + "/" + season + "/" + episode;
+        // var proxyUrl = "https://player.movie.8888008.xyz/#/media/tmdb-" + type + "-" + id + "/" + season + "/" + episode;
+		
+		var proxyUrl = "https://shensuuplayer-proxy.glitch.me/embed/" + type + "/" + id + "/" + season + "/" + episode;
 
         // Create an iframe element to embed the content
         var iframe = document.querySelector('iframe');

@@ -58,16 +58,11 @@ const SeasonEpisodes = ({ mediaType, id }) => {
         setSelectedSeason(event.target.value);
     }
 
-    {/* const handleEpisodeClick = (seasonId, episodeId) => {
+    const handleEpisodeClick = (seasonId, episodeId) => {
         const url = `/play?type=${mediaType}&id=${id}&season=${seasonId}&episode=${episodeId}`;
         window.location.href = url;
-    } */}
+    } 
 	
-	const handleEpisodeClick = (seasonNumber, episodeNumber) => {
-		const url = `/player1?type=${mediaType}&id=${id}&season=${seasonNumber}&episode=${episodeNumber}`;
-		window.location.href = url;
-	}
-
 
     // Function to reload Season 1
     const reloadSeasonOne = () => {
