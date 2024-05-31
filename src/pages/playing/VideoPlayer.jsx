@@ -23,8 +23,17 @@ const VideoPlayer = () => {
         window.location.href = url; */}
     };
 
-    // Constructing the iframe URL
-    const iframeUrl = `https://vidsrc.pro/embed/${mediaType}/${id}${season_number ? `/${season_number}` : ""}${episode_number ? `/${episode_number}` : ""}`;
+    {/* For API's Documentations
+	
+	Visit:
+	
+	https://vidsrc.pro/
+	https://vidsrc.to/
+	https://moviesapi.club/
+	
+	*/}
+	
+    const iframeUrl = `https://moviesapi.club/${mediaType}/${id}${season_number ? `-${season_number}` : ""}${episode_number ? `-${episode_number}` : ""}`;
 
     return (
         <>
