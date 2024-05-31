@@ -66,7 +66,7 @@ function App() {
                 <Route path="/search/:query" element={<SearchResult />} />
                 <Route path="/explore/:mediaType" element={<Explore />} />
 				<Route path="/about" element={<About />} />
-				<Route path="/playing/:mediaType/:id/:season_number/:episode_number" element={<VideoPlayer />} /> 
+				<Route path="/playing/:mediaType/:id/:season_number?/:episode_number?" element={<VideoPlayer />} /> 
                 <Route path="*" element={<PageNotFound />} />
             </Routes>
             <Footer />
