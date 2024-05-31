@@ -6,7 +6,7 @@ import ContentWrapper from "../../components/contentWrapper/ContentWrapper";
 import useFetch from "../../hooks/useFetch";
 
 const VideoPlayer = () => {
-    const { mediaType, id } = useParams();
+    const { mediaType, id, season_number, episode_number } = useParams();
 	
 	const { data, loading } = useFetch(`/${mediaType}/${id}/${season_number}/${episode_number}`);
 	
