@@ -15,8 +15,10 @@ const VideoPlayer = () => {
     }, [data]);
 
     const goBack = () => {
-        const url = `/${mediaType}/${id}`;
-        window.location.href = url;
+		
+		window.history.back();
+        {/* const url = `/${mediaType}/${id}`;
+        window.location.href = url; */}
     };
 
     // Constructing the iframe URL
