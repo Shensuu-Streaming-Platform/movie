@@ -4,6 +4,8 @@ import "./style.scss";
 import ContentWrapper from "../../components/contentWrapper/ContentWrapper";
 import useFetch from "../../hooks/useFetch";
 
+import SeasonEpisodes from "../details/showEpisodes/SeasonEpisodes";
+
 const VideoPlayer = () => {
     const { mediaType, id, season_number, episode_number } = useParams();
 
@@ -42,6 +44,7 @@ const VideoPlayer = () => {
                         />
                     </div>
                 </ContentWrapper>
+				<SeasonEpisodes mediaType={mediaType} id={id} />
             </div>
         </>
     );
