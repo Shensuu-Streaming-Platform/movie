@@ -37,7 +37,7 @@ const DetailsBanner = ({ video, crew }) => {
     };
 	
 	const watchNow = () => {
-		const url =  `/play?type=${mediaType}&id=${id}`; 
+		const url =  `/playing/${mediaType}/${id}`; 
 		window.location.href = url;	{/* window.open(url, '_blank'); */}
 	};
 	

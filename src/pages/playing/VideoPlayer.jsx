@@ -8,7 +8,7 @@ import useFetch from "../../hooks/useFetch";
 const VideoPlayer = () => {
     const { mediaType, id } = useParams();
 	
-	const { data, loading } = useFetch(`/${mediaType}/${id}`);
+	const { data, loading } = useFetch(`/${mediaType}/${id}/${season_number}/${episode_number}`);
 	
 	useEffect(() => {
 		document.title = `${data?.name || data?.title || "Shensuu Movie"} | Shensuu Movie`;
@@ -20,7 +20,7 @@ const VideoPlayer = () => {
 	};
 
     // Constructing the iframe URL
-    const iframeUrl = `https://shensuumovie.8888008.xyz/#/media/tmdb-${mediaType}-${id}`;
+    const iframeUrl = `https://vidsrc.pro/embed/${mediaType}/${id}/${season_number}/${episode_number}`;
 
     return (
         <>
