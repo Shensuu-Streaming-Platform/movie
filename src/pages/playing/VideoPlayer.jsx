@@ -9,7 +9,12 @@ import SeasonEpisodes from "../details/showEpisodes/SeasonEpisodes";
 const VideoPlayer = () => {
     const { mediaType, id, season_number, episode_number } = useParams();
 
-    const apiUrl = `/${mediaType}/${id}${season_number ? `/${season_number}` : ""}${episode_number ? `/${episode_number}` : ""}`;
+    // Set default values if mediaType is tv
+    const seasonNumber = mediaType === "tv" ? season_number || 1 : season_number;
+    const episodeNumber = mediaType === "tv" ? episode_number || 1 : episode_number;
+
+    // Construct the API URL
+    const apiUrl = `/${mediaType}/${id}${seasonNumber ? `/${seasonNumber}` : ""}${episodeNumber ? `/${episodeNumber}` : ""}`;
     const { data, loading } = useFetch(apiUrl);
 
     useEffect(() => {
@@ -17,13 +22,10 @@ const VideoPlayer = () => {
     }, [data]);
 
     const goBack = () => {
-		
-		window.history.back();
-        {/* const url = `/${mediaType}/${id}`;
-        window.location.href = url; */}
+        window.history.back();
     };
-
-    {/* For API's Documentations
+	
+	{/* For API's Documentations
 	
 	Visit:
 	
@@ -32,8 +34,9 @@ const VideoPlayer = () => {
 	https://moviesapi.club/
 	
 	*/}
-	
-    const iframeUrl = `https://moviesapi.club/${mediaType}/${id}${season_number ? `-${season_number}` : ""}${episode_number ? `-${episode_number}` : ""}`;
+
+    // Construct the iframe URL
+    const iframeUrl = `https://moviesapi.club/${mediaType}/${id}${seasonNumber ? `-${seasonNumber}` : ""}${episodeNumber ? `-${episodeNumber}` : ""}`;
 
     return (
         <>
@@ -53,10 +56,12 @@ const VideoPlayer = () => {
                         />
                     </div>
                 </ContentWrapper>
-				<SeasonEpisodes mediaType={mediaType} id={id} />
+                <SeasonEpisodes mediaType={mediaType} id={id} />
             </div>
         </>
     );
 };
 
 export default VideoPlayer;
+
+
