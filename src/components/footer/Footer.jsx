@@ -13,18 +13,23 @@ import "./style.scss";
 const Footer = () => {
 	
 	const serverStatus = () => {
-	const url = `https://stats.uptimerobot.com/y8sQL00Dtj`;
-	window.open(url, '_blank');	
+		const url = `https://stats.uptimerobot.com/y8sQL00Dtj`;
+		window.open(url, '_blank');	
 	};
 	
 	const HLSDownload = () => {
-	const url = `https://dl.movie.8888008.xyz`;
-	window.open(url, '_blank');	
+		const url = `https://dl.movie.8888008.xyz`;
+		window.open(url, '_blank');	
+	};
+	
+	const Brave = () => {
+		const url = `https://brave.com/download`;
+		window.open(url, '_blank');	
 	};
 	
 	const aboutPage = () => {
-	const url = `/about`;
-	window.location.href = url;	{/* window.open(url, '_blank'); */}
+		const url = `/about`;
+		window.location.href = url;	{/* window.open(url, '_blank'); */}
 	};
 	
     return (
@@ -33,6 +38,7 @@ const Footer = () => {
 			    <ul className="menuItems">
                     <li className="menuItem" onClick={aboutPage}><i class="bi bi-info-circle"></i> About</li>
 					<li className="menuItem" onClick={serverStatus}><i class="bi bi-hdd-rack"></i> Server Status</li>
+					<li className="menuItem" onClick={Brave}><i class="bi bi-browser-chrome"></i> Brave Browser</li>
 					<li className="menuItem" onClick={HLSDownload}><i class="bi bi-cloud-arrow-down-fill"></i> HLS Download</li>
 				</ul>
 				<div className="infoText">
