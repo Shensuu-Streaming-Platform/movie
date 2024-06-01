@@ -60,7 +60,7 @@ const VideoPlayer = () => {
                     </div>
 					<div className="playtitle">
                         {titleData?.name || titleData?.title}
-                        {mediaType === "tv" && ` S${seasonNumber} E${episodeNumber}`}
+                        {mediaType === "tv" && ` | S${seasonNumber} E${episodeNumber}`}
                     </div>
                 </ContentWrapper>
                 <SeasonEpisodes mediaType={mediaType} id={id} />
