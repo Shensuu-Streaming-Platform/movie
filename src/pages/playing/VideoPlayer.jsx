@@ -17,9 +17,12 @@ const VideoPlayer = () => {
     const apiUrl = `/${mediaType}/${id}${seasonNumber ? `/${seasonNumber}` : ""}${episodeNumber ? `/${episodeNumber}` : ""}`;
     const { data, loading } = useFetch(apiUrl);
 
+	//Set Page Title
+    const { data: titleData, loading: titleLoading } = useFetch(`/${mediaType}/${id}`);
+
     useEffect(() => {
-        document.title = `${data?.name || data?.title || "Shensuu Movie"} | Shensuu Movie`;
-    }, [data]);
+        document.title = `${titleData?.name || titleData?.title || "Shensuu Movie"} | Shensuu Movie`;
+    }, [titleData]);
 
     const goBack = () => {
         window.history.back();
