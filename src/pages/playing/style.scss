@@ -3,7 +3,6 @@
     padding-top: 100px;
 	padding-bottom: 100px;
     .contentWrapper {
-        text-align: center;
         color: var(--black-light);
     }
 
@@ -32,6 +31,15 @@
             flex-direction: row;
         }
 	}
+	
+	.playtitle {
+		text-align: center;
+		font-size: 24px;
+		@include md {
+			font-size: 30px;
+		}
+	}
+	
 
 	.gbackbutton {
 		color: #D5D5D5; 

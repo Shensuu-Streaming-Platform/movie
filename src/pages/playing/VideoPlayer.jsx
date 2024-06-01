@@ -58,6 +58,11 @@ const VideoPlayer = () => {
                             allowFullScreen
                         />
                     </div>
+					<div className="playtitle">
+						{`${
+							titleData.name || titleData.title
+						}`}
+					</div>
                 </ContentWrapper>
                 <SeasonEpisodes mediaType={mediaType} id={id} />
             </div>
