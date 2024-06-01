@@ -62,6 +62,7 @@ const VideoPlayer = () => {
                         {titleData?.name || titleData?.title}
                         {mediaType === "tv" && ` | S${seasonNumber} E${episodeNumber}`}
                     </div>
+					<hr>
                 </ContentWrapper>
                 <SeasonEpisodes mediaType={mediaType} id={id} />
             </div>
