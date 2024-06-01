@@ -44,14 +44,14 @@ const Footer = () => {
                     © Shensuu Streaming Platform 2024
                 </div>
 				
-                <div className="socialIcons">
+                {/* <div className="socialIcons">
 					<a href="https://github.com/Shensuu-Streaming-Platform" target="_blank">
 						<span className="icon">
 							<i class="bi bi-github"></i>
 						</span>
 					</a>
 				
-				{/* <span className="icon">
+					<span className="icon">
                         <FaFacebookF />
                     </span>
                     <span className="icon">
@@ -62,8 +62,8 @@ const Footer = () => {
                     </span>
                     <span className="icon">
                         <FaLinkedin />
-					</span> */}
-                </div>
+					</span>
+                </div>  */}
             </ContentWrapper>
         </footer>
     );
