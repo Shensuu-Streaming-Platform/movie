@@ -23,6 +23,9 @@ function App() {
     useEffect(() => {
         fetchApiConfig();
         genresCall();
+		const intervalId = setInterval(pingGoogle, 10000);
+
+        return () => clearInterval(intervalId);
     }, []);
 
     const fetchApiConfig = () => {
@@ -55,6 +58,16 @@ function App() {
         });
 
         dispatch(getGenres(allGenres));
+    };
+	
+	const pingGoogle = () => {
+        fetch("https://www.google.com")
+            .then(response => {
+                console.log("Ping to Google successful", response);
+            })
+            .catch(error => {
+                console.error("Ping to Google failed", error);
+            });
     };
 
     return (

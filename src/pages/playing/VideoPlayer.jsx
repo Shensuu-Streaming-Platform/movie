@@ -21,7 +21,7 @@ const VideoPlayer = () => {
     const { data: titleData, loading: titleLoading } = useFetch(`/${mediaType}/${id}`);
 
     useEffect(() => {
-        document.title = `${titleData?.name || titleData?.title || "Shensuu Movie"} | Shensuu Movie`;
+        document.title = `${titleData?.name || titleData?.title || "Loading"} | Shensuu Movie`;
     }, [titleData]);
 
     const goBack = () => {
@@ -60,7 +60,7 @@ const VideoPlayer = () => {
                     </div>
 					<div className="playtitle">
                         {titleData?.name || titleData?.title}
-                        {mediaType === "tv" && ` | S${seasonNumber} E${episodeNumber}`}
+                        {mediaType === "tv" && ` | Season: ${seasonNumber} Episode: ${episodeNumber}`}
                     </div>
 					<hr />
                 </ContentWrapper>

@@ -51,7 +51,7 @@ const DetailsBanner = ({ video, crew }) => {
     };
 	
 	useEffect(() => {
-		document.title = `${data?.name || data?.title || "Shensuu Movie"} | Shensuu Movie`;
+		document.title = `${data?.name || data?.title || "Loading"} | Shensuu Movie`;
 	}, [data]);
 
 
