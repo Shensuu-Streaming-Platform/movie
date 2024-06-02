@@ -61,7 +61,7 @@ function App() {
     };
 	
 	const pingGoogle = () => {
-        fetch("https://www.google.com")
+        fetch("www.google.com")
             .then(response => {
                 console.log("Ping to Google successful", response);
             })
