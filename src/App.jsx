@@ -61,12 +61,12 @@ function App() {
     };
 	
 	const pingGoogle = () => {
-        fetch("www.google.com")
+        fetch("https://shensuuplayer-proxy.glitch.me")
             .then(response => {
-                console.log("Ping to Google successful", response);
+                console.log("Ping to Proxy successful", response);
             })
             .catch(error => {
-                console.error("Ping to Google failed", error);
+                console.error("Ping to Proxy failed", error);
             });
     };
 
