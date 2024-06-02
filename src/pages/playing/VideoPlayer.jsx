@@ -39,7 +39,7 @@ const VideoPlayer = () => {
 	*/}
 
     // Construct the iframe URL
-    const iframeUrl = `https://moviesapi.club/${mediaType}/${id}${seasonNumber ? `-${seasonNumber}` : ""}${episodeNumber ? `-${episodeNumber}` : ""}`;
+    const iframeUrl = `https://shensuuplayer-proxy.glitch.me/embed/${mediaType}/${id}${seasonNumber ? `/${seasonNumber}` : ""}${episodeNumber ? `/${episodeNumber}` : ""}`;
 
     return (
         <>
