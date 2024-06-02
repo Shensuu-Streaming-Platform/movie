@@ -17,7 +17,7 @@ const VideoPlayer = () => {
     const apiUrl = `/${mediaType}/${id}${seasonNumber ? `/${seasonNumber}` : ""}${episodeNumber ? `/${episodeNumber}` : ""}`;
     const { data, loading } = useFetch(apiUrl);
 
-	//Set Page Title
+    // Set Page Title
     const { data: titleData, loading: titleLoading } = useFetch(`/${mediaType}/${id}`);
 
     useEffect(() => {
@@ -39,7 +39,9 @@ const VideoPlayer = () => {
 	*/}
 
     // Construct the iframe URL
-    const iframeUrl = `https://shensuuplayer-proxy.glitch.me/embed/${mediaType}/${id}${seasonNumber ? `/${seasonNumber}` : ""}${episodeNumber ? `/${episodeNumber}` : ""}`;
+    const iframeUrl = mediaType === "movie"
+        ? `https://moviesapi.club/${mediaType}/${id}${seasonNumber ? `-${seasonNumber}` : ""}${episodeNumber ? `-${episodeNumber}` : ""}`
+        : `https://shensuuplayer-proxy.glitch.me/embed/${mediaType}/${id}${seasonNumber ? `/${seasonNumber}` : ""}${episodeNumber ? `/${episodeNumber}` : ""}`;
 
     return (
         <>
@@ -58,18 +60,19 @@ const VideoPlayer = () => {
                             allowFullScreen
                         />
                     </div>
-					<div className="playtitle">
+                    <div className="playtitle">
                         {titleData?.name || titleData?.title}
                         {mediaType === "tv" && ` | Season: ${seasonNumber} Episode: ${episodeNumber}`}
                     </div>
-					<hr />
+                    <hr />
                 </ContentWrapper>
-                <SeasonEpisodes mediaType={mediaType} id={id} />
+                {mediaType === "tv" && <SeasonEpisodes mediaType={mediaType} id={id} />}
             </div>
         </>
     );
 };
 
 export default VideoPlayer;
+
 
 
