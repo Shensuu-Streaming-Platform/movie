@@ -12,6 +12,8 @@ const SeasonEpisodes = ({ mediaType, id }) => {
     const [selectedSeason, setSelectedSeason] = useState("");
     const [episodes, setEpisodes] = useState([]);
     const { data, loading } = useFetch(`/${mediaType}/${id}`);
+	
+	const navigate = useNavigate();
 
     useEffect(() => {
         fetchSeasons();

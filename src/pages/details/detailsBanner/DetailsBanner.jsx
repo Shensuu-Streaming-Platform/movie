@@ -20,6 +20,8 @@ const DetailsBanner = ({ video, crew }) => {
 
     const { mediaType, id } = useParams();
     const { data, loading } = useFetch(`/${mediaType}/${id}`);
+	
+	const navigate = useNavigate();
 
     const { url } = useSelector((state) => state.home);
 
