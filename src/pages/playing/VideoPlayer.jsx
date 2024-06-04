@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import "./style.scss";
 import ContentWrapper from "../../components/contentWrapper/ContentWrapper";
 import useFetch from "../../hooks/useFetch";
@@ -8,6 +8,8 @@ import SeasonEpisodes from "../details/showEpisodes/SeasonEpisodes";
 
 const VideoPlayer = () => {
     const { mediaType, id, season_number, episode_number } = useParams();
+	
+	const navigate = useNavigate();
 
     // Set default values if mediaType is tv
     const seasonNumber = mediaType === "tv" ? season_number || 1 : season_number;
