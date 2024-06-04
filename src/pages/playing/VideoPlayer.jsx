@@ -25,7 +25,7 @@ const VideoPlayer = () => {
     }, [titleData]);
 
     const goBack = () => {
-        window.history.back();
+        navigate(-1);
     };
 	
 	{/* For API's Documentations

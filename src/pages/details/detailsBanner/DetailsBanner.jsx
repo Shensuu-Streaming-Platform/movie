@@ -42,13 +42,9 @@ const DetailsBanner = ({ video, crew }) => {
 		navigate(`/playing/${mediaType}/${id}`);
 	};
 	
-	const backupPlayer = () => {
-		const url = `/player1?type=${mediaType}&id=${id}`;
-		window.location.href = url;
-	};
 	
 	const goBackPage = () => {
-        window.history.back();
+        navigate(-1);
     };
 	
 	useEffect(() => {
@@ -130,15 +126,6 @@ const DetailsBanner = ({ video, crew }) => {
                                                 </span> 
                                             </div>
 											
-											{/* <div
-                                                className="playbtn"
-                                                onClick={backupPlayer}
-                                            >
-                                                <PlayIcon />
-                                                <span className="text">
-                                                    Player 2
-                                                </span> 
-                                            </div> */}
                                         </div>
 
                                         <div className="overview">
