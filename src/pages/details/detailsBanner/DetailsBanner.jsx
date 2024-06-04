@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import dayjs from "dayjs";
 
@@ -37,8 +37,7 @@ const DetailsBanner = ({ video, crew }) => {
     };
 	
 	const watchNow = () => {
-		const url =  `/playing/${mediaType}/${id}`; 
-		window.location.href = url;	{/* window.open(url, '_blank'); */}
+		navigate(`/playing/${mediaType}/${id}`);
 	};
 	
 	const backupPlayer = () => {

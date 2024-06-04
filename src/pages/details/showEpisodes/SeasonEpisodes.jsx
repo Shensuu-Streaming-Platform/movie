@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
 import "./style.scss";
 import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
 import useFetch from "../../../hooks/useFetch";
@@ -60,8 +62,7 @@ const SeasonEpisodes = ({ mediaType, id }) => {
 
     const handleEpisodeClick = (seasonId, episodeId) => {
         {/* const url = `/play?type=${mediaType}&id=${id}&season=${seasonId}&episode=${episodeId}`; */}
-		const url = `/playing/${mediaType}/${id}/${seasonId}/${episodeId}`;
-        window.location.href = url;
+        navigate(`/playing/${mediaType}/${id}/${seasonId}/${episodeId}`);
     } 
 	
 
