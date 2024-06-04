@@ -29,11 +29,11 @@ const HeroBanner = () => {
     useEffect(() => {
         const currentHour = new Date().getHours();
         if (currentHour >= 5 && currentHour < 12) {
-            setGreeting("Morning Bai");
+            setGreeting("morning bai");
         } else if (currentHour >= 12 && currentHour < 18) {
             setGreeting("what if");
         } else {
-            setGreeting("inom ta bai");
+            setGreeting("ha hayst");
         }
     }, [greeting]);
     
@@ -80,11 +80,11 @@ const HeroBanner = () => {
                     <div className="searchInput">
                         <input
                             type="text"
-                            placeholder="Search for a Movie or TV Show"
+                            placeholder="Search"
                             onChange={(e) => setQuery(e.target.value)}
                             onKeyUp={searchQueryHandler}
                         />
-                        <button onClick={searchQueryHandler}>Search</button>
+                        <button onClick={searchQueryHandler}><i class="bi bi-search"></i></button>
                     </div>
                 </div>
             </ContentWrapper>
