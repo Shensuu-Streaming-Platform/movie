@@ -4,6 +4,7 @@ import "./style.scss";
 import ContentWrapper from "../../components/contentWrapper/ContentWrapper";
 import useFetch from "../../hooks/useFetch";
 
+import Genres from "../../components/genres/Genres";
 import SeasonEpisodes from "../details/showEpisodes/SeasonEpisodes";
 
 const VideoPlayer = () => {
@@ -21,6 +22,8 @@ const VideoPlayer = () => {
 
     // Set Page Title
     const { data: titleData, loading: titleLoading } = useFetch(`/${mediaType}/${id}`);
+
+	const _genres = titleData?.genres?.map((g) => g.id);
 
     useEffect(() => {
         document.title = `${titleData?.name || titleData?.title || "Loading"} | Shensuu Movie`;
@@ -63,9 +66,20 @@ const VideoPlayer = () => {
                         />
                     </div>
                     <div className="playtitle">
-                        {titleData?.name || titleData?.title}
+                        {`${
+							titleData?.name || titleData?.title
+						} (${dayjs(
+							titleData?.release_date
+						).format("YYYY")})`}
                         {mediaType === "tv" && ` | Season: ${seasonNumber} Episode: ${episodeNumber}`}
                     </div>
+					
+					<div className="subtitle">
+						{titleData?.tagline}
+					</div>
+					
+					<Genres data={_genres} />
+					
                     <hr />
                 </ContentWrapper>
                 {mediaType === "tv" && <SeasonEpisodes mediaType={mediaType} id={id} />}
