@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { useFetch } from "../../hooks/useFetch";
 
 import "./style.scss";
 
 const api_key = import.meta.env.VITE_APP_TMDB_API;
 
-const Genres = ({ data, mediaType, id }) => {
+const Genres = ({ genresData, mediaType, id }) => {
     const { genres } = useSelector((state) => state.home);
     const [certification, setCertification] = useState("");
+    const { data } = useFetch(`/${mediaType}/${id}/release_dates`);
 
     useEffect(() => {
         const fetchCertification = async () => {
+            if (!data) return;
+
             try {
-                const response = await fetch(`https://api.themoviedb.org/3/${mediaType}/${id}/release_dates?api_key=${api_key}`);
-                const result = await response.json();
-                
-                const usRelease = result.results.find(
+                const usRelease = data.results.find(
                     (release) => release.iso_3166_1 === "US"
                 );
 
@@ -23,12 +24,12 @@ const Genres = ({ data, mediaType, id }) => {
                     setCertification(usRelease.release_dates[0].certification);
                 }
             } catch (error) {
-                console.error("Error fetching certification:", error);
+                console.error("Error processing certification data:", error);
             }
         };
 
         fetchCertification();
-    }, [mediaType, id]);
+    }, [data]);
 
     return (
         <div className="genres">
@@ -37,7 +38,7 @@ const Genres = ({ data, mediaType, id }) => {
                     {certification}
                 </div>
             )}
-            {data?.map((g) => {
+            {genresData?.map((g) => {
                 if (!genres[g]?.name) return null;
                 return (
                     <div key={g} className="genre">
