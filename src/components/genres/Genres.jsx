@@ -29,6 +29,12 @@ const Genres = ({ data }) => {
 
     return (
         <div className="genres">
+			{certification && (
+                <div className="certification">
+                    Rated: {certification}
+                </div>
+            )}
+			
             {data?.map((g) => {
                 if (!genres[g]?.name) return null;
                 return (
@@ -37,11 +43,6 @@ const Genres = ({ data }) => {
                     </div>
                 );
             })}
-            {certification && (
-                <div className="certification">
-                    {certification}
-                </div>
-            )}
         </div>
     );
 };
