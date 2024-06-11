@@ -3,6 +3,8 @@ import { useSelector } from "react-redux";
 
 import "./style.scss";
 
+const api_key = import.meta.env.VITE_APP_TMDB_API;
+
 const Genres = ({ data, mediaType, id }) => {
     const { genres } = useSelector((state) => state.home);
     const [certification, setCertification] = useState("");
@@ -10,7 +12,7 @@ const Genres = ({ data, mediaType, id }) => {
     useEffect(() => {
         const fetchCertification = async () => {
             try {
-                const response = await fetch(`/${mediaType}/${id}/release_dates`);
+                const response = await fetch(`https://api.themoviedb.org/3/${mediaType}/${id}/release_dates?api_key=${api_key}`);
                 const result = await response.json();
                 
                 const usRelease = result.results.find(
