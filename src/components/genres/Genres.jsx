@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useFetch } from "../../hooks/useFetch";
+import { useFetch } from "../../hooks/useFetch"; 
 
 import "./style.scss";
 
@@ -9,7 +9,7 @@ const api_key = import.meta.env.VITE_APP_TMDB_API;
 const Genres = ({ genresData, mediaType, id }) => {
     const { genres } = useSelector((state) => state.home);
     const [certification, setCertification] = useState("");
-    const { data } = useFetch(`/${mediaType}/${id}/release_dates`);
+    const { data } = useFetch(`https://api.themoviedb.org/3/${mediaType}/${id}/release_dates?api_key=${api_key}`);
 
     useEffect(() => {
         const fetchCertification = async () => {
@@ -35,7 +35,7 @@ const Genres = ({ genresData, mediaType, id }) => {
         <div className="genres">
             {certification && (
                 <div className="certification">
-                    {certification}
+                    Certification: {certification}
                 </div>
             )}
             {genresData?.map((g) => {
