@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import "./style.scss";
 
+const api_key = import.meta.env.VITE_APP_TMDB_API;
+
 const Genres = ({ data }) => {
+    const { mediaType, id } = useParams();
     const { genres } = useSelector((state) => state.home);
     const [certification, setCertification] = useState(null);
 
     useEffect(() => {
         const fetchCertification = async () => {
             try {
-                const response = await fetch(`/${data.mediaType}/${data.id}/release_dates`);
+                const response = await fetch(`https://api.themoviedb.org/3/${mediaType}/${id}/release_dates?api_key=${api_key}`);
                 const releaseDates = await response.json();
                 const usRelease = releaseDates.results.find((result) => result.iso_3166_1 === "US");
                 if (usRelease && usRelease.release_dates.length > 0) {
@@ -21,12 +25,12 @@ const Genres = ({ data }) => {
         };
 
         fetchCertification();
-    }, [data]);
+    }, [mediaType, id]);
 
     return (
         <div className="genres">
             {data?.map((g) => {
-                if (!genres[g]?.name) return;
+                if (!genres[g]?.name) return null;
                 return (
                     <div key={g} className="genre">
                         {genres[g]?.name}
@@ -35,7 +39,7 @@ const Genres = ({ data }) => {
             })}
             {certification && (
                 <div className="certification">
-                    Certification: {certification}
+                    {certification}
                 </div>
             )}
         </div>
