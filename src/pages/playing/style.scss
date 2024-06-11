@@ -35,7 +35,7 @@
 	.playtitle {
 		text-align: center;
 		margin-top: 30px;
-		margin-bottom: 20px;
+		margin-bottom: 5px;
 		color: white;
 		font-size: 25px;
 		@include md {
@@ -46,13 +46,18 @@
 	.subtitle {
 		font-size: 16px;
 		line-height: 24px;
-		margin-bottom: 15px;
+		margin-bottom: 10px;
 		font-style: italic;
 		opacity: 0.5;
+		color: #fff;
 		@include md {
 			font-size: 20px;
 			line-height: 28px;
 		}
+	}
+	
+	.subinfo {
+		padding-bottom: 15px;
 	}
 	
 

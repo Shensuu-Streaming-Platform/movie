@@ -75,11 +75,13 @@ const VideoPlayer = () => {
                         {mediaType === "tv" && ` | Season: ${seasonNumber} Episode: ${episodeNumber}`}
                     </div>
 					
-					<div className="subtitle">
-						{titleData?.tagline}
+					<div className="subinfo">
+						<div className="subtitle">
+							{titleData?.tagline}
+						</div>
+						
+						<Genres data={_genres} />
 					</div>
-					
-					<Genres data={_genres} />
 					
                     <hr />
                 </ContentWrapper>
