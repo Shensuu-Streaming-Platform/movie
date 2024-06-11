@@ -50,14 +50,14 @@ const Carousel = ({ data, loading, endpoint, title }) => {
         <div className="carousel">
             <ContentWrapper>
                 {title && <div className="carouselTitle">{title}</div>}
-                <BsFillArrowLeftCircleFill
+					{/* <BsFillArrowLeftCircleFill
                     className="carouselLeftNav arrow"
                     onClick={() => navigation("left")}
                 />
                 <BsFillArrowRightCircleFill
                     className="carouselRighttNav arrow"
                     onClick={() => navigation("right")}
-                />
+					/> */}
                 {!loading ? (
                     <div className="carouselItems" ref={carouselContainer}>
                         {data?.map((item) => {
@@ -111,6 +111,7 @@ const Carousel = ({ data, loading, endpoint, title }) => {
                     </div>
                 )}
             </ContentWrapper>
+			<hr />
         </div>
     );
 };
