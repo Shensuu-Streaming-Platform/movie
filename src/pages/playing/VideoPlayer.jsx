@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import "./style.scss";
 import ContentWrapper from "../../components/contentWrapper/ContentWrapper";
 import useFetch from "../../hooks/useFetch";
+import dayjs from "dayjs";
 
 import Genres from "../../components/genres/Genres";
 import SeasonEpisodes from "../details/showEpisodes/SeasonEpisodes";
