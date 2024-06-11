@@ -35,7 +35,7 @@ const Genres = ({ genresData, mediaType, id }) => {
         <div className="genres">
             {certification && (
                 <div className="certification">
-                    Certification: {certification}
+                    {certification}
                 </div>
             )}
             {genresData?.map((g) => {
