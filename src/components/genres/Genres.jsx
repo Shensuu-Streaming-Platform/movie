@@ -1,30 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { useFetch } from "../../hooks/useFetch"; 
-
 import "./style.scss";
 
-const api_key = import.meta.env.VITE_APP_TMDB_API;
-
-const Genres = ({ genresData, mediaType, id }) => {
+const Genres = ({ data }) => {
     const { genres } = useSelector((state) => state.home);
-    const [certification, setCertification] = useState("");
-    const { data } = useFetch(`https://api.themoviedb.org/3/${mediaType}/${id}/release_dates?api_key=${api_key}`);
+    const [certification, setCertification] = useState(null);
 
     useEffect(() => {
         const fetchCertification = async () => {
-            if (!data) return;
-
             try {
-                const usRelease = data.results.find(
-                    (release) => release.iso_3166_1 === "US"
-                );
-
+                const response = await fetch(`/${data.mediaType}/${data.id}/release_dates`);
+                const releaseDates = await response.json();
+                const usRelease = releaseDates.results.find((result) => result.iso_3166_1 === "US");
                 if (usRelease && usRelease.release_dates.length > 0) {
                     setCertification(usRelease.release_dates[0].certification);
                 }
             } catch (error) {
-                console.error("Error processing certification data:", error);
+                console.error("Error fetching certification:", error);
             }
         };
 
@@ -33,19 +25,19 @@ const Genres = ({ genresData, mediaType, id }) => {
 
     return (
         <div className="genres">
-            {certification && (
-                <div className="certification">
-                    {certification}
-                </div>
-            )}
-            {genresData?.map((g) => {
-                if (!genres[g]?.name) return null;
+            {data?.map((g) => {
+                if (!genres[g]?.name) return;
                 return (
                     <div key={g} className="genre">
                         {genres[g]?.name}
                     </div>
                 );
             })}
+            {certification && (
+                <div className="certification">
+                    Certification: {certification}
+                </div>
+            )}
         </div>
     );
 };
