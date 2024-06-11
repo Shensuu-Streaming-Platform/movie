@@ -111,8 +111,8 @@ const Carousel = ({ data, loading, endpoint, title }) => {
                     </div>
                 )}
             </ContentWrapper>
-			<hr />
         </div>
+		<hr />
     );
 };
 
