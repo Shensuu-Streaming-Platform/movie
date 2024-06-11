@@ -110,9 +110,9 @@ const Carousel = ({ data, loading, endpoint, title }) => {
                         {skItem()}
                     </div>
                 )}
+			<hr />
             </ContentWrapper>
         </div>
-		<hr />
     );
 };
 
