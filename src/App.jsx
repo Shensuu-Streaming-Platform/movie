@@ -61,7 +61,7 @@ function App() {
     };
 	
 	const pingGoogle = () => {
-        fetch("https://shensuuplayer-proxy.glitch.me")
+        fetch("/ping.txt")
             .then(response => {
                 console.log("Ping to Proxy successful", response);
             })
