@@ -23,7 +23,7 @@ function App() {
     useEffect(() => {
         fetchApiConfig();
         genresCall();
-		const intervalId = setInterval(pingGoogle, 30000);
+		const intervalId = setInterval(pingGoogle, 10000);
 
         return () => clearInterval(intervalId);
     }, []);
