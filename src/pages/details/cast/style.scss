@@ -45,14 +45,14 @@
             text-align: center;
             color: white;
             .profileImg {
-                width: 105px;
-                height: 105px;
+                width: 125px;
+                height: 125px;
                 border-radius: 50%;
                 overflow: hidden;
                 margin-bottom: 15px;
                 @include md {
-                    width: 115px;
-                    height: 115px;
+                    width: 175px;
+                    height: 175px;
                     margin-bottom: 25px;
                 }
                 img {
@@ -73,7 +73,7 @@
                 }
             }
             .character {
-                font-size: 12px;
+                font-size: 14px;
                 line-height: 20px;
                 opacity: 0.5;
                 @include md {
