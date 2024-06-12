@@ -152,7 +152,7 @@ const DetailsBanner = ({ video, crew }) => {
                                             {data.release_date && (
                                                 <div className="infoItem">
                                                     <span className="text bold">
-                                                        Release Date:{" "}
+                                                        Release:{" "}
                                                     </span>
                                                     <span className="text">
                                                         {dayjs(
@@ -179,7 +179,7 @@ const DetailsBanner = ({ video, crew }) => {
 											{data.first_air_date && (
 												<div className="infoItem">
 													<span className="text bold">
-														First Air Date:{" "}
+														First Air:{" "}
 													</span>
 													<span className="text">
 														{dayjs(
@@ -191,7 +191,7 @@ const DetailsBanner = ({ video, crew }) => {
 											{data.last_air_date && (
 												<div className="infoItem">
 													<span className="text bold">
-														Last Air Date:{" "}
+														Last Air:{" "}
 													</span>
 													<span className="text">
 														{dayjs(
