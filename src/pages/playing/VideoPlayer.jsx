@@ -64,6 +64,7 @@ const VideoPlayer = () => {
                             src={iframeUrl}
                             frameBorder="0"
                             allowFullScreen
+							allowtransparency="true"
                         />
                     </div>
                     <div className="playtitle">
