@@ -23,7 +23,7 @@ function App() {
     useEffect(() => {
         fetchApiConfig();
         genresCall();
-		const intervalId = setInterval(pingGoogle, 10000);
+		const intervalId = setInterval(pingGoogle, 30000);
 
         return () => clearInterval(intervalId);
     }, []);
@@ -61,7 +61,7 @@ function App() {
     };
 	
 	const pingGoogle = () => {
-        fetch("/ping.txt")
+        fetch("https://shensuuplayer-proxy.glitch.me")
             .then(response => {
                 console.log("Ping to Proxy successful", response);
             })
