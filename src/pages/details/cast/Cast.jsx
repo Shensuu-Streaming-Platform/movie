@@ -39,21 +39,20 @@ const Cast = ({ data, loading }) => {
     return (
 		<div className="castSection">
 			<ContentWrapper>
-				{!loading ? (
-					<div className="sectionHeading">
-						Cast
-						<div className="scrollButtons">
-							<BsFillArrowLeftCircleFill
-								className="arrow"
-								onClick={() => navigation("left")}
-							/>
-							<BsFillArrowRightCircleFill
-								className="arrow"
-								onClick={() => navigation("right")}
-							/>
-						</div>
+				<div className="sectionHeading">
+					Cast
+					<div className="scrollButtons">
+						<BsFillArrowLeftCircleFill
+							className="arrow"
+							onClick={() => navigation("left")}
+						/>
+						<BsFillArrowRightCircleFill
+							className="arrow"
+							onClick={() => navigation("right")}
+						/>
 					</div>
-					
+				</div>
+				{!loading ? (
 					<div className="listItems" ref={castListRef}>
 						{data?.map((item) => {
 							let imgUrl = item.profile_path
@@ -72,15 +71,15 @@ const Cast = ({ data, loading }) => {
 							);
 						})}
 					</div>
-					) : (
-						<div className="castSkeleton">
-							{skeleton()}
-							{skeleton()}
-							{skeleton()}
-							{skeleton()}
-							{skeleton()}
-							{skeleton()}
-						</div>
+				) : (
+					<div className="castSkeleton">
+						{skeleton()}
+						{skeleton()}
+						{skeleton()}
+						{skeleton()}
+						{skeleton()}
+						{skeleton()}
+					</div>
 				)}
 			</ContentWrapper>
 		</div>
