@@ -45,14 +45,14 @@
             text-align: center;
             color: white;
             .profileImg {
-                width: 125px;
-                height: 125px;
+                width: 105px;
+                height: 105px;
                 border-radius: 50%;
                 overflow: hidden;
                 margin-bottom: 15px;
                 @include md {
-                    width: 175px;
-                    height: 175px;
+                    width: 115px;
+                    height: 115px;
                     margin-bottom: 25px;
                 }
                 img {
@@ -68,16 +68,16 @@
                 line-height: 20px;
                 font-weight: 600;
                 @include md {
-                    font-size: 18px;
+                    font-size: 16px;
                     line-height: 24px;
                 }
             }
             .character {
-                font-size: 14px;
+                font-size: 12px;
                 line-height: 20px;
                 opacity: 0.5;
                 @include md {
-                    font-size: 16px;
+                    font-size: 14px;
                     line-height: 24px;
                 }
             }
