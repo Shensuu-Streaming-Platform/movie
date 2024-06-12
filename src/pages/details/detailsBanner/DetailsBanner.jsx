@@ -130,7 +130,7 @@ const DetailsBanner = ({ video, crew }) => {
 
                                         <div className="overview">
                                             <div className="heading">
-                                                Overview
+											{/* Overview */}
                                             </div>
                                             <div className="description">
                                                 {data.overview}
