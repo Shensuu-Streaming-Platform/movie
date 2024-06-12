@@ -102,7 +102,7 @@ const Explore = () => {
                 <div className="pageHeader">
                     <div className="pageTitle">
                         {mediaType === "tv"
-                            ? "Explore TV Shows"
+                            ? "Explore Series"
                             : "Explore Movies"}
                     </div>
                     <div className="filters">
