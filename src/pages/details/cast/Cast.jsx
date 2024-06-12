@@ -17,8 +17,8 @@ const Cast = ({ data, loading }) => {
 
         const scrollAmount =
             dir === "left"
-                ? container.scrollLeft - (container.offsetWidth + 2)
-                : container.scrollLeft + (container.offsetWidth + 2);
+                ? container.scrollLeft - (container.offsetWidth + 50)
+                : container.scrollLeft + (container.offsetWidth + 50);
 
         container.scrollTo({
             left: scrollAmount,
