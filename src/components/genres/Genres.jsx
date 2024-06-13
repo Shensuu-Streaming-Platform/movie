@@ -13,6 +13,12 @@ const Genres = ({ data }) => {
     useEffect(() => {
         const fetchCertification = async () => {
             if (!mediaType) return; // Exit if no mediaType is provided
+
+            if (mediaType === "tv") {
+                setCertification("NC-17");
+                return;
+            }
+
             try {
                 const response = await fetch(`https://api.themoviedb.org/3/${mediaType}/${id}/release_dates?api_key=${api_key}`);
                 const releaseDates = await response.json();
