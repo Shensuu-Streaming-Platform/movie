@@ -49,6 +49,8 @@ const VideoPlayer = () => {
         ? `https://moviesapi.club/${mediaType}/${id}`
         : `https://moviesapi.club/${mediaType}/${id}${seasonNumber ? `-${seasonNumber}` : ""}${episodeNumber ? `-${episodeNumber}` : ""}`;
 
+	const networkLogo = titleData?.networks?.[0]?.logo_path;
+
     return (
         <>
             <div className="videoPlayer">
@@ -74,6 +76,22 @@ const VideoPlayer = () => {
 							titleData?.release_date
 						).format("YYYY")})`}
                         {mediaType === "tv" && ` | Season: ${seasonNumber} Episode: ${episodeNumber}`}
+						
+						{mediaType === "movie" ? (
+							<img
+								className="playerNetwork"
+								src={`/sfilm.png`}
+								alt="Network Logo"
+							/>
+						) : (
+							networkLogo && (
+								<img
+									className="playerNetwork"
+									src={`https://image.tmdb.org/t/p/original${networkLogo}`}
+									alt="Network Logo"
+								/>
+							)
+						)}
                     </div>
 					
 					<div className="subinfo">

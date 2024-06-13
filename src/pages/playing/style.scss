@@ -42,9 +42,18 @@
 		margin-bottom: 5px;
 		color: white;
 		font-size: 25px;
+		display: flex;
+		justify-content: space-between;
 		@include md {
 			font-size: 25px;
+			display: flex;
+			justify-content: space-between;
 		}
+	}
+	
+	.playerNetwork{
+		max-width: 75px;
+		height: 100%;
 	}
 	
 	.subtitle {
