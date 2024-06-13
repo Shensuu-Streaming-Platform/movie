@@ -34,7 +34,7 @@
         width: 25%;
 		height: 100%;
 		margin-left: 20%;
-		background: linear-gradient(270deg, rgba(4, 21, 45, 0) 0%, #04152d 65%);
+		background: linear-gradient(270deg, rgba(4, 21, 45, 0) 0%, var(--black) 65%);
 		position: absolute;
 		bottom: 0;
 		left: 0;
@@ -46,7 +46,7 @@
         background: linear-gradient(
             180deg,
             rgba(4, 21, 45, 0) 0%,
-            #04152d 79.17%
+            var(--black) 79.17%
         );
         position: absolute;
         bottom: 0;
