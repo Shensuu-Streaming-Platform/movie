@@ -77,14 +77,14 @@ const DetailsBanner = ({ video, crew }) => {
                                             alt="Network Logo"
                                         />
 									) : (
-											networkLogo && (
-												<img
-													className="networkLogo"
-													src={`https://image.tmdb.org/t/p/original${networkLogo}`}
-													alt="Network Logo"
-												/>
-											)
-										)}
+										networkLogo && (
+											<img
+												className="networkLogo"
+												src={`https://image.tmdb.org/t/p/original${networkLogo}`}
+												alt="Network Logo"
+											/>
+										)
+									)}
 								</div>
                                 <div className="content">
                                     <div className="left">
