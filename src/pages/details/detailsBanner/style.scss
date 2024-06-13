@@ -16,7 +16,7 @@
 		padding-left: 25%;
         top: 0;
         left: 0;
-        opacity: 0.5;
+        opacity: 0.4;
         overflow: hidden;
         .lazy-load-image-background {
             width: 100%;
@@ -31,8 +31,9 @@
     }
 	
 	.opacity-layer1 {
-        width: 90%;
+        width: 25%;
 		height: 100%;
+		margin-left: 20%;
 		background: linear-gradient(270deg, rgba(4, 21, 45, 0) 0%, #04152d 65%);
 		position: absolute;
 		bottom: 0;
