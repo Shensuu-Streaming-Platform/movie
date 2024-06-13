@@ -29,11 +29,11 @@ const HeroBanner = () => {
     useEffect(() => {
         const currentHour = new Date().getHours();
         if (currentHour >= 5 && currentHour < 12) {
-            setGreeting("morning bai");
+            setGreeting("morning");
         } else if (currentHour >= 12 && currentHour < 18) {
-            setGreeting("what if");
+            setGreeting("hello");
         } else {
-            setGreeting("ha hayst");
+            setGreeting("dark mode?");
         }
     }, [greeting]);
     
