@@ -66,7 +66,7 @@ const DetailsBanner = ({ video, crew }) => {
 							<div className="opacity-layer1"></div>
                             <div className="opacity-layer2"></div>
                             <ContentWrapper>
-								<div className="gobackcontent" style={{ display: flex; justify-content: space-between; }} >
+								<div className="gobackcontent">
 									<span className="goback" onClick={goBackPage}>
 										<i class="bi bi-arrow-bar-left"></i> Go Back
 									</span>
