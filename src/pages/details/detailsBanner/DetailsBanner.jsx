@@ -50,6 +50,8 @@ const DetailsBanner = ({ video, crew }) => {
 	useEffect(() => {
 		document.title = `${data?.name || data?.title || "Loading"} | Shensuu Movie`;
 	}, [data]);
+	
+	const networkLogo = data?.networks?.[0]?.logo_path;
 
 
     return (
@@ -68,6 +70,11 @@ const DetailsBanner = ({ video, crew }) => {
 									<span className="goback" onClick={goBackPage}>
 										<i class="bi bi-arrow-bar-left"></i> Go Back
 									</span>
+									<img
+										style={{ width: "90px", height: "100%" }}
+										src={`https://image.tmdb.org/t/p/original${networkLogo}`}
+										alt="Network Logo"
+									/>
 								</div>
                                 <div className="content">
                                     <div className="left">
