@@ -72,7 +72,7 @@ const DetailsBanner = ({ video, crew }) => {
 									</span>
 									{networkLogo && (
                                         <img
-                                            style={{ width: "6%", height: "100%" }}
+											className="networkLogo"
                                             src={`https://image.tmdb.org/t/p/original${networkLogo}`}
                                             alt="Network Logo"
                                         />
