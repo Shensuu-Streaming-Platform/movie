@@ -70,13 +70,21 @@ const DetailsBanner = ({ video, crew }) => {
 									<span className="goback" onClick={goBackPage}>
 										<i class="bi bi-arrow-bar-left"></i> Go Back
 									</span>
-									{networkLogo && (
-                                        <img
+									{mediaType === "movie" ? (
+										<img
 											className="networkLogo"
-                                            src={`https://image.tmdb.org/t/p/original${networkLogo}`}
+                                            src={`/sfilm.png`}
                                             alt="Network Logo"
                                         />
-                                    )}
+									) : (
+											networkLogo && (
+												<img
+													className="networkLogo"
+													src={`https://image.tmdb.org/t/p/original${networkLogo}`}
+													alt="Network Logo"
+												/>
+											)
+										)}
 								</div>
                                 <div className="content">
                                     <div className="left">
