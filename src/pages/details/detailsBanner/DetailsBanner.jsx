@@ -66,15 +66,17 @@ const DetailsBanner = ({ video, crew }) => {
 							<div className="opacity-layer1"></div>
                             <div className="opacity-layer2"></div>
                             <ContentWrapper>
-								<div className="gobackcontent">
+								<div className="gobackcontent" style={{ display: flex; justify-content: space-between; }} >
 									<span className="goback" onClick={goBackPage}>
 										<i class="bi bi-arrow-bar-left"></i> Go Back
 									</span>
-									<img
-										style={{ width: "90px", height: "100%" }}
-										src={`https://image.tmdb.org/t/p/original${networkLogo}`}
-										alt="Network Logo"
-									/>
+									{networkLogo && (
+                                        <img
+                                            style={{ width: "90px", height: "100%" }}
+                                            src={`https://image.tmdb.org/t/p/original${networkLogo}`}
+                                            alt="Network Logo"
+                                        />
+                                    )}
 								</div>
                                 <div className="content">
                                     <div className="left">
