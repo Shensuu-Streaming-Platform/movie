@@ -61,7 +61,8 @@ const DetailsBanner = ({ video, crew }) => {
                             <div className="backdrop-img">
                                 <Img src={url.backdrop + data.backdrop_path} />
                             </div>
-                            <div className="opacity-layer"></div>
+							<div className="opacity-layer1"></div>
+                            <div className="opacity-layer2"></div>
                             <ContentWrapper>
 								<div className="gobackcontent">
 									<span className="goback" onClick={goBackPage}>
