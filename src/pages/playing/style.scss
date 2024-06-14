@@ -42,14 +42,8 @@
 		margin-bottom: 5px;
 		color: white;
 		font-size: 25px;
-		height: 25px;
-		display: flex;
-		justify-content: space-between;
 		@include md {
 			font-size: 25px;
-			height: 25px;
-			display: flex;
-			justify-content: space-between;
 		}
 	}
 	

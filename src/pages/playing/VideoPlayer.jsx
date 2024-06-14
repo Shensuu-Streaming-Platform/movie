@@ -77,21 +77,6 @@ const VideoPlayer = () => {
 						).format("YYYY")})`}
                         {mediaType === "tv" && ` | Season: ${seasonNumber} Episode: ${episodeNumber}`}
 						
-						{mediaType === "movie" ? (
-							<img
-								className="playerNetwork"
-								src={`/sfilm.png`}
-								alt="Network Logo"
-							/>
-						) : (
-							networkLogo && (
-								<img
-									className="playerNetwork"
-									src={`https://image.tmdb.org/t/p/original${networkLogo}`}
-									alt="Network Logo"
-								/>
-							)
-						)}
                     </div>
 					
 					<div className="subinfo">
