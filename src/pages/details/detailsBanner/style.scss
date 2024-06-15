@@ -108,7 +108,7 @@
         }
         .left {
             flex-shrink: 0;
-			display: contents;
+			display: unset;
             .posterImg {
                 width: 100%;
                 display: block;
