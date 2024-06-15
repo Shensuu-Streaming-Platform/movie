@@ -158,7 +158,8 @@
                 .description {
                     line-height: 24px;
                     @include md {
-                        padding-right: 0px;
+                        padding-right: 80px;
+						font-size: 15px;
                     }
                 }
             }
@@ -226,7 +227,7 @@
 
             .info {
                 border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-                padding: 15px 0;
+                padding: 10px 0;
                 display: flex;
                 .infoItem {
                     margin-right: 10px;
