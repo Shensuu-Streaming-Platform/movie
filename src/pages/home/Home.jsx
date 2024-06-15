@@ -21,13 +21,13 @@ const Home = () => {
             <HeroBanner />
 			<NowPlaying />
             <Trending />
-            <Popular />
 			<DiscoverNetflix />
 			<DiscoverApple />
 			<DiscoverAmazon />
 			<DiscoverDisney />
 			<DiscoverParamount />
 			<DiscoverHBO />
+			<Popular />
 			<Discover />
             {/* <TopRated /> */}
         </div>
