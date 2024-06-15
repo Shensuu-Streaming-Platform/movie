@@ -15,7 +15,7 @@ const HeroBanner = () => {
     const [subgreeting, setsubGreeting] = useState("");
     const navigate = useNavigate();
     const { url } = useSelector((state) => state.home);
-    const { data, loading } = useFetch("/trending/all/day"); {/* /movie/upcoming */}
+    const { data, loading } = useFetch("/movie/now_playing"); {/* /movie/upcoming  or  /trending/all/day*/}
 
     useEffect(() => {
         if (data) {
@@ -31,9 +31,9 @@ const HeroBanner = () => {
         if (currentHour >= 5 && currentHour < 12) {
             setGreeting("morning");
         } else if (currentHour >= 12 && currentHour < 18) {
-            setGreeting("hello");
+            setGreeting("new design");
         } else {
-            setGreeting("dark mode?");
+            setGreeting("gabie naman");
         }
     }, [greeting]);
     
@@ -42,7 +42,7 @@ const HeroBanner = () => {
         if (currentHour >= 5 && currentHour < 12) {
             setsubGreeting("Use Brave browser for better experience!");
         } else if (currentHour >= 12 && currentHour < 18) {
-            setsubGreeting("Use Brave browser for better experience!");
+            setsubGreeting("kay bored ko");
         } else {
             setsubGreeting("Use Brave browser for better experience!");
         }
@@ -66,7 +66,7 @@ const HeroBanner = () => {
         <div className="heroBanner">
         {/* {!loading && ( */}
                 <div className="backdrop-img">
-                    <Img src="/landscape.jpg" />    {/* <Img src={background} /> */}
+                    <Img src={background} />    {/* <Img src="/landscape.jpg" /> */}
                 </div> 
         {/*    )}  */}
 
