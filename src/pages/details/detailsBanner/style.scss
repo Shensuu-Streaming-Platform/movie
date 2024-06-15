@@ -16,7 +16,7 @@
 		padding-left: 30%;
         top: 0;
         left: 0;
-        opacity: 0.4;
+        opacity: 0.8;
         overflow: hidden;
         .lazy-load-image-background {
             width: 100%;
@@ -104,6 +104,7 @@
         }
         .left {
             flex-shrink: 0;
+			display: contents;
             .posterImg {
                 width: 100%;
                 display: block;
@@ -111,6 +112,9 @@
                 @include md {
                     max-width: 320px;
                 }
+            }
+			@include md {
+                display: none;
             }
         }
         .right {
@@ -149,7 +153,7 @@
                 .description {
                     line-height: 24px;
                     @include md {
-                        padding-right: 100px;
+                        padding-right: 0px;
                     }
                 }
             }
