@@ -31,7 +31,7 @@ const HeroBanner = () => {
         if (currentHour >= 5 && currentHour < 12) {
             setGreeting("morning");
         } else if (currentHour >= 12 && currentHour < 18) {
-            setGreeting("new design");
+            setGreeting("BOSSSSSSSIIINGGGGGG");
         } else {
             setGreeting("gabie naman");
         }
@@ -42,7 +42,7 @@ const HeroBanner = () => {
         if (currentHour >= 5 && currentHour < 12) {
             setsubGreeting("Use Brave browser for better experience!");
         } else if (currentHour >= 12 && currentHour < 18) {
-            setsubGreeting("kay bored ko");
+            setsubGreeting("kumusta ang buhay buhayy");
         } else {
             setsubGreeting("Use Brave browser for better experience!");
         }
