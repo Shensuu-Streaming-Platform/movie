@@ -31,7 +31,7 @@ const HeroBanner = () => {
         if (currentHour >= 5 && currentHour < 12) {
             setGreeting("morning");
         } else if (currentHour >= 12 && currentHour < 18) {
-            setGreeting("BOSSSSSSSIIINGGGGGG");
+            setGreeting("BOOSINGGG");
         } else {
             setGreeting("gabie naman");
         }
