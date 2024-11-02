@@ -29,22 +29,22 @@ const HeroBanner = () => {
     useEffect(() => {
         const currentHour = new Date().getHours();
         if (currentHour >= 5 && currentHour < 12) {
-            setGreeting("morning");
+            setGreeting("good morning");
         } else if (currentHour >= 12 && currentHour < 18) {
-            setGreeting("BOOSINGGG");
+            setGreeting("good afternoon");
         } else {
-            setGreeting("gabie naman");
+            setGreeting("good evening");
         }
     }, [greeting]);
     
     useEffect(() => {
         const currentHour = new Date().getHours();
         if (currentHour >= 5 && currentHour < 12) {
-            setsubGreeting("Use Brave browser for better experience!");
+            setsubGreeting("Every morning a new sun greets us, and our new life begins.");
         } else if (currentHour >= 12 && currentHour < 18) {
-            setsubGreeting("kumusta ang buhay buhayy");
+            setsubGreeting("Remember to take a deep breath and appreciate the beauty of this moment.");
         } else {
-            setsubGreeting("Use Brave browser for better experience!");
+            setsubGreeting("With every setting sun, find solace in the evening's promise of peace and calm.");
         }
     }, [subgreeting]);
 
