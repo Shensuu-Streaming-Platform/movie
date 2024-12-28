@@ -40,7 +40,8 @@ const VideoPlayer = () => {
 	
 	https://vidsrc.pro/
 	https://vidsrc.to/
-	https://moviesapi.club/
+	https://moviesapi.club/${mediaType}/${id}
+ 	https://moviesapi.club/${mediaType}/${id}${seasonNumber ? `-${seasonNumber}` : ""}${episodeNumber ? `-${episodeNumber}` : ""}
  	https://embed.su/embed/
   	https://vidbinge.dev/embed/
 
@@ -50,8 +51,8 @@ const VideoPlayer = () => {
 
     // Construct the iframe URL
     const iframeUrl = mediaType === "movie"
-        ? `https://embed.su/embed/${mediaType}/${id}`
-        : `https://embed.su/embed/${mediaType}/${id}${seasonNumber ? `/${seasonNumber}` : ""}${episodeNumber ? `/${episodeNumber}` : ""}`;
+        ? `https://moviesapi.club/${mediaType}/${id}`
+        : `https://moviesapi.club/${mediaType}/${id}${seasonNumber ? `-${seasonNumber}` : ""}${episodeNumber ? `-${episodeNumber}` : ""}`;
 
 	const networkLogo = titleData?.networks?.[0]?.logo_path;
 
