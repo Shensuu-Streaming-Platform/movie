@@ -50,8 +50,8 @@ const VideoPlayer = () => {
 
     // Construct the iframe URL
     const iframeUrl = mediaType === "movie"
-        ? `https://vidsrc.to/embed/${mediaType}/${id}`
-        : `https://vidsrc.to/embed/${mediaType}/${id}${seasonNumber ? `/${seasonNumber}` : ""}${episodeNumber ? `/${episodeNumber}` : ""}`;
+        ? `https://vidsrc.pro/embed/${mediaType}/${id}`
+        : `https://vidsrc.pro/embed/${mediaType}/${id}${seasonNumber ? `/${seasonNumber}` : ""}${episodeNumber ? `/${episodeNumber}` : ""}`;
 
 	const networkLogo = titleData?.networks?.[0]?.logo_path;
 
