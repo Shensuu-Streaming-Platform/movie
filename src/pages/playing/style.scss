@@ -12,6 +12,17 @@
         height: 70vh;
     }
 
+	.iframeOverlayTopLeft {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100px; // adjust size as needed
+		height: 100px;
+		z-index: 2; // must be higher than iframe
+		pointer-events: auto; // blocks interaction
+		background-color: transparent; // invisible
+	}	
+
     iframe {
         position: absolute;
         top: 0;

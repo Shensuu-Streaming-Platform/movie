@@ -7,9 +7,10 @@ import useFetch from "../../../hooks/useFetch";
 
 const api_key = import.meta.env.VITE_APP_TMDB_API;
 
-const SeasonEpisodes = ({ mediaType, id }) => {
+// Added initialSeason prop
+const SeasonEpisodes = ({ mediaType, id, initialSeason }) => {
     const [seasons, setSeasons] = useState([]);
-    const [selectedSeason, setSelectedSeason] = useState("");
+    const [selectedSeason, setSelectedSeason] = useState(initialSeason?.toString() || "");
     const [episodes, setEpisodes] = useState([]);
     const { data, loading } = useFetch(`/${mediaType}/${id}`);
 	
@@ -33,8 +34,11 @@ const SeasonEpisodes = ({ mediaType, id }) => {
             .then(data => {
                 setSeasons(data.seasons);
                 const defaultSeason = data.seasons.find(season => season.season_number === 1);
-                setSelectedSeason(defaultSeason ? defaultSeason.season_number.toString() : "");
-                reloadSeasonOne(); // Call reloadSeasonOne after fetching seasons
+                // If no initialSeason was passed, fallback to season 1
+                if (!initialSeason) {
+                    setSelectedSeason(defaultSeason ? defaultSeason.season_number.toString() : "");
+                    reloadSeasonOne(); // Call reloadSeasonOne after fetching seasons
+                }
             })
             .catch(error => console.error('Error fetching season list:', error));
     }
@@ -89,7 +93,7 @@ const SeasonEpisodes = ({ mediaType, id }) => {
 								))}
 							</select>
 						</div>
-						<div id="episodes-container">
+						<div id="episodes-container" className={episodes.length === 0 ? "empty" : ""}>
 						{/* 	{episodes.map(episode => (
 								<a key={episode.id} className="episode" onClick={() => handleEpisodeClick(episode.seasonId, episode.id)}>
 									<img src={`https://image.tmdb.org/t/p/w500${episode.still_path}`} alt={episode.name} />
@@ -115,6 +119,11 @@ const SeasonEpisodes = ({ mediaType, id }) => {
 								<div className="episode-description">{episode.overview}</div>
 							</a>
 						))} 
+
+                        {episodes.length === 0 && (
+                            <div className="no-episodes-message">No Episodes Released yet in this Season.</div>
+                        )}
+
 
 						
 						</div>

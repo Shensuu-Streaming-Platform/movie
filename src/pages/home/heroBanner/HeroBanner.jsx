@@ -40,13 +40,13 @@ const HeroBanner = () => {
     useEffect(() => {
         const currentHour = new Date().getHours();
         if (currentHour >= 5 && currentHour < 12) {
-            setsubGreeting("Every morning a new sun greets us, and our new life begins.");
+            setsubGreeting("“Carpe diem. Seize the day, boys.” – *Dead Poets Society*");
         } else if (currentHour >= 12 && currentHour < 18) {
-            setsubGreeting("Remember to take a deep breath and appreciate the beauty of this moment.");
+            setsubGreeting("“Life moves pretty fast. If you don't stop and look around once in a while, you could miss it.” – *Ferris Bueller's Day Off*");
         } else {
-            setsubGreeting("With every setting sun, find solace in the evening's promise of peace and calm.");
+            setsubGreeting("“After all, tomorrow is another day!” – *Gone with the Wind*");
         }
-    }, [subgreeting]);
+    }, [subgreeting]);    
 
     const searchQueryHandler = (event) => {
         if (event.key === "Enter" && query.length > 0) {

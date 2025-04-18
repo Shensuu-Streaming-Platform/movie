@@ -44,6 +44,7 @@ const VideoPlayer = () => {
  	https://moviesapi.club/${mediaType}/${id}${seasonNumber ? `-${seasonNumber}` : ""}${episodeNumber ? `-${episodeNumber}` : ""}
  	https://embed.su/embed/
   	https://vidbinge.dev/embed/
+	https://xprime.tv/watch/
 
   	Default Example for tv: https://embed.su/embed/${mediaType}/${id}${seasonNumber ? `/${seasonNumber}` : ""}${episodeNumber ? `/${episodeNumber}` : ""}
 	
@@ -51,7 +52,7 @@ const VideoPlayer = () => {
 
     // Construct the iframe URL
     const iframeUrl = mediaType === "movie"
-        ? `https://moviesapi.club/${mediaType}/${id}`
+        ? `https://xprime.tv/watch/${id}`
         : `https://moviesapi.club/${mediaType}/${id}${seasonNumber ? `-${seasonNumber}` : ""}${episodeNumber ? `-${episodeNumber}` : ""}`;
 
 	const networkLogo = titleData?.networks?.[0]?.logo_path;
@@ -71,9 +72,11 @@ const VideoPlayer = () => {
                             src={iframeUrl}
                             frameBorder="0"
                             allowFullScreen
-							allowtransparency="true"
+                            allowtransparency="true"
                         />
+                        <div className="iframeOverlayTopLeft" />
                     </div>
+
                     <div className="playtitle">
                         {`${
 							titleData?.name || titleData?.title
@@ -94,13 +97,14 @@ const VideoPlayer = () => {
 					
                     <hr />
                 </ContentWrapper>
-                {mediaType === "tv" && <SeasonEpisodes mediaType={mediaType} id={id} />}
+				
+                {/* Pass initialSeason to SeasonEpisodes */}
+                {mediaType === "tv" && (
+                    <SeasonEpisodes mediaType={mediaType} id={id} initialSeason={seasonNumber} />
+                )}
             </div>
         </>
     );
 };
 
 export default VideoPlayer;
-
-
-
