@@ -45,6 +45,7 @@ const VideoPlayer = () => {
  	https://embed.su/embed/
   	https://vidbinge.dev/embed/
 	https://xprime.tv/watch/
+    https://xprime.tv/watch/${id}${seasonNumber ? `/${seasonNumber}` : ""}${episodeNumber ? `/${episodeNumber}
 
   	Default Example for tv: https://embed.su/embed/${mediaType}/${id}${seasonNumber ? `/${seasonNumber}` : ""}${episodeNumber ? `/${episodeNumber}` : ""}
 	
@@ -53,7 +54,7 @@ const VideoPlayer = () => {
     // Construct the iframe URL
     const iframeUrl = mediaType === "movie"
         ? `https://xprime.tv/watch/${id}`
-        : `https://moviesapi.club/${mediaType}/${id}${seasonNumber ? `-${seasonNumber}` : ""}${episodeNumber ? `-${episodeNumber}` : ""}`;
+        : `https://xprime.tv/watch/${id}${seasonNumber ? `/${seasonNumber}` : ""}${episodeNumber ? `/${episodeNumber}` : ""}`;
 
 	const networkLogo = titleData?.networks?.[0]?.logo_path;
 
