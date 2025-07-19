@@ -36,7 +36,7 @@ const VideoPlayer = () => {
 	
 	{/* For API's Documentations
 	
-	Visit:
+	Visit this:
 	
 	https://vidsrc.pro/
 	https://vidsrc.to/
