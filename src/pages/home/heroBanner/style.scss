@@ -8,7 +8,7 @@
     align-items: center;
     position: relative;
     @include md {
-        height: 80vh;
+        height: 100vh;
     }
     .backdrop-img {
         width: 100%;
@@ -44,11 +44,11 @@
     }
     .opacity-layer {
         width: 100%;
-        height: 250px;
+        height: 80vh;
         background: linear-gradient(
             180deg,
             rgba(4, 21, 45, 0) 0%,
-             var(--black) 79.17%
+             var(--black) 95%
         );
         position: absolute;
         bottom: 0;

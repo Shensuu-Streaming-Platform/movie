@@ -15,6 +15,7 @@ const HeroBanner = () => {
     const [movie, setMovie] = useState(null);
     const [videoId, setVideoId] = useState(null);
     const [isMuted, setIsMuted] = useState(true);
+    const [showImage, setShowImage] = useState(false);
     const playerRef = useRef(null);
     const navigate = useNavigate();
     const { url } = useSelector((state) => state.home);
@@ -25,6 +26,7 @@ const HeroBanner = () => {
         if (trendingData?.results) {
             const randomMovie = trendingData.results[Math.floor(Math.random() * trendingData.results.length)];
             setMovie(randomMovie);
+            setShowImage(false);
         }
     }, [trendingData]);
 
@@ -70,7 +72,8 @@ const HeroBanner = () => {
             modestbranding: 1,
             rel: 0,
             cc_load_policy: 0,
-            showinfo: 0
+            showinfo: 0,
+            vq: 'highres'
         }
     };
 
@@ -83,12 +86,13 @@ const HeroBanner = () => {
             {!loading && (
                 <>
                     <div className="backdrop-img">
-                        {videoId ? (
+                        {videoId && !showImage ? (
                             <YouTube
                                 videoId={videoId}
                                 opts={opts}
                                 ref={playerRef}
                                 className="youtube-player"
+                                onEnd={() => setShowImage(true)}
                             />
                         ) : (
                             <Img src={movie ? url.backdrop + movie.backdrop_path : "/landscape.jpg"} />
