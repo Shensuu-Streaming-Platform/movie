@@ -23,9 +23,6 @@ function App() {
     useEffect(() => {
         fetchApiConfig();
         genresCall();
-		const intervalId = setInterval(pingGoogle, 10000);
-
-        return () => clearInterval(intervalId);
     }, []);
 
     const fetchApiConfig = () => {
@@ -57,18 +54,8 @@ function App() {
             return genres.map((item) => (allGenres[item.id] = item));
         });
 
-        dispatch(getGenres(allGenres));
-    };
-	
-	const pingGoogle = () => {
-        fetch("https://shensuuplayer-proxy.glitch.me")
-            .then(response => {
-                console.log("Ping to Proxy successful", response);
-            })
-            .catch(error => {
-                console.error("Ping to Proxy failed", error);
-            });
-    };
+    dispatch(getGenres(allGenres));
+};
 
     return (
         <BrowserRouter>

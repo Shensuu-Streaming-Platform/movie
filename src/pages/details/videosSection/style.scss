@@ -31,7 +31,7 @@
     .videos {
         display: flex;
         gap: 10px;
-        overflow-x: auto;
+        overflow-x: hidden;
         margin-right: -20px;
         margin-left: -20px;
         padding: 0 20px;
@@ -108,7 +108,7 @@
     .videoSkeleton {
         display: flex;
         gap: 10px;
-        overflow-x: auto;
+        overflow-x: hidden;
         margin-right: -20px;
         margin-left: -20px;
         padding: 0 20px;

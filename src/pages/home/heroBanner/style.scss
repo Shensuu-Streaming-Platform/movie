@@ -3,7 +3,7 @@
 .heroBanner {
     width: 100%;
     height: 450px;
-    background-color: var(--black);
+    
     display: flex;
     align-items: center;
     position: relative;
@@ -16,8 +16,8 @@
         position: absolute;
         top: 0;
         left: 0;
-        opacity: 0.5;
         overflow: hidden;
+        z-index: -1;
         .lazy-load-image-background {
             width: 100%;
             height: 100%;
@@ -28,6 +28,19 @@
                 object-position: center;
             }
         }
+        .youtube-player {
+            width: 100% !important;
+            height: 100% !important;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: scale(1.6);
+            iframe {
+                width: 100% !important;
+                height: 100% !important;
+            }
+        }
+
     }
     .opacity-layer {
         width: 100%;
@@ -35,7 +48,7 @@
         background: linear-gradient(
             180deg,
             rgba(4, 21, 45, 0) 0%,
-            var(--black) 79.17%
+             var(--black) 79.17%
         );
         position: absolute;
         bottom: 0;
@@ -44,66 +57,91 @@
     .heroBannerContent {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
         color: white;
-        text-align: center;
+        text-align: left;
         position: relative;
         max-width: 800px;
-        margin: 0 auto;
-        .title {
-            font-size: 50px;
-            font-weight: 700;
-            margin-bottom: 10px;
-            @include md {
-                margin-bottom: 20px;
-                font-size: 80px;
-            }
-        }
-        .subTitle {
-            font-size: 18px;
-            font-weight: 500;
-            margin-bottom: 40px;
-            @include md {
-                font-size: 24px;
-            }
-        }
-        .searchInput {
+        margin: 0;
+    }
+
+    .playBtn {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        .play-button {
             display: flex;
-			justify-content: center;
             align-items: center;
-            width: 100%;
-            input {
-                width: calc(100% - 100px);
-                height: 40px;
-                background-color: white;
-                outline: 0;
-                border: 0;
-                border-radius: 30px 0 0 30px;
-                padding: 0 15px;
-                font-size: 14px;
-                @include md {
-                    width: calc(100% - 150px);
-                    height: 50px;
-                    font-size: 20px;
-                    padding: 0 30px;
+            justify-content: center;
+            background-color: white;
+            color: black;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            svg {
+                width: 30px;
+                height: 30px;
+                margin-right: 0.8px;
+                stroke: black;
+                stroke-width: 3;
+            }
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.8);
+            }
+            @include md {
+                padding: 12px 24px;
+                font-size: 18px;
+                svg {
+                    width: 40px;
+                    height: 40px;
                 }
             }
-            button {
+        }
+        .mute-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            font-size: 24px;
+            transition: all 0.3s ease;
+            &:hover {
+                background: rgba(255, 255, 255, 0.4);
+            }
+            @include md {
                 width: 60px;
-                height: 40px;
-                background: var(--gradient);
-                color: white;
-                outline: 0;
-                border: 0;
-                border-radius: 0 30px 30px 0;
-                font-size: 13px;
-                cursor: pointer;
-                @include md {
-                    width: 100px;
-                    height: 50px;
-                    font-size: 18px;
-                }
+                height: 60px;
+                font-size: 28px;
             }
+        }
+    }
+
+    .title {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 10px;
+        @include md {
+            margin-bottom: 20px;
+            font-size: 50px;
+        }
+    }
+
+    .subTitle {
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 1.2;
+        margin-bottom: 40px;
+        @include md {
+            font-size: 18px;
         }
     }
 }

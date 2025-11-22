@@ -32,7 +32,7 @@
     .listItems {
         display: flex;
         gap: 20px;
-        overflow-x: auto; /* Enable horizontal scrolling */
+        overflow-x: hidden;
         overflow-y: hidden;
         margin-right: -20px;
         margin-left: -20px;
