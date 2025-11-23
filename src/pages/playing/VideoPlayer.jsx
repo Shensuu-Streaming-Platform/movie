@@ -48,6 +48,7 @@ const VideoPlayer = () => {
     https://xprime.tv/watch/${id}${seasonNumber ? `/${seasonNumber}` : ""}${episodeNumber ? `/${episodeNumber}
 	https://111movies.com/${mediaType}/${id}
 	https://111movies.com/${mediaType}/${id}${seasonNumber ? `/${seasonNumber}` : ""}${episodeNumber ? `/${episodeNumber}` : ""}
+    https://vidrock.net/${mediaType}/${id}${seasonNumber ? `/${seasonNumber}` : ""}${episodeNumber ? `/${episodeNumber}` : ""}
 
   	Default Example for tv: https://embed.su/embed/${mediaType}/${id}${seasonNumber ? `/${seasonNumber}` : ""}${episodeNumber ? `/${episodeNumber}` : ""}
 	
@@ -55,8 +56,8 @@ const VideoPlayer = () => {
 
     // Construct the iframe URL
     const iframeUrl = mediaType === "movie"
-        ? `https://111movies.com/${mediaType}/${id}`
-        : `https://111movies.com/${mediaType}/${id}${seasonNumber ? `/${seasonNumber}` : ""}${episodeNumber ? `/${episodeNumber}` : ""}`;
+        ? `https://vidrock.net/${mediaType}/${id}`
+        : `https://vidrock.net/${mediaType}/${id}${seasonNumber ? `/${seasonNumber}` : ""}${episodeNumber ? `/${episodeNumber}` : ""}`;
 
 	const networkLogo = titleData?.networks?.[0]?.logo_path;
 
