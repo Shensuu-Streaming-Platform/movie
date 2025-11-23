@@ -20,6 +20,7 @@ const DetailsBanner = ({ video, crew }) => {
 
     const { mediaType, id } = useParams();
     const { data, loading } = useFetch(`/${mediaType}/${id}`);
+    const { data: images, loading: imagesLoading } = useFetch(`/${mediaType}/${id}/images`);
 	
 	const navigate = useNavigate();
 
@@ -87,6 +88,7 @@ const DetailsBanner = ({ video, crew }) => {
 									)}
 								</div>
                                 <div className="content">
+                                    {/* Poster Image Section 
                                     <div className="left">
                                         {data.poster_path ? (
                                             <Img
@@ -102,12 +104,14 @@ const DetailsBanner = ({ video, crew }) => {
                                                 src={PosterFallback}
                                             />
                                         )}
-                                    </div>
+                                    </div> */}
                                     <div className="right">
                                         <div className="title">
-                                            {`${
-                                                data.name || data.title
-                                            }`}
+                                            {images?.logos && images.logos.filter(logo => logo.iso_639_1 === 'en')[0] ? (
+                                                <img src={url.backdrop + images.logos.filter(logo => logo.iso_639_1 === 'en')[0].file_path} alt={`logo`} style={{ maxHeight: '10vh', maxWidth: '70%' }} />
+                                            ) : (
+                                                `${data.name || data.title}`
+                                            )}
                                         </div>
 										
 										{/*

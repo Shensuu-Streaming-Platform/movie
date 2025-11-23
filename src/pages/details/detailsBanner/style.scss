@@ -106,6 +106,7 @@
         @include md {
             gap: 50px;
             flex-direction: row;
+            height: 100vh;
         }
         .left {
             flex-shrink: 0;
@@ -125,7 +126,7 @@
         .right {
             color: white;
 			width: 100%;
-			margin-bottom: 50px;
+            height: 75vh;
             .title {
                 font-size: 28px;
                 line-height: 40px;
@@ -249,7 +250,9 @@
 			@include md {
                 color: #fff;
 				width: 100%;
-				margin-bottom: 50px;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
             }
         }
     }

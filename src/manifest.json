@@ -3,11 +3,11 @@
   "description": "Watch Movies and TV Shows",
   "icons": [
     {
-      "src": "https://movie.8888008.xyz/movix-logo.png",
+      "src": "https://movie.8800111.xyz/movix-logo.png",
       "type": "image/png",
       "sizes": "500x500"
     }
   ],
   "display": "fullscreen",
-  "start_url": "https://movie.8888008.xyz"
+  "start_url": "https://movie.8800111.xyz"
 }
