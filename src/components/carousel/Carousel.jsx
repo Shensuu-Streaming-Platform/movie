@@ -50,14 +50,14 @@ const Carousel = ({ data, loading, endpoint, title }) => {
         <div className="carousel">
             <ContentWrapper>
                 {title && <div className="carouselTitle">{title}</div>}
-				<BsChevronLeft
+                <BsChevronLeft
                     className="carouselLeftNav arrow"
                     onClick={() => navigation("left")}
                 />
                 <BsChevronRight
                     className="carouselRighttNav arrow"
                     onClick={() => navigation("right")}
-				/>
+                />
                 {!loading ? (
                     <div className="carouselItems" ref={carouselContainer}>
                         {data?.map((item) => {
@@ -70,33 +70,32 @@ const Carousel = ({ data, loading, endpoint, title }) => {
                                     className="carouselItem"
                                     onClick={() =>
                                         navigate(
-                                            `/${item.media_type || endpoint}/${
-                                                item.id
+                                            `/${item.media_type || endpoint}/${item.id
                                             }`
                                         )
                                     }
                                 >
                                     <div className="posterBlock">
                                         <Img src={posterUrl} />
-											{/*    <CircleRating
+                                        {/*    <CircleRating
                                             rating={item.vote_average.toFixed(
                                                 1
                                             )}
 											/> */}
-										{/* <Genres
+                                        {/* <Genres
                                             data={item.genre_ids.slice(0, 2)}
                                         /> */}
                                     </div>
-                                    <div className="textBlock">
+                                    {/* <div className="textBlock">
                                         <span className="title">
                                             {item.title || item.name}
-                                        </span>
+                                        </span>  
                                         <span className="date">
                                             {dayjs(item.release_date || item.first_air_date).format(
                                                 "MMM D, YYYY"
                                             )}
-                                        </span>
-                                    </div>
+                                        </span> 
+                                    </div> */}
                                 </div>
                             );
                         })}
