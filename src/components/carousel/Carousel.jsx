@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import {
-    BsFillArrowLeftCircleFill,
-    BsFillArrowRightCircleFill,
+    BsChevronLeft,
+    BsChevronRight,
 } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -50,14 +50,14 @@ const Carousel = ({ data, loading, endpoint, title }) => {
         <div className="carousel">
             <ContentWrapper>
                 {title && <div className="carouselTitle">{title}</div>}
-					{/* <BsFillArrowLeftCircleFill
+				<BsChevronLeft
                     className="carouselLeftNav arrow"
                     onClick={() => navigation("left")}
                 />
-                <BsFillArrowRightCircleFill
+                <BsChevronRight
                     className="carouselRighttNav arrow"
                     onClick={() => navigation("right")}
-					/> */}
+				/>
                 {!loading ? (
                     <div className="carouselItems" ref={carouselContainer}>
                         {data?.map((item) => {
@@ -108,9 +108,9 @@ const Carousel = ({ data, loading, endpoint, title }) => {
                         {skItem()}
                         {skItem()}
                         {skItem()}
+                        {skItem()}
                     </div>
                 )}
-			<hr />
             </ContentWrapper>
         </div>
     );

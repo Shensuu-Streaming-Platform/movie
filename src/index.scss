@@ -39,7 +39,8 @@ body {
 .skeleton {
     position: relative;
     overflow: hidden;
-    background-color: #0a2955;
+    background-color: #333;
+    border-radius: 8px;
     &::after {
         position: absolute;
         top: 0;
@@ -49,12 +50,12 @@ body {
         transform: translateX(-100%);
         background-image: linear-gradient(
             90deg,
-            rgba(#193763, 0) 0,
-            rgba(#193763, 0.2) 20%,
-            rgba(#193763, 0.5) 60%,
-            rgba(#193763, 0)
+            rgba(255, 255, 255, 0) 0,
+            rgba(255, 255, 255, 0.1) 20%,
+            rgba(255, 255, 255, 0.3) 60%,
+            rgba(255, 255, 255, 0)
         );
-        animation: shimmer 2s infinite;
+        animation: shimmer 1.5s infinite;
         content: "";
     }
 
