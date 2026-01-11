@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { BsFillArrowLeftCircleFill, BsFillArrowRightCircleFill } from "react-icons/bs";
+import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import { useSelector } from "react-redux";
 
 import "./style.scss";
@@ -9,67 +9,71 @@ import Img from "../../../components/lazyLoadImage/Img";
 import avatar from "../../../assets/avatar.png";
 
 const Cast = ({ data, loading }) => {
-    const { url } = useSelector((state) => state.home);
-    const castListRef = useRef(null);
+	const { url } = useSelector((state) => state.home);
+	const castListRef = useRef(null);
 
-    const navigation = (dir) => {
-        const container = castListRef.current;
+	const navigation = (dir) => {
+		const container = castListRef.current;
 
-        const scrollAmount =
-            dir === "left"
-                ? container.scrollLeft - (container.offsetWidth + 10)
-                : container.scrollLeft + (container.offsetWidth + 10);
+		const scrollAmount =
+			dir === "left"
+				? container.scrollLeft - (container.offsetWidth / 2)
+				: container.scrollLeft + (container.offsetWidth / 2);
 
-        container.scrollTo({
-            left: scrollAmount,
-            behavior: "smooth",
-        });
-    };
+		container.scrollTo({
+			left: scrollAmount,
+			behavior: "smooth",
+		});
+	};
 
-    const skeleton = () => {
-        return (
-            <div className="skItem">
-                <div className="circle skeleton"></div>
-                <div className="row skeleton"></div>
-                <div className="row2 skeleton"></div>
-            </div>
-        );
-    };
+	const skeleton = () => {
+		return (
+			<div className="skItem">
+				<div className="circle skeleton"></div>
+				<div className="row skeleton"></div>
+				<div className="row2 skeleton"></div>
+			</div>
+		);
+	};
 
-    return (
+	return (
 		<div className="castSection">
 			<ContentWrapper>
 				<div className="sectionHeading">
 					Cast
-					<div className="scrollButtons">
-						<BsFillArrowLeftCircleFill
-							className="arrow"
-							onClick={() => navigation("left")}
-						/>
-						<BsFillArrowRightCircleFill
-							className="arrow"
-							onClick={() => navigation("right")}
-						/>
-					</div>
 				</div>
 				{!loading ? (
-					<div className="listItems" ref={castListRef}>
-						{data?.map((item) => {
-							let imgUrl = item.profile_path
-								? url.profile + item.profile_path
-								: avatar;
-							return (
-								<div key={item.id} className="listItem">
-									<div className="profileImg">
-										<Img src={imgUrl} />
+					<div className="castWrapper">
+						<div className="listItems" ref={castListRef}>
+							{data?.map((item) => {
+								let imgUrl = item.profile_path
+									? url.profile + item.profile_path
+									: avatar;
+								return (
+									<div key={item.id} className="listItem">
+										<div className="profileImg">
+											<Img src={imgUrl} />
+										</div>
+										<div className="name">{item.name}</div>
+										<div className="character">
+											{item.character}
+										</div>
 									</div>
-									<div className="name">{item.name}</div>
-									<div className="character">
-										{item.character}
-									</div>
-								</div>
-							);
-						})}
+								);
+							})}
+						</div>
+						{data?.length > 8 && (
+							<div className="scrollButtons">
+								<BsChevronLeft
+									className="arrow left"
+									onClick={() => navigation("left")}
+								/>
+								<BsChevronRight
+									className="arrow right"
+									onClick={() => navigation("right")}
+								/>
+							</div>
+						)}
 					</div>
 				) : (
 					<div className="castSkeleton">

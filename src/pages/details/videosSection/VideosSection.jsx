@@ -4,7 +4,7 @@ import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
 import VideoPopup from "../../../components/videoPopup/VideoPopup";
 import Img from "../../../components/lazyLoadImage/Img";
 import { PlayIcon } from "../Playbtn";
-import { BsFillArrowLeftCircleFill, BsFillArrowRightCircleFill } from "react-icons/bs";
+import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
 const VideosSection = ({ data, loading }) => {
     const [show, setShow] = useState(false);
@@ -13,13 +13,13 @@ const VideosSection = ({ data, loading }) => {
 
     const navigation = (dir) => {
         const container = castListRef.current;
-		
-		if (!container) return;
+
+        if (!container) return;
 
         const scrollAmount =
             dir === "left"
-                ? container.scrollLeft - (container.offsetWidth + 10)
-                : container.scrollLeft + (container.offsetWidth + 10);
+                ? container.scrollLeft - (container.offsetWidth / 5) * 2
+                : container.scrollLeft + (container.offsetWidth / 5) * 2;
 
         container.scrollTo({
             left: scrollAmount,
@@ -63,41 +63,41 @@ const VideosSection = ({ data, loading }) => {
     return (
         <div className="videosSection">
             <ContentWrapper>
-                {!loading && filteredVideos.length > 0 && (
-                    <div className="sectionHeading">
-                        Videos
-                        <div className="scrollButtons">
-                            <BsFillArrowLeftCircleFill
-                                className="arrow"
-                                onClick={() => navigation("left")}
-                            />
-                            <BsFillArrowRightCircleFill
-                                className="arrow"
-                                onClick={() => navigation("right")}
-                            />
-                        </div>
-                    </div>
-                )}
+                <div className="sectionHeading">Videos</div>
                 {!loading ? (
-                    <div className="videos" ref={castListRef}>
-                        {filteredVideos.map((video) => (
-                            <div
-                                key={video.id}
-                                className="videoItem"
-                                onClick={() => {
-                                    setVideoId(video.key);
-                                    setShow(true);
-                                }}
-                            >
-                                <div className="videoThumbnail">
-                                    <Img
-                                        src={`https://img.youtube.com/vi/${video.key}/mqdefault.jpg`}
-                                    />
-                                    <PlayIcon />
+                    <div className="videosWrapper">
+                        <div className="videos" ref={castListRef}>
+                            {filteredVideos.map((video) => (
+                                <div
+                                    key={video.id}
+                                    className="videoItem"
+                                    onClick={() => {
+                                        setVideoId(video.key);
+                                        setShow(true);
+                                    }}
+                                >
+                                    <div className="videoThumbnail">
+                                        <Img
+                                            src={`https://img.youtube.com/vi/${video.key}/mqdefault.jpg`}
+                                        />
+                                        <PlayIcon />
+                                    </div>
+                                    <div className="videoTitle">{video.name}</div>
                                 </div>
-                                <div className="videoTitle">{video.name}</div>
+                            ))}
+                        </div>
+                        {filteredVideos.length > 5 && (
+                            <div className="scrollButtons">
+                                <BsChevronLeft
+                                    className="arrow left"
+                                    onClick={() => navigation("left")}
+                                />
+                                <BsChevronRight
+                                    className="arrow right"
+                                    onClick={() => navigation("right")}
+                                />
                             </div>
-                        ))}
+                        )}
                     </div>
                 ) : (
                     <div className="videoSkeleton">
