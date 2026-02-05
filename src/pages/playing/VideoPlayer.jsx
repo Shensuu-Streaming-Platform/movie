@@ -56,8 +56,8 @@ const VideoPlayer = () => {
 
     // Construct the iframe URL
     const iframeUrl = mediaType === "movie"
-        ? `https://www.zxcstream.xyz/player/${mediaType}/${id}?autoplay=true`
-        : `https://www.zxcstream.xyz/player/${mediaType}/${id}${seasonNumber ? `/${seasonNumber}` : ""}${episodeNumber ? `/${episodeNumber}` : ""}?autoplay=true`;
+        ? `https://vidup.to/${mediaType}/${id}`
+        : `https://vidup.to/${mediaType}/${id}${seasonNumber ? `/${seasonNumber}` : ""}${episodeNumber ? `/${episodeNumber}` : ""}?autoplay=true`;
 
 	const networkLogo = titleData?.networks?.[0]?.logo_path;
 
