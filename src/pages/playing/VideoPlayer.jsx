@@ -78,7 +78,7 @@ const VideoPlayer = () => {
                             allowFullScreen
                             allowtransparency="true"
                         />
-                        <div className="iframeOverlayTopLeft" />
+                        {/* <div className="iframeOverlayTopLeft" /> */}
                     </div>
 
                     <div className="playtitle">
