@@ -56,8 +56,8 @@ const VideoPlayer = () => {
 
     // Construct the iframe URL
     const iframeUrl = mediaType === "movie"
-        ? `https://vidup.to/${mediaType}/${id}`
-        : `https://vidup.to/${mediaType}/${id}${seasonNumber ? `/${seasonNumber}` : ""}${episodeNumber ? `/${episodeNumber}` : ""}?autoplay=true`;
+        ? `https://vidsync.xyz/embed/${mediaType}/${id}?autoPlay=true`
+        : `https://vidsync.xyz/embed/${mediaType}/${id}${seasonNumber ? `/${seasonNumber}` : ""}${episodeNumber ? `/${episodeNumber}` : ""}?autoPlay=true&autoNext=false`;
 
 	const networkLogo = titleData?.networks?.[0]?.logo_path;
 
