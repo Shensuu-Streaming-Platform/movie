@@ -10,8 +10,8 @@ import SeasonEpisodes from "../details/showEpisodes/SeasonEpisodes";
 
 const VideoPlayer = () => {
     const { mediaType, id, season_number, episode_number } = useParams();
-	
-	const navigate = useNavigate();
+
+    const navigate = useNavigate();
 
     // Set default values if mediaType is tv
     const seasonNumber = mediaType === "tv" ? season_number || 1 : season_number;
@@ -24,7 +24,7 @@ const VideoPlayer = () => {
     // Set Page Title
     const { data: titleData, loading: titleLoading } = useFetch(`/${mediaType}/${id}`);
 
-	const _genres = titleData?.genres?.map((g) => g.id);
+    const _genres = titleData?.genres?.map((g) => g.id);
 
     useEffect(() => {
         document.title = `${titleData?.name || titleData?.title || "Loading"} | Shensuu Movie`;
@@ -33,33 +33,15 @@ const VideoPlayer = () => {
     const goBack = () => {
         navigate(-1);
     };
-	
-	{/* For API's Documentations
-	
-	Visit this:
-	
-	https://vidsrc.pro/
-	https://vidsrc.to/
-	https://moviesapi.club/${mediaType}/${id}
- 	https://moviesapi.club/${mediaType}/${id}${seasonNumber ? `-${seasonNumber}` : ""}${episodeNumber ? `-${episodeNumber}` : ""}
- 	https://embed.su/embed/
-  	https://vidbinge.dev/embed/
-	https://xprime.tv/watch/
-    https://xprime.tv/watch/${id}${seasonNumber ? `/${seasonNumber}` : ""}${episodeNumber ? `/${episodeNumber}
-	https://111movies.com/${mediaType}/${id}
-	https://111movies.com/${mediaType}/${id}${seasonNumber ? `/${seasonNumber}` : ""}${episodeNumber ? `/${episodeNumber}` : ""}
-    https://vidrock.net/${mediaType}/${id}${seasonNumber ? `/${seasonNumber}` : ""}${episodeNumber ? `/${episodeNumber}` : ""}
 
-  	Default Example for tv: https://embed.su/embed/${mediaType}/${id}${seasonNumber ? `/${seasonNumber}` : ""}${episodeNumber ? `/${episodeNumber}` : ""}
-	
-	*/}
+    const [selectedServer, setSelectedServer] = useState("https://player.videasy.net/");
 
     // Construct the iframe URL
     const iframeUrl = mediaType === "movie"
-        ? `https://player.videasy.net/${mediaType}/${id}`
-        : `https://player.videasy.net/${mediaType}/${id}${seasonNumber ? `/${seasonNumber}` : ""}${episodeNumber ? `/${episodeNumber}` : ""}`;
+        ? `${selectedServer}${mediaType}/${id}`
+        : `${selectedServer}${mediaType}/${id}${seasonNumber ? `/${seasonNumber}` : ""}${episodeNumber ? `/${episodeNumber}` : ""}`;
 
-	const networkLogo = titleData?.networks?.[0]?.logo_path;
+    const networkLogo = titleData?.networks?.[0]?.logo_path;
 
     return (
         <>
@@ -67,7 +49,7 @@ const VideoPlayer = () => {
                 <ContentWrapper>
                     <div className="videogoback">
                         <span className="gbackbutton" onClick={goBack}>
-                            <i className="bi bi-arrow-bar-left"></i> Go Back
+                            <i className="bi bi-arrow-bar-left"></i> Back
                         </span>
                     </div>
                     <div className="videoWrapper">
@@ -81,30 +63,49 @@ const VideoPlayer = () => {
                         {/* <div className="iframeOverlayTopLeft" /> */}
                     </div>
 
-                    <div className="playtitle">
-                        {`${
-							titleData?.name || titleData?.title
-						} (${dayjs(
-							titleData?.release_date
-						).format("YYYY")})`}
-                        {mediaType === "tv" && ` | Season: ${seasonNumber} Episode: ${episodeNumber}`}
-						
+                    <div className="titleAndServer">
+                        <div className="playtitle">
+                            {`${titleData?.name || titleData?.title
+                                } (${dayjs(
+                                    titleData?.release_date
+                                ).format("YYYY")})`}
+                            {mediaType === "tv" && ` | Season: ${seasonNumber} Episode: ${episodeNumber}`}
+                        </div>
+
+                        <div className="serverSelect">
+                            <label htmlFor="server-select">Server: </label>
+                            <select
+                                id="server-select"
+                                value={selectedServer}
+                                onChange={(e) => setSelectedServer(e.target.value)}
+                                className="custom-select"
+                            >
+                                <option value="https://player.videasy.net/">Videasy</option>
+                                <option value="https://player.vidzee.wtf/embed/">Vidzee</option>
+                            </select>
+                        </div>
                     </div>
-					
-					<div className="subinfo">
-						<div className="subtitle">
-							{titleData?.tagline}
-						</div>
-						
-						<Genres data={_genres} />
-					</div>
-					
+
+                    <div className="subinfo">
+                        <div className="subtitle">
+                            {titleData?.tagline}
+                        </div>
+
+                        <Genres data={_genres} />
+                    </div>
+
                     <hr />
                 </ContentWrapper>
-				
+
                 {/* Pass initialSeason to SeasonEpisodes */}
                 {mediaType === "tv" && (
-                    <SeasonEpisodes mediaType={mediaType} id={id} initialSeason={seasonNumber} />
+                    <SeasonEpisodes
+                        mediaType={mediaType}
+                        id={id}
+                        initialSeason={seasonNumber}
+                        playingSeason={seasonNumber}
+                        playingEpisode={episodeNumber}
+                    />
                 )}
             </div>
         </>

@@ -14,7 +14,6 @@ const Header = () => {
     const [lastScrollY, setLastScrollY] = useState(0);
     const [mobileMenu, setMobileMenu] = useState(false);
     const [query, setQuery] = useState("");
-    const [showSearch, setShowSearch] = useState("");
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -42,23 +41,13 @@ const Header = () => {
         };
     }, [lastScrollY]);
 
-    const searchQueryHandler = (event) => {
-        if (event.key === "Enter" && query.length > 0) {
-            navigate(`/search/${query}`);
-            setTimeout(() => {
-                setShowSearch(false);
-            }, 1000);
-        }
-    };
-
     const openSearch = () => {
         setMobileMenu(false);
-        setShowSearch(true);
+        navigate("/search");
     };
 
     const openMobileMenu = () => {
         setMobileMenu(true);
-        setShowSearch(false);
     };
 	
 	const goToPreviousPage = () => {
@@ -122,23 +111,6 @@ const Header = () => {
                     )}
                 </div>
             </ContentWrapper>
-            {showSearch && (
-                <div className="searchBar">
-                    <ContentWrapper>
-                        <div className="searchInput">
-                            <input
-                                type="text"
-                                placeholder="Search"
-                                onChange={(e) => setQuery(e.target.value)}
-                                onKeyUp={searchQueryHandler}
-                            />
-                            <VscChromeClose
-                                onClick={() => setShowSearch(false)}
-                            />
-                        </div>
-                    </ContentWrapper>
-                </div>
-            )}
         </header>
     );
 };

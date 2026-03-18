@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
+import { HiOutlineSearch } from "react-icons/hi";
 
 import "./style.scss";
 
@@ -15,20 +16,22 @@ const SearchResult = () => {
     const [pageNum, setPageNum] = useState(1);
     const [loading, setLoading] = useState(false);
     const { query } = useParams();
+    const navigate = useNavigate();
+    const [searchQuery, setSearchQuery] = useState(query || "");
 
-    const fetchInitialData = () => {
+    const fetchInitialData = (searchQueryToFetch) => {
         setLoading(true);
-        fetchDataFromApi(`/search/multi?query=${query}&page=${pageNum}`).then(
+        fetchDataFromApi(`/search/multi?query=${searchQueryToFetch}&page=1`).then(
             (res) => {
                 setData(res);
-                setPageNum((prev) => prev + 1);
+                setPageNum(2);
                 setLoading(false);
             }
         );
     };
 
     const fetchNextPageData = () => {
-        fetchDataFromApi(`/search/multi?query=${query}&page=${pageNum}`).then(
+        fetchDataFromApi(`/search/multi?query=${searchQuery}&page=${pageNum}`).then(
             (res) => {
                 if (data?.results) {
                     setData({
@@ -44,15 +47,36 @@ const SearchResult = () => {
     };
 
     useEffect(() => {
-        setPageNum(1);
-        fetchInitialData();
-    }, [query]);
+        const timer = setTimeout(() => {
+            if (searchQuery.length > 0) {
+                fetchInitialData(searchQuery);
+                // navigate silently to reflect the URL change
+                navigate(`/search/${searchQuery}`, { replace: true });
+            } else {
+                setData(null);
+                setLoading(false);
+                navigate(`/search`, { replace: true });
+            }
+        }, 500);
+        return () => clearTimeout(timer);
+    }, [searchQuery]);
 
     return (
         <div className="searchResultsPage">
             {loading && <Spinner initial={true} />}
             {!loading && (
                 <ContentWrapper>
+                    <div className="searchInputBox">
+                        <input
+                            type="text"
+                            placeholder="Search for a movie or tv show..."
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                            autoFocus
+                        />
+                        <HiOutlineSearch />
+                    </div>
+
                     {data?.results?.length > 0 ? (
                         <>
                             <div className="pageTitle">
@@ -60,7 +84,7 @@ const SearchResult = () => {
                                     data?.total_results > 1
                                         ? "results"
                                         : "result"
-                                } of '${query}'`}
+                                } of '${searchQuery}'`}
                             </div>
                             <InfiniteScroll
                                 className="content"
@@ -83,7 +107,7 @@ const SearchResult = () => {
                         </>
                     ) : (
                         <span className="resultNotFound">
-                            Sorry, Results not found!
+                            {searchQuery.length > 0 ? "Sorry, Results not found!" : "Start typing to search..."}
                         </span>
                     )}
                 </ContentWrapper>

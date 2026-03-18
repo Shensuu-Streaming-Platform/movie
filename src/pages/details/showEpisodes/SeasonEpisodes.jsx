@@ -8,7 +8,7 @@ import useFetch from "../../../hooks/useFetch";
 const api_key = import.meta.env.VITE_APP_TMDB_API;
 
 // Added initialSeason prop
-const SeasonEpisodes = ({ mediaType, id, initialSeason }) => {
+const SeasonEpisodes = ({ mediaType, id, initialSeason, playingSeason, playingEpisode }) => {
     const [seasons, setSeasons] = useState([]);
     const [selectedSeason, setSelectedSeason] = useState(initialSeason?.toString() || "");
     const [episodes, setEpisodes] = useState([]);
@@ -107,18 +107,24 @@ const SeasonEpisodes = ({ mediaType, id, initialSeason }) => {
 								</a>
 							))} */}
 						
-						{episodes.map(episode => (
-							<a key={episode.id} className="episode" onClick={() => handleEpisodeClick(selectedSeason, episode.episode_number)}>
-								<img src={`https://image.tmdb.org/t/p/w500${episode.still_path}`} alt={episode.name} />
-								<div className="episode-info">
-									<div className="episode-time-title">
-										<h4 className="ep-title">{episode.episode_number}. {episode.name}</h4>
-										<div className="minutes-info">{episode.runtime || 'N/A'}m</div>
-									</div>
-								</div>
-								<div className="episode-description">{episode.overview}</div>
-							</a>
-						))} 
+						{episodes.map(episode => {
+                            const isPlaying = playingSeason && playingEpisode && 
+                                              playingSeason.toString() === selectedSeason?.toString() && 
+                                              playingEpisode.toString() === episode.episode_number?.toString();
+                            
+                            return (
+                                <a key={episode.id} className={`episode ${isPlaying ? 'playing' : ''}`} onClick={() => handleEpisodeClick(selectedSeason, episode.episode_number)}>
+                                    <img src={`https://image.tmdb.org/t/p/w500${episode.still_path}`} alt={episode.name} />
+                                    <div className="episode-info">
+                                        <div className="episode-time-title">
+                                            <h4 className="ep-title">{episode.episode_number}. {episode.name}</h4>
+                                            <div className="minutes-info">{episode.runtime || 'N/A'}m</div>
+                                        </div>
+                                    </div>
+                                    <div className="episode-description">{episode.overview}</div>
+                                </a>
+                            );
+                        })} 
 
                         {episodes.length === 0 && (
                             <div className="no-episodes-message">No Episodes Released yet in this Season.</div>
